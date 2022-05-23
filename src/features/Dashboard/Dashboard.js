@@ -2,6 +2,9 @@ import React, {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import DashHeader from './DashHeader/DashHeader'
 import axios from 'axios'
+import EntryContainer from './Entries/EntryContainer'
+import SearchContainer from './Search/SearchContainer'
+import CreateContainer from './Create/CreateContainer'
 
 const getMovies = () => {
   axios.get('https://api.themoviedb.org/3/movie/550?api_key=4524058d1b58bdbc0fa9f7631e0d6e02').then(res => console.log(res))
@@ -14,9 +17,9 @@ const Dashboard = () => {
     return(
         <div className='dash-container'>
           <DashHeader setDashView={setView} />
-          {view === 'search' ? <div>Search Component</div> : null}
-          {view === 'view' ? <div>View Component</div> : null}
-          {view === 'add' ? <div>Add Component</div> : null}
+          {view === 'search' ? <SearchContainer /> : null}
+          {view === 'view' ? <EntryContainer /> : null}
+          {view === 'add' ? <CreateContainer /> : null}
           <input type='text' placeholder='search'/>
           <button onClick={() => getMovies()}>Go</button>
         </div>
