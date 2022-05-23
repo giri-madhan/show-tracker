@@ -4,6 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import {increment, decrement, incrementByAmount} from './redux/counter'
 import Home from './features/Dashboard/Dashboard'
 
+//save show information page form
+//view + filter entries (name, releaseD, dateW, rating, notes, watchC)
+//search movies and shows page + add to watchlist
+//login
+
+
 
 function App() {
   const {count} = useSelector(state => state.counter)
