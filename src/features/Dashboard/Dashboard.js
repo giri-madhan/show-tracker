@@ -17,9 +17,12 @@ const Dashboard = () => {
     return(
         <div className='dash-container'>
           <DashHeader setDashView={setView} />
-          {view === 'search' ? <SearchContainer /> : null}
-          {view === 'view' ? <EntryContainer /> : null}
-          {view === 'add' ? <CreateContainer /> : null}
+          <div style={{display: 'flex', height: '100%', width: '100%'}}>
+            <SearchContainer />
+            {view === 'view' ? <EntryContainer /> : null}
+            {view === 'add' ? <CreateContainer /> : null}
+          </div>
+          
           <input type='text' placeholder='search'/>
           <button onClick={() => getMovies()}>Go</button>
         </div>
