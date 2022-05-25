@@ -2,7 +2,7 @@ import React from 'react'
 
 const CreateCard = () => {
     return(
-        <div>Create</div>
+        <div>Create Card</div>
     )
 }
 
