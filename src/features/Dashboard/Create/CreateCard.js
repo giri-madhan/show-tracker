@@ -36,7 +36,7 @@ const CreateCard = () => {
                 <div style={{display:'flex', gap: 20}}>
                     <span>Rating:</span>
                     <select>
-                    {buildOptions()}
+                        {buildOptions()}
                     </select>
                 </div>
                 <div style={{display:'flex', gap: 20}}>
