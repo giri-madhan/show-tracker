@@ -27,7 +27,7 @@ const CreateCard = () => {
                 </div>
                 <div style={{display:'flex', gap: 20, marginTop: 20}}>
                     <span>Release Date:</span>
-                    <input type='date' placeholder='Search for Show' value={formVals.name}/>
+                    <input type='date' value={formVals.name}/>
                 </div>
                 <div style={{display:'flex', gap: 20}}>
                     <span>Date Watched:</span>
