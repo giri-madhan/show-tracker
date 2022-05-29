@@ -20,7 +20,7 @@ const CreateCard = () => {
                     <input type='text' placeholder='Search for Show or Movie' value={formVals.name}/>
                 </div>
                 <div style={{display:'flex', gap: 20, marginTop: 20}}>
-                    <span>Name:</span>
+                    <span>Genre:</span>
                     <select>
                         {buildOptions()}
                     </select>
