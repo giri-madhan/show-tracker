@@ -1,0 +1,14 @@
+type MotionPicture {
+    name: String
+    rating: Int
+    genre: String
+    releaseDate: String
+    watchDate: String
+    duration: String
+    watchCount: Int
+    notes: String
+}
+
+type Query {
+    allMPs: [MotionPicture!]!
+}
