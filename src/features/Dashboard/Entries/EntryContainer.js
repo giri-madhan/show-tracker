@@ -5,7 +5,7 @@ import axios from 'axios'
 export default class EntryContainer extends React.Component {
 
     getAll = () => {
-        axios.get()
+        console.log('get mps')
     }
 
 
@@ -21,7 +21,7 @@ export default class EntryContainer extends React.Component {
                 </div>
                 <h1>Watch List</h1>
                 </div>
-                <button>Get All</button>
+                <button onClick={this.getAll}>Get All</button>
             </div>
         )
     }
