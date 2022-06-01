@@ -1,14 +1,28 @@
 type MotionPicture {
-    name: String
+    name: String!
     rating: Int
     genre: String
     releaseDate: String
     watchDate: String
-    duration: String
+    duration: Int
     watchCount: Int
+    prodCompany: String
+    photo: String
+    notes: String
+}
+
+type WatchListItem {
+    name: String!
+    genre: String
+    priority: Int
+    releaseDate: String
+    duration: Int
+    prodCompany: String
+    photo: String
     notes: String
 }
 
 type Query {
     allMPs: [MotionPicture!]!
+    allWLI: [WatchListItem!]!
 }
