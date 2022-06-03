@@ -1,37 +1,17 @@
 const axios = require('axios')
 require('dotenv').config()
+const {GET_MPs} = require('./utilities/mpQueries.js')
+const sendQuery = require('./utilities/sendQuery')
+const formattedResponse = require('./utilities/formattedResponse')
 
 exports.handler = async(event) => {
-    const GET_MPs = `
-    query FindAllMPs{
-        allMPs{
-          data {
-            _id
-            name
-            rating
-            genre
-            releaseDate
-            watchDate
-            duration
-            watchCount
-            prodCompany
-            photo
-            notes
-          }
-        }
-      }
-    `
-    const {data} = await axios({
-        url: 'https://graphql.us.fauna.com/graphql',
-        method: 'POST',
-        headers: {
-            Authorization: `Bearer ${process.env.FAUNA_SECRET_KEY}`
-        },
-        data: {
-            query: GET_MPs,
-            variables: {}
-        }
-    })
-    console.log(data)
-    return {statusCode: 200, body: JSON.stringify(data)}
+
+  try {
+    const res = await sendQuery(GET_MPs)
+    const data = res.allMPs.data
+    return formattedResponse(200, data)
+  } catch(err){
+    console.log(err)
+    return formattedResponse(500, {err: 'Something Went Wrong'})
+  }
 }

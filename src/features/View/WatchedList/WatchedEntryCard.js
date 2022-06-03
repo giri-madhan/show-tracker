@@ -1,9 +1,9 @@
 import React from 'react'
 
-const EntryCard = () => {
+const WatchedEntryCard = () => {
     return(
         <div>Entry</div>
     )
 }
 
-export default EntryCard
+export default WatchedEntryCard
