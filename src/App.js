@@ -20,14 +20,14 @@ function App() {
   
   return (
     <div className="App">
-      <button onClick={() => dispatch(logState())}>Log</button>
+
 
       
       {/* <h1>Count: {count}</h1>
       <button onClick={() => dispatch(increment())}>+</button>
       <button onClick={() => dispatch(decrement())}>-</button>
       <button onClick={() => dispatch(incrementByAmount(22))}>+22</button> */}
-      <div>{count}</div>
+
       <Home />
     </div>
   );

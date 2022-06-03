@@ -16,7 +16,10 @@ export default class View extends React.Component {
         const {display} = this.state
         return(
             <div style={{width: '80%'}}>
-                {display === 'watchList' ? <WatchList view={display} changeDisplay={this.changeView} /> : <Watched view={display} changeDisplay={this.changeView} />}
+                {display === 'watchList' ? (
+                <WatchList view={display} changeDisplay={this.changeView} mpData={this.props.mpData} />
+                ) 
+                : <Watched view={display} changeDisplay={this.changeView} mpData={this.props.mpData} />}
             </div>
         )
     }

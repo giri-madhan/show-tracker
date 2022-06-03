@@ -46,3 +46,13 @@ body,html {
 .dhi:hover {
   background: rgb(144, 40, 40)
 }
+
+.watched-entry-card {
+  width: 400px;
+  height: 150px;
+  background: #fff;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 10px;
+  color: #fff
+}
