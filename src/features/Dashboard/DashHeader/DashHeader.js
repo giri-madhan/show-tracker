@@ -2,7 +2,6 @@ import React from 'react'
 import DashHeaderItem from './DashHeaderItem'
 
 const DashHeader = (props) => {
-    console.log(props)
     
     return(
         <div className='dash-header'>

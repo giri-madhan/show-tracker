@@ -1,49 +1,23 @@
 import React, {useState} from 'react'
+import moment from 'moment'
 
-const CreateCard = () => {
+const CreateCard = ({item, setRating, watchDate, setWatchDate, notes, setNotes}) => {
 
-    const [formVals, setFormVals] = useState({name: '', genre: '', releaseDate: '', dateWatched: '', rating: '', notes: ''})
-
-    const buildOptions = (rating, genre) => {
+    const generateOptions = () => {
         const options = []
         for (let i = 0; i < 11; i++) {
-            options.push(<option value={i}>{i}</option>)
+            options.push(<option key={i} value={i}>{i}</option>)
         }
         return options
     }
+
     return(
-        <div>
-            <div>Add New Entry</div>
-            <div style={{display: 'flex', flexDirection: 'column', gap: 40, width: 400}}>
-                <div style={{display:'flex', gap: 20, marginTop: 20}}>
-                    <span>Name:</span>
-                    <input type='text' placeholder='Search for Show or Movie' value={formVals.name}/>
-                </div>
-                <div style={{display:'flex', gap: 20, marginTop: 20}}>
-                    <span>Genre:</span>
-                    <select>
-                        {buildOptions()}
-                    </select>
-                </div>
-                <div style={{display:'flex', gap: 20, marginTop: 20}}>
-                    <span>Release Date:</span>
-                    <input type='date' value={formVals.name}/>
-                </div>
-                <div style={{display:'flex', gap: 20}}>
-                    <span>Date Watched:</span>
-                    <input type='date' value={formVals.dateWatched}/>
-                </div>
-                <div style={{display:'flex', gap: 20}}>
-                    <span>Rating:</span>
-                    <select>
-                        {buildOptions()}
-                    </select>
-                </div>
-                <div style={{display:'flex', gap: 20}}>
-                    <span>Notes:</span>
-                    <textarea rows={5} cols={115} style={{width: 1200}} value={formVals.notes}/>
-                </div>
-            </div>
+        <div style={{display: 'flex', justifyContent: 'center', gap: 20, marginTop: 20}}>
+            <input type='date' value={watchDate || moment().format('yyyy-MM-dd')} onChange={e => setWatchDate(e.target.value)}/>
+            <textarea rows={6} cols={75} value={notes} onChange={(e) => setNotes(e.target.value)}/>
+            <select style={{width: 100, height: 50}} onChange={(e) => setRating(e.target.value)}>
+                {generateOptions()}
+            </select>
         </div>
     )
 }

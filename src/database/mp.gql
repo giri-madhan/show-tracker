@@ -18,8 +18,10 @@ type WatchListItem {
     releaseDate: String
     duration: Int
     prodCompany: String
-    photo: String
-    notes: String
+    photo: String,
+    overview: String,
+    tagline: String,
+    voteAverage: Int
 }
 
 type Query {

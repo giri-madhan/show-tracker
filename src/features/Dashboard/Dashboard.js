@@ -12,9 +12,11 @@ import View from '../View/View'
 const Dashboard = () => {
     const [view, setView] = useState('view')
     const [mps, setMPs] = useState([])
+    const [wlis, setWLIs] = useState([])
 
     useEffect(() => {
       axios.get('/api/getMP').then(res => setMPs(res.data))
+      axios.get('/api/getWLI').then(res => setWLIs(res.data))
     }, [])
 
     return(
@@ -22,7 +24,7 @@ const Dashboard = () => {
           <DashHeader setDashView={setView} />
           <div style={{display: 'flex', height: '100%', width: '100%'}}>
             <SearchContainer />
-            {view === 'view' ? <View mpData={mps} /> : null}
+            {view === 'view' ? <View mpData={mps} wlData={wlis} /> : null}
             {view === 'add' ? <CreateContainer /> : null}
           </div>
         </div>

@@ -2,7 +2,6 @@ import React from 'react'
 
 
 const WatchedEntryCard = (props) => {
-    console.log(props)
     return(
         <div className='watched-entry-card' style={{display: 'flex'}}>
             <div style={{width: '40%', height: '100%', display: 'flex', flexDirection: 'column', background: '#063', borderRadius: '15px 0 0 15px'}}>
@@ -22,6 +21,9 @@ const WatchedEntryCard = (props) => {
                 </div>
                 <div>
                     Watch Date: {props.mp.watchDate}
+                </div>
+                <div>
+                    Rating: {props.mp.rating}
                 </div>
             </div>
             

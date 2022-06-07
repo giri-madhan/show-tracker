@@ -14,8 +14,8 @@ export default class EntryContainer extends React.Component {
                Watched Entry Container
                <button onClick={this.props.changeDisplay} >Change View</button>
                <div style={{display: 'grid', gridGap: 15, gridTemplateColumns: 'repeat(auto-fit, 400px)'}}>
-                   {this.props.mpData.map( mp => (
-                       <WatchedEntryCard mp={mp} />
+                   {this.props.mpData.map( (mp) => (
+                       <WatchedEntryCard mp={mp}  />
                    ))}
                </div>
             </div>
