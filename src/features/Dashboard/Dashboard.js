@@ -7,6 +7,14 @@ import SearchContainer from './Search/SearchContainer'
 import CreateContainer from './Create/CreateContainer'
 import View from '../View/View'
 
+//TODO Refresh component when movie added to watchList
+//TODO Refresh component when movie added to watched
+//TODO Send toast when adding, deleting, and moving movies
+//TODO Add scrolling all containers as necessary
+//TODO Update UI with all components
+//TODO Check UI for responsiveness, add breakpoints as needed
+//TODO Clean up unsed code
+//TODO lazy loading
 
 
 const Dashboard = () => {
