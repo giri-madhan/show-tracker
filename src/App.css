@@ -20,9 +20,23 @@ body,html {
   overflow-y: scroll
 }
 
+.add-to-watchlist-btn {
+  background: lightgreen;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  width: 50px;
+  font-size: 20px
+}
+
+.add-to-watchlist-btn:hover {
+  background: rgb(23, 235, 23);
+  cursor: pointer;
+}
+
 .dash-container {
   width: 99%;
-  height: 97.5%;
+  height: 95%;
+  margin-top: 2%;
   background: rgb(21, 21, 20);
 }
 

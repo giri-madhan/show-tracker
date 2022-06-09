@@ -5,6 +5,7 @@ const GET_WLIs = `
             _id
             name
             genre
+            movieID
             releaseDate
             duration
             prodCompany
@@ -18,12 +19,13 @@ const GET_WLIs = `
     `
 
     const CREATE_WLI = `
-    mutation($name: String!, $genre: String, $releaseDate: String, $duration: Int, $prodCompany: String, $photo: String, $overview: String, $tagline: String, $voteAverage: Int) {
+    mutation($name: String!, $genre: String, $releaseDate: String, $duration: Int, $movieID: Int, $prodCompany: String, $photo: String, $overview: String, $tagline: String, $voteAverage: Int) {
         createWatchListItem(data: {
             name: $name
             genre: $genre
             releaseDate: $releaseDate
             duration: $duration
+            movieID: $movieID
             prodCompany: $prodCompany
             photo: $photo,
             overview: $overview,
@@ -34,6 +36,7 @@ const GET_WLIs = `
           genre
           releaseDate
           duration
+          movieID
           prodCompany
           photo
           overview
@@ -44,13 +47,14 @@ const GET_WLIs = `
     `
 
     const UPDATE_WLI = `
-    mutation($id: ID!, $name: String!, $genre: String, $releaseDate: String, $duration: Int, $prodCompany: String, $photo: String, $overview: String, $tagline: String, $voteAverage: Int) {
-        updateWatchListItem(id: $id, data: {name:$name, genre:$genre, releaseDate:$releaseDate, duration:$duration, prodCompany:$prodCompany, photo: $photo, $overview: String, $tagline: String, $voteAverage: Int}){
+    mutation($id: ID!, $name: String!, $genre: String, $releaseDate: String, $movieID: Int, $duration: Int, $prodCompany: String, $photo: String, $overview: String, $tagline: String, $voteAverage: Int) {
+        updateWatchListItem(id: $id, data: {name:$name, genre:$genre, releaseDate:$releaseDate, duration:$duration, movieID:$movieID, prodCompany:$prodCompany, photo: $photo, $overview: String, $tagline: String, $voteAverage: Int}){
           _id
           name
           genre
           releaseDate
           duration
+          movieID
           prodCompany
           photo
           overview

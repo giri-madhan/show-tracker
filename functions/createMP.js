@@ -8,8 +8,8 @@ exports.handler = async (event) => {
 
     if (event.httpMethod !== 'POST') return formattedResponse(405, {err: `${event.httpMethod} not supported`})
 
-    const {name, rating, genre, releaseDate, watchDate, duration, watchCount, prodCompany, photo, notes} = JSON.parse(event.body)
-    const variables = {name, rating, genre, releaseDate, watchDate, duration, watchCount, prodCompany, photo, notes}
+    const {name, rating, genre, movieID, releaseDate, watchDate, duration, watchCount, prodCompany, photo, notes} = JSON.parse(event.body)
+    const variables = {name, rating, genre, movieID, releaseDate, watchDate, duration, watchCount, prodCompany, photo, notes}
     
     try {
         const {createMP} = await sendQuery(CREATE_MP, variables)

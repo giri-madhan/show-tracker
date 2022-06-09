@@ -92,7 +92,7 @@ const SearchCard = ({result, addToWatchList}) => {
                     </span>
                 </div>
             </div>
-            <button onClick={() => addToWatchList(result)} style={{background: 'lightgreen', border: 'none', borderRadius: '0 5px 5px 0', width: 50, fontSize: 20}}>+</button>
+            <button className='add-to-watchlist-btn' onClick={() => addToWatchList(result)}>+</button>
         </div>
     )
 }

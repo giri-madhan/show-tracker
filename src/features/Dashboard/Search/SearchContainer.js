@@ -17,9 +17,9 @@ export default class SearchContainer extends React.Component {
     }
 
     addToWatchList = (item) => {
+        const {wlData} = this.props
 
         axios.get(`https://api.themoviedb.org/3/movie/${item.id}?api_key=4524058d1b58bdbc0fa9f7631e0d6e02`).then(res =>{ 
-            console.log(res.data)
             const genreString = res.data.genres.map( g => {
                 return g.name
             })
@@ -29,13 +29,23 @@ export default class SearchContainer extends React.Component {
                 name: res.data.title,
                 genre: finalGenreString,
                 releaseDate: res.data.release_date,
+                movieID: res.data.id,
                 duration: res.data.runtime,
                 photo: res.data.poster_path,
                 overview: res.data.overview,
                 tagline: res.data.tagline,
                 voteAverage: finalVoteAverage
             }
-            axios.post('/api/createWLI', data).then(res => console.log(res)).catch(err => console.log('Error creating WLI', err))
+
+            const arrCheck = []
+            //use .some
+            wlData.forEach(item => {
+                arrCheck.push(item.movieID)
+                console.log(data.movieID, item.movieID)
+            })
+            
+            arrCheck.includes(data.movieID) ? console.log('already in watch list') : axios.post('/api/createWLI', data).then(res => console.log(res)).catch(err => console.log('Error creating WLI', err))
+            
         })
     }
 

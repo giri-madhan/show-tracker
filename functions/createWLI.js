@@ -8,8 +8,8 @@ exports.handler = async (event) => {
 
     if (event.httpMethod !== 'POST') return formattedResponse(405, {err: `${event.httpMethod} not supported`})
 
-    const {name, genre, releaseDate, duration, prodCompany, photo, overview, tagline, voteAverage} = JSON.parse(event.body)
-    const variables = {name, genre, releaseDate, duration, prodCompany, photo, overview, tagline, voteAverage}
+    const {name, genre, movieID, releaseDate, duration, prodCompany, photo, overview, tagline, voteAverage} = JSON.parse(event.body)
+    const variables = {name, genre, movieID, releaseDate, duration, prodCompany, photo, overview, tagline, voteAverage}
     
     try {
         const {createWLI} = await sendQuery(CREATE_WLI, variables)

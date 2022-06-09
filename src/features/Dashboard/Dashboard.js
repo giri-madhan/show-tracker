@@ -31,7 +31,7 @@ const Dashboard = () => {
         <div className='dash-container'>
           <DashHeader setDashView={setView} />
           <div style={{display: 'flex', height: '100%', width: '100%'}}>
-            <SearchContainer />
+            <SearchContainer wlData={wlis} />
             {view === 'view' ? <View mpData={mps} wlData={wlis} /> : null}
             {view === 'add' ? <CreateContainer /> : null}
           </div>

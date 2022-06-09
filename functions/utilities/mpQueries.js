@@ -6,6 +6,7 @@ const GET_MPs = `
             name
             rating
             genre
+            movieID
             releaseDate
             watchDate
             duration
@@ -19,11 +20,12 @@ const GET_MPs = `
     `
 
     const CREATE_MP = `
-    mutation($name: String!, $rating: Int, $genre: String, $releaseDate: String, $watchDate: String, $duration: Int, $watchCount: Int, $prodCompany: String, $photo: String, $notes: String) {
+    mutation($name: String!, $rating: Int, $movieID: Int, $genre: String, $releaseDate: String, $watchDate: String, $duration: Int, $watchCount: Int, $prodCompany: String, $photo: String, $notes: String) {
         createMotionPicture(data: {
             name: $name
             rating: $rating
             genre: $genre
+            movieID: $movieID
             releaseDate: $releaseDate
             watchDate: $watchDate
             duration: $duration
@@ -35,6 +37,7 @@ const GET_MPs = `
           name
           rating
           genre
+          movieID
           releaseDate
           watchDate
           duration
@@ -47,12 +50,13 @@ const GET_MPs = `
     `
 
     const UPDATE_MP = `
-    mutation($id: ID!, $name: String!, $rating: Int, $genre: String, $releaseDate: String, $watchDate: String, $duration: Int, $watchCount: Int, $prodCompany: String, $photo: String, $notes: String) {
-        updateMotionPicture(id: $id, data: {name:$name, rating:$rating, genre:$genre, releaseDate:$releaseDate, watchDate:$watchDate, duration:$duration, watchCount:$watchCount, prodCompany:$prodCompany, photo: $photo, notes: $notes}){
+    mutation($id: ID!, $name: String!, $rating: Int, $movieID: Int, $genre: String, $releaseDate: String, $watchDate: String, $duration: Int, $watchCount: Int, $prodCompany: String, $photo: String, $notes: String) {
+        updateMotionPicture(id: $id, data: {name:$name, rating:$rating, movieID:$movieID, genre:$genre, releaseDate:$releaseDate, watchDate:$watchDate, duration:$duration, watchCount:$watchCount, prodCompany:$prodCompany, photo: $photo, notes: $notes}){
           _id
           name
           rating
           genre
+          movieID
           releaseDate
           watchDate
           duration

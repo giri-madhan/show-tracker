@@ -1,6 +1,7 @@
 type MotionPicture {
     name: String!
-    rating: Int
+    rating: Int,
+    movieID: Int,
     genre: String
     releaseDate: String
     watchDate: String
@@ -13,7 +14,8 @@ type MotionPicture {
 
 type WatchListItem {
     name: String!
-    genre: String
+    genre: String,
+    movieID: Int,
     priority: Int
     releaseDate: String
     duration: Int
