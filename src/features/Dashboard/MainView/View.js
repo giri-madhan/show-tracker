@@ -1,6 +1,6 @@
 import React from 'react'
-import Watched from './WatchedList/WatchedEntryContainer'
-import WatchList from './WatchList/WatchEntryContainer'
+import Watched from '../MainView/WatchedList/WatchedEntryContainer'
+import WatchList from '../MainView/WatchList/WatchEntryContainer'
 
 export default class View extends React.Component {
     state = {

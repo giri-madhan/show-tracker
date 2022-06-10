@@ -1,21 +1,24 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import axios from 'axios'
-import checkIcon from '../../../icons/check.png'
-import deleteIcon from '../../../icons/delete.png'
-import CreateCard from '../../Dashboard/Create/CreateCard'
+import checkIcon from '../../../../icons/check.png'
+import deleteIcon from '../../../../icons/delete.png'
+import CreateCard from '../../Create/CreateCard'
+import defaultPoster from '../../../../icons/default_poster.jpg'
 
-const WatchEntryCard = ({wli}) => {
+const WatchEntryCard = ({wli, getItems}) => {
     const [overview, setOverview] = useState(false)
     const [watched, setWatched] = useState(false)
     const [rating, setRating] = useState(0)
     const [watchDate, setWatchDate] = useState('')
     const [watchCount, setWatchCount] = useState('')
     const [notes, setNotes] = useState('')
-
     const posterPath = 'https://image.tmdb.org/t/p/original'
 
     const deleteWLI = (id) => {
-        axios.delete(`/api/deleteWLI`, {data: {id}}).then(res => console.log(res)).catch(err => console.log(err))
+        axios.delete(`/api/deleteWLI`, {data: {id}}).then(res => {
+            getItems()
+        }).catch(err => console.log(err))
+
     }
 
     const openWatchedForm = (item) => {
@@ -42,12 +45,11 @@ const WatchEntryCard = ({wli}) => {
         setWatched(false)
     }
 
-
     return(
         <div style={{display: 'flex', width: '90%'}}>
             <div className='wli-card' onClick={() => setOverview(!overview)}>
                 <div style={{marginRight: 20}}>
-                    <img src={wli ? posterPath+wli.photo : null} width={100} alt="" style={{borderRadius: '5px 0 0 5px'}} />
+                    <img src={wli.photo !== null ? posterPath+wli.photo : defaultPoster} width={100} alt="" style={{borderRadius: '5px 0 0 5px'}} />
                 </div>
                 <div style={{width: '90%', marginTop: 5}}>
                     <div style={{color: '#fff', fontSize: 30, display: 'flex', position: 'relative'}}>
@@ -64,7 +66,7 @@ const WatchEntryCard = ({wli}) => {
                     </div>
                 </div>
             </div>
-            <div style={{width: '10%', display: 'flex', flexDirection: 'column', position: 'absolute', right: 18, gap: 40}}>
+            <div style={{width: '10%', display: 'flex', flexDirection: 'column', position: 'relative', right: 30, gap: 40}}>
                 <button className='complete-btn' 
                 onClick={!watched ? () => openWatchedForm(wli) : () => addToWatched(wli)} 
                 style={{height: 60, borderRadius: 100}}>

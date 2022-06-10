@@ -1,11 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import DashHeader from './DashHeader/DashHeader'
 import axios from 'axios'
-import WatchedEntryContainer from '../View/WatchedList/WatchedEntryContainer'
+import View from './MainView/View'
+
+
 import SearchContainer from './Search/SearchContainer'
-import CreateContainer from './Create/CreateContainer'
-import View from '../View/View'
 
 //TODO Refresh component when movie added to watchList
 //TODO Refresh component when movie added to watched
@@ -18,22 +16,21 @@ import View from '../View/View'
 
 
 const Dashboard = () => {
-    const [view, setView] = useState('view')
+
     const [mps, setMPs] = useState([])
     const [wlis, setWLIs] = useState([])
 
     useEffect(() => {
       axios.get('/api/getMP').then(res => setMPs(res.data))
       axios.get('/api/getWLI').then(res => setWLIs(res.data))
+      console.log(wlis || 'no')
     }, [])
 
     return(
         <div className='dash-container'>
-          <DashHeader setDashView={setView} />
           <div style={{display: 'flex', height: '100%', width: '100%'}}>
             <SearchContainer wlData={wlis} />
-            {view === 'view' ? <View mpData={mps} wlData={wlis} /> : null}
-            {view === 'add' ? <CreateContainer /> : null}
+            <View mpData={mps} wlData={wlis} />
           </div>
         </div>
     )

@@ -16,6 +16,10 @@ export default class SearchContainer extends React.Component {
         })
     }
 
+    clearSearch = () => {
+        this.setState(s => ({searchQuery: '', searchResults: null}))
+    }
+
     addToWatchList = (item) => {
         const {wlData} = this.props
 
@@ -41,30 +45,36 @@ export default class SearchContainer extends React.Component {
             //use .some
             wlData.forEach(item => {
                 arrCheck.push(item.movieID)
-                console.log(data.movieID, item.movieID)
             })
             
-            arrCheck.includes(data.movieID) ? console.log('already in watch list') : axios.post('/api/createWLI', data).then(res => console.log(res)).catch(err => console.log('Error creating WLI', err))
+            if (arrCheck.includes(data.movieID)) {
+                alert("Already in your watch list!") //create a toast
+            } else {
+                //create a toast
+                axios.post('/api/createWLI', data).then(res => console.log(res)).catch(err => console.log('Error creating WLI', err))
+                this.setState(s => ({searchQuery: '', searchResults: null}))
+            }
             
         })
     }
 
     render(){
-        
+        const {searchQuery, searchResults} = this.state
         return(
             <div className='search-container'>
-                <div style={{width: '100%', display: 'flex', height: 50, marginTop: 20}}>
+                <div className='sticky' style={{width: '100%', display: 'flex', height: 70, padding: 20}}>
                     <input 
                         type='text' 
-                        value={this.state.searchQuery} 
-                        style={{width: '60%', marginRight: 'auto', marginLeft: 20, minWidth: 100, fontSize: 20}}
+                        value={searchQuery} 
+                        style={{width: '60%', marginRight: 'auto', marginLeft: 20, minWidth: 100, fontSize: 20, borderRadius: 7}}
                         onChange={(e) => this.setState({searchQuery: e.target.value})} placeholder='Search Movies' 
                     />
+                    {searchQuery !== '' ? <button className='clear-search-btn' onClick={this.clearSearch}>X</button>: null}
                     <button className='get-movies-btn' onClick={this.getMovies}>Get Movies</button>
                 </div>
                 
                 <div className='search-container-items' style={{display: 'flex', flexDirection: 'column', gap: 20, justifyContent: 'center', alignItems: 'center', marginTop: 40}}>
-                    {this.state.searchResults !== null ? this.state.searchResults.map( (result, i) => {
+                    {searchResults !== null ? searchResults.map( (result, i) => {
                         return (
                             <>
                                 <SearchCard result={result} addToWatchList={this.addToWatchList} key={i}/>

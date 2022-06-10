@@ -1,13 +1,15 @@
 body,html {
   overflow: hidden;
-  background: #86242a
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0
 }
 
 .App {
   height: 100vh;
-  width: 100%;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  width: 100vw;
+  overflow: hidden;
   background: #86242a;
   display: flex;
   justify-content: center;
@@ -15,9 +17,15 @@ body,html {
 
 .search-container {
   width: 30%;
-  height: 94.5%;
-  border: 1px solid black;
-  overflow-y: scroll
+  height: 100%;
+  overflow-y: auto;
+  background: #3345;
+}
+
+.search-container::-webkit-scrollbar {
+  scrollbar-width: none; 
+  -ms-overflow-style: none;  
+  width: 0
 }
 
 .add-to-watchlist-btn {
@@ -34,38 +42,9 @@ body,html {
 }
 
 .dash-container {
-  width: 99%;
-  height: 95%;
-  margin-top: 2%;
-  background: rgb(21, 21, 20);
-}
-
-.dash-header {
   width: 100%;
-  position:relative;
-  line-height: 50px;
-  height: 50px;
-  top: 0;
-  left: 0;
-  background: rgb(184, 53, 53);
-  display: flex;
-  gap: 25%;
-  justify-content: center;
-}
-
-.dhi {
-  background: #fff;
-  color: #000;
-  border-radius: 5px;
-  width: 100px;
-  height: 50px;
-  font-size: 20px;
-  text-align: center;
-  cursor: pointer;
-}
-
-.dhi:hover {
-  background: rgb(144, 40, 40)
+  height: 100%;
+  background: #0D1117;
 }
 
 .watched-entry-card {
@@ -141,6 +120,32 @@ transition-duration: .5s;
 
 .get-movies-btn:hover {
   cursor: pointer;
-  background: #515151;
+  background: #585b86;
   transition-duration: .3s;
+}
+
+.clear-search-btn {
+  color:#dfd;
+  font-size: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 11px;
+  background: #313131;
+  border: 1px solid #cff;
+  font-weight: 500;
+  position: relative;
+  left: -65px;
+  top: 12px;
+}
+
+.clear-search-btn:hover {
+  cursor: pointer;
+  background: #585b86;
+  transition-duration: .3s;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  background: rgb(21, 21, 30);
 }

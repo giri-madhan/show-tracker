@@ -1,4 +1,5 @@
 import React from 'react'
+import defaultPoster from '../../../icons/default_poster.jpg'
 
 const SearchCard = ({result, addToWatchList}) => {
     const posterPath = 'https://image.tmdb.org/t/p/original'
@@ -67,12 +68,12 @@ const SearchCard = ({result, addToWatchList}) => {
                     break;
             }
         })
-        return genres.map( g => <span style={{marginRight: 5}}>{g}</span>)
+        return genres.map( (g, i) => <span key={i} style={{marginRight: 5}}>{g}</span>)
     }
 
     return(
         <div style={{width: '85%', height: 130, background: '#171515', display: 'flex', borderRadius: 5, boxShadow: '0 0 5px #000'}}>
-            <img src={posterPath+result.poster_path} width={85} alt="" style={{borderRadius: '5px 0 0 5px'}} />
+            <img src={result.poster_path !== null ? posterPath+result.poster_path : defaultPoster} width={85} alt="" style={{borderRadius: '5px 0 0 5px'}} />
             <div style={{width: '100%'}}>
                 <div style={{display: 'flex', flexDirection: 'column', color: '#fff', width: '100%'}}>
                     <div style={{textAlign: 'center', marginBottom: 2, background: '#86242a'}}>
