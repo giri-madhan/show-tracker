@@ -23,14 +23,14 @@ export default class EntryContainer extends React.Component {
     }
 
     render(){
-        const {wlData, changeDisplay} = this.props
+        const {wlData, changeDisplay, view} = this.props
+        const {watchList} = this.state
 
         return(
             <div style={{width: '100%', height: '100%', overflowY: 'auto'}}>
-                <button onClick={changeDisplay}>Change View</button>
-
+                <button className='change-view-btn' onClick={changeDisplay}>{view === 'watchList' ? 'View Watched' : null}</button>
                 <div className='wli-container'>
-                    {this.state.watchList ? this.state.watchList.map( (wli, i) => {
+                    {watchList ? watchList.map( (wli, i) => {
                         return(
                             <WatchEntryCard wli={wli} key={i} getItems={this.getAllWLI} />
                         )

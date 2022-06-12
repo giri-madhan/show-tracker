@@ -7,12 +7,12 @@ export default class EntryContainer extends React.Component {
 
 
     render(){
-        console.log('watched', this.props.mpData)
+        const {changeDisplay, view} = this.props
+        console.log(this.props)
 
         return(
             <div style={{width: '100%', height: '100%'}}>
-               Watched Entry Container
-               <button onClick={this.props.changeDisplay} >Change View</button>
+               <button className='change-view-btn' onClick={changeDisplay}>{view === 'watched' ? 'View Watch List' : null}</button>
                <div style={{display: 'grid', gridGap: 15, gridTemplateColumns: 'repeat(auto-fit, 400px)'}}>
                    {this.props.mpData.map( (mp, i) => (
                        <WatchedEntryCard mp={mp} key={i}  />

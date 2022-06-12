@@ -123,6 +123,23 @@ transition-duration: .5s;
   background: #585b86;
   transition-duration: .3s;
 }
+.change-view-btn {
+  color:#dfd;
+  font-size: 20px;
+  width: 200px;
+  height: 45px;
+  margin: 20px;
+  border-radius: 11px;
+  background: #313131;
+  border: 1px solid #cff;
+  font-weight: 500;
+ 
+}
+
+.change-view-btn:hover {
+  background: #585b86;
+  cursor: pointer
+}
 
 .clear-search-btn {
   color:#dfd;
