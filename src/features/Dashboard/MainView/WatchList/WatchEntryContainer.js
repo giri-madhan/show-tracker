@@ -10,6 +10,7 @@ export default class EntryContainer extends React.Component {
 
     componentDidMount(){
         axios.get('/api/getWLI').then(res => this.setState({watchList: res.data}))
+        // change this to fetch only if state changes and on first mount
     }
 
     componentDidUpdate(){
