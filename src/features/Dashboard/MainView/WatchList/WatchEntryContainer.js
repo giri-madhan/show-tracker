@@ -13,10 +13,6 @@ export default class EntryContainer extends React.Component {
         // change this to fetch only if state changes and on first mount
     }
 
-    componentDidUpdate(){
-        console.log(this.state.watchList)
-    }
-
     getAllWLI = () => {
         axios.get('/api/getWLI').then(res => {
             this.setState({watchList: res.data})
@@ -24,7 +20,7 @@ export default class EntryContainer extends React.Component {
     }
 
     render(){
-        const {wlData, changeDisplay, view} = this.props
+        const {wlData, changeDisplay, view, mpData} = this.props
         const {watchList} = this.state
 
         return(
@@ -33,7 +29,7 @@ export default class EntryContainer extends React.Component {
                 <div className='wli-container'>
                     {watchList ? watchList.map( (wli, i) => {
                         return(
-                            <WatchEntryCard wli={wli} key={i} getItems={this.getAllWLI} />
+                            <WatchEntryCard wli={wli} key={i} mpData={mpData} getItems={this.getAllWLI} />
                         )
                     }) : null}
                 </div>

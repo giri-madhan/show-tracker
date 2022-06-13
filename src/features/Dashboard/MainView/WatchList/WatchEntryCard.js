@@ -5,13 +5,14 @@ import deleteIcon from '../../../../icons/delete.png'
 import CreateCard from '../../Create/CreateCard'
 import defaultPoster from '../../../../icons/default_poster.jpg'
 
-const WatchEntryCard = ({wli, getItems}) => {
+const WatchEntryCard = ({wli, getItems, mpData}) => {
     const [overview, setOverview] = useState(false)
     const [watched, setWatched] = useState(false)
     const [rating, setRating] = useState(0)
     const [watchDate, setWatchDate] = useState('')
     const [watchCount, setWatchCount] = useState('')
     const [notes, setNotes] = useState('')
+    const [mpList, setmpList] = useState([])
     const posterPath = 'https://image.tmdb.org/t/p/original'
 
     const deleteWLI = (id) => {
@@ -25,11 +26,17 @@ const WatchEntryCard = ({wli, getItems}) => {
         setWatched(true)
     }
 
+    useEffect(() => {
+        setmpList(mpData)
+        //console.log('MP DATA:',mpData)
+    }, [mpList])
+
     const addToWatched = (item) => {
         const data = {
             name: item.name,
             rating: +rating,
             genre: item.genre,
+            movieID: item.movieID,
             releaseDate: item.releaseDate,
             watchDate: watchDate,
             duration: item.duration,
@@ -38,7 +45,8 @@ const WatchEntryCard = ({wli, getItems}) => {
             photo: item.photo,
             notes
         }
-        axios.post(`/api/createMP`, JSON.stringify(data)).then(res => console.log(res)).catch(err => console.log(err))
+        const inList = mpList.filter( mp => mp.movieID === item.movieID).length === 1
+        inList ? alert('In Watched List!') : axios.post(`/api/createMP`, JSON.stringify(data)).then(res => console.log(res)).catch(err => console.log(err))
     }
 
     const cancelWatchedForm = () => {

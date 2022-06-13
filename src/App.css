@@ -100,11 +100,11 @@ transition-duration: .5s;
 
 .watched-overlay {
   background: rgba(21, 21, 30, 0.95);
-  margin-top: 5.5px;
   width: 56%;
   height: 150px;
   border-radius: 7px 0 0 7px;
-  position: absolute;
+  position: relative;
+  z-index: 555;
 }
 
 .get-movies-btn {
