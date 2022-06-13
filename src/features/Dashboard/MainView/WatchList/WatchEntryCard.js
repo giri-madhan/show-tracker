@@ -46,7 +46,19 @@ const WatchEntryCard = ({wli, getItems, mpData}) => {
             notes
         }
         const inList = mpList.filter( mp => mp.movieID === item.movieID).length === 1
-        inList ? alert('In Watched List!') : axios.post(`/api/createMP`, JSON.stringify(data)).then(res => console.log(res)).catch(err => console.log(err))
+        
+        if (inList) {
+            alert('In Watched ist')
+        } else {
+            if (rating && watchDate) {
+                axios.post(`/api/createMP`, JSON.stringify(data)).then(res => console.log(res)).catch(err => console.log(err))
+                getItems()
+                deleteWLI(item._id)
+            } else {
+                alert('Please enter Watch Date and Rating.')
+            }
+            
+        }
     }
 
     const cancelWatchedForm = () => {
