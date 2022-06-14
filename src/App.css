@@ -47,14 +47,32 @@ body,html {
   background: #0D1117;
 }
 
-.watched-entry-card {
-  width: 400px;
-  height: 150px;
-  background: #fff;
-  border-radius: 15px;
-  text-align: center;
-  margin-top: 10px;
-  color: #fff
+.watched-entry-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow: auto;
+  }
+
+.watched-entry-container::-webkit-scrollbar {
+  scrollbar-width: none; 
+  -ms-overflow-style: none;  
+  width: 0
+}
+
+.robust-watched-entry-card {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  background: rgb(21, 21, 30);
+  border: 1px solid #666;
+  width: 90%;
+  height: 100px;
+  gap: 10px;
+  border-radius: 7px;
+  display: flex;
+  font-size: 20px;
+  color: #aaa;
+  min-width: 430px;
 }
 
 .wli-container {
@@ -63,6 +81,12 @@ body,html {
   gap: 15px;
   justify-content: center;
   align-items: center;
+}
+
+.watch-list-container::-webkit-scrollbar {
+  scrollbar-width: none; 
+  -ms-overflow-style: none;  
+  width: 0
 }
 
 .wli-card {
@@ -165,4 +189,37 @@ transition-duration: .5s;
   position: sticky;
   top: 0;
   background: rgb(21, 21, 30);
+}
+
+.btn-pill {
+  width: 100px;
+  height: 50px;
+  border: 2px solid #ccf;
+  border-radius: 5px;
+}
+
+.btn-pill button {
+  height: 100%;
+  width: 50%;
+  background:#313131;
+  border: none;
+}
+
+.btn-pill button:hover {
+  cursor: pointer;
+  background: #585b86
+}
+
+.minimal-watched-entry-card {
+  display: grid;
+  grid-template-columns: repeat(4, 35% 10% 50% 5%);
+  width: 90%;
+  border: 2px solid #cff;
+  height: 50px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  align-items: center;
+  color: #aaa;
+  font-size: 20px;
+  border-radius: 7px;
 }

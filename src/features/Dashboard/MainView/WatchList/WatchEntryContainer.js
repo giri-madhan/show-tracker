@@ -20,12 +20,15 @@ export default class EntryContainer extends React.Component {
     }
 
     render(){
-        const {wlData, changeDisplay, view, mpData} = this.props
+        const {changeDisplay, view, mpData} = this.props
         const {watchList} = this.state
 
         return(
-            <div style={{width: '100%', height: '100%', overflowY: 'auto'}}>
-                <button className='change-view-btn' onClick={changeDisplay}>{view === 'watchList' ? 'View Watched' : null}</button>
+            <div className='watch-list-container' style={{width: '100%', height: '100%', overflowY: 'auto'}}>
+                <div style={{display: 'flex', gap: 160}}>
+                    <button className='change-view-btn' onClick={changeDisplay}>{view === 'watchList' ? 'View Watched' : null}</button>
+                    <h1 style={{color: '#fff'}}>{view === 'watchList' ? 'Watch List' : null}</h1>
+                </div>
                 <div className='wli-container'>
                     {watchList ? watchList.map( (wli, i) => {
                         return(
