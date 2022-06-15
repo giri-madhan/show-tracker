@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import View from './MainView/View'
+import { useSelector, useDispatch} from 'react-redux'
+import {getMPs} from '../../redux/shows'
 
 
 import SearchContainer from './Search/SearchContainer'
@@ -19,18 +21,27 @@ const Dashboard = () => {
 
     const [mps, setMPs] = useState([])
     const [wlis, setWLIs] = useState([])
+    const showRedux = useSelector(state => state.mps)
+
+    const dispatch = useDispatch()
 
     useEffect(() => {
       axios.get('/api/getMP').then(res => setMPs(res.data))
       axios.get('/api/getWLI').then(res => setWLIs(res.data))
-      console.log(wlis || 'no')
+      
+    }, [])
+
+    useEffect(() => {
+      dispatch(getMPs())
     }, [])
 
     return(
         <div className='dash-container'>
           <div style={{display: 'flex', height: '100%', width: '100%'}}>
+            {/* {showRedux.list.map(a => <span key={a._id}>{a.name}</span>)} */}
             <SearchContainer wlData={wlis} />
             <View mpData={mps} wlData={wlis} />
+            {/* REDUX DATA: <View mpData={showRedux.list} wlData={wlis} /> */}
           </div>
         </div>
     )

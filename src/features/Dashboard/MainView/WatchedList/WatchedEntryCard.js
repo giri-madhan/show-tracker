@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import defaultPoster from '../../../../icons/default_poster.jpg'
-
 
 const WatchedEntryCard = ({mp, cardView}) => {
     const posterPath = 'https://image.tmdb.org/t/p/original'
+    
+    
     return(
         <>
             {cardView === 'robust' ? (
             <div className='robust-watched-entry-card'>
+                
                 <div style={{width:66}}>
                     <img src={mp.photo ? posterPath+mp.photo : defaultPoster} 
                         alt={`${mp.name}`}
