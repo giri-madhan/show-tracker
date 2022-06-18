@@ -45,7 +45,7 @@ const Dashboard = () => {
             {/* <View mpData={mps} wlData={wlis} /> */}
             {/* REDUX */}
             <SearchContainer wlData={wliRedux.list} />
-            <View mpData={showRedux.list} wlData={wlis} />
+            <View mpData={showRedux.list} wlData={wliRedux.list} />
           </div>
         </div>
     )
