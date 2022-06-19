@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import axios from 'axios'
 import View from './MainView/View'
 import { useSelector, useDispatch} from 'react-redux'
 import {getMPs} from '../../redux/shows'
