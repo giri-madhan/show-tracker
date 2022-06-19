@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import View from './MainView/View'
-import { useSelector, useDispatch} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import {getMPs} from '../../redux/shows'
 import {getWLIs} from '../../redux/watchlist'
 
