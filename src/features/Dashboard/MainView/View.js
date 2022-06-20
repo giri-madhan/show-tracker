@@ -1,7 +1,6 @@
 import React from 'react'
 import Watched from '../MainView/WatchedList/WatchedEntryContainer'
 import WatchList from '../MainView/WatchList/WatchEntryContainer'
-import { useSelector } from 'react-redux'
 
 export default class View extends React.Component {
     state = {
