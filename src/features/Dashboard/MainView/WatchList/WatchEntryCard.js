@@ -4,8 +4,10 @@ import checkIcon from '../../../../icons/check.png'
 import deleteIcon from '../../../../icons/delete.png'
 import CreateCard from '../../Create/CreateCard'
 import defaultPoster from '../../../../icons/default_poster.jpg'
+import { useDispatch } from 'react-redux'
+import { deleteItem } from '../../../../redux/watchlist'
 
-const WatchEntryCard = ({wli, getItems, mpData}) => {
+const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
     const [overview, setOverview] = useState(false)
     const [watched, setWatched] = useState(false)
     const [rating, setRating] = useState(0)
@@ -14,12 +16,13 @@ const WatchEntryCard = ({wli, getItems, mpData}) => {
     const [notes, setNotes] = useState('')
     const [mpList, setmpList] = useState([])
     const posterPath = 'https://image.tmdb.org/t/p/original'
+    const dispatch = useDispatch()
 
     const deleteWLI = (id) => {
         axios.delete(`/api/deleteWLI`, {data: {id}}).then(res => {
-            getItems()
+            dispatch(deleteItem(id))
         }).catch(err => console.log(err))
-
+       
     }
 
     const openWatchedForm = (item) => {
@@ -68,23 +71,23 @@ const WatchEntryCard = ({wli, getItems, mpData}) => {
     return(
         <div style={{display: 'flex', width: '90%'}}>
             <div className='wli-card' onClick={() => setOverview(!overview)}>
-                <div style={{marginRight: 20}}>
-                    <img src={wli.photo !== null ? posterPath+wli.photo : defaultPoster} width={100} alt="" style={{borderRadius: '5px 0 0 5px'}} />
-                </div>
-                <div style={{width: '90%', marginTop: 5}}>
-                    <div style={{color: '#fff', fontSize: 30, display: 'flex', position: 'relative'}}>
-                        <span>{wli.name}</span>
-                        <span style={{marginLeft: 25}}>({wli.releaseDate ? wli.releaseDate.substring(0, 4) : null})</span>
+                    <div style={{marginRight: 20}}>
+                        <img src={wli.photo !== null ? posterPath+wli.photo : defaultPoster} width={100} alt="" style={{borderRadius: '5px 0 0 5px'}} />
                     </div>
-                    <div style={{marginTop: 15, fontSize: 24, color: '#bbb'}}>
-                        {!overview ? (
-                            <>
-                                <div>{wli.voteAverage}/10</div>
-                                <div>{wli.duration} Minutes</div>
-                                <div>{wli.genre}</div>
-                            </>) : <div style={{fontSize: 18, padding: 5, paddingRight: 25}}>{wli.overview}</div>}
+                    <div style={{width: '90%', marginTop: 5}}>
+                        <div style={{color: '#fff', fontSize: 30, display: 'flex', position: 'relative'}}>
+                            <span>{wli.name}</span>
+                            <span style={{marginLeft: 25}}>({wli.releaseDate ? wli.releaseDate.substring(0, 4) : null})</span>
+                        </div>
+                        <div style={{marginTop: 15, fontSize: 24, color: '#bbb'}}>
+                            {!overview ? (
+                                <>
+                                    <div>{wli.voteAverage}/10</div>
+                                    <div>{wli.duration} Minutes</div>
+                                    <div>{wli.genre}</div>
+                                </>) : <div style={{fontSize: 18, padding: 5, paddingRight: 25}}>{wli.overview}</div>}
+                        </div>
                     </div>
-                </div>
             </div>
             <div style={{width: '10%', display: 'flex', flexDirection: 'column', position: 'relative', right: 30, gap: 40}}>
                 <button className='complete-btn' 

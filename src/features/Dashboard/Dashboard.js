@@ -22,7 +22,7 @@ const Dashboard = () => {
     const [mps, setMPs] = useState([])
     const [wlis, setWLIs] = useState([])
     const showRedux = useSelector(state => state.mps)
-    const wliRedux = useSelector(state => state.wlis)
+    const {list, isLoading, status} = useSelector(state => state.wlis)
 
     const dispatch = useDispatch()
 
@@ -39,12 +39,13 @@ const Dashboard = () => {
     return(
         <div className='dash-container'>
           <div style={{display: 'flex', height: '100%', width: '100%'}}>
+            {console.log(isLoading)}
             {/* NORMAL */}
             {/* <SearchContainer wlData={wlis} /> */}
             {/* <View mpData={mps} wlData={wlis} /> */}
             {/* REDUX */}
-            <SearchContainer wlData={wliRedux.list} />
-            <View mpData={showRedux.list} wlData={wliRedux.list} />
+            <SearchContainer wlData={list} />
+            <View mpData={showRedux.list} wlData={list} isLoading={isLoading} />
           </div>
         </div>
     )

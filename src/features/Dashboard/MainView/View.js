@@ -14,12 +14,12 @@ export default class View extends React.Component {
 
     render(){
         const {display} = this.state
-        const {mpData, wlData} = this.props
+        const {mpData, wlData, isLoading} = this.props
         
         return(
             <div style={{width: '80%'}}>
                 {display === 'watchList' ? (
-                <WatchList view={display} changeDisplay={this.changeView} mpData={mpData} wlData={wlData} />
+                <WatchList view={display} changeDisplay={this.changeView} mpData={mpData} wlData={wlData} isLoading={isLoading} />
                 ) 
                 : <Watched view={display} changeDisplay={this.changeView} mpData={mpData} wlData={wlData} />}
             </div>

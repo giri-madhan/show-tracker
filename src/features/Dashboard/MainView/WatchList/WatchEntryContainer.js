@@ -4,24 +4,9 @@ import WatchEntryCard from './WatchEntryCard'
 
 
 export default class EntryContainer extends React.Component {
-    state={
-        watchList: []
-    }
-
-    componentDidMount(){
-        axios.get('/api/getWLI').then(res => this.setState({watchList: res.data}))
-        // change this to fetch only if state changes and on first mount
-    }
-
-    getAllWLI = () => {
-        axios.get('/api/getWLI').then(res => {
-            this.setState({watchList: res.data})
-        })
-    }
 
     render(){
-        const {changeDisplay, view, mpData} = this.props
-        const {watchList} = this.state
+        const {changeDisplay, view, mpData, wlData, isLoading} = this.props
 
         return(
             <div className='watch-list-container' style={{width: '100%', height: '100%', overflowY: 'auto'}}>
@@ -30,9 +15,9 @@ export default class EntryContainer extends React.Component {
                     <h1 style={{color: '#fff'}}>{view === 'watchList' ? 'Watch List' : null}</h1>
                 </div>
                 <div className='wli-container'>
-                    {watchList ? watchList.map( (wli, i) => {
+                    {wlData ? wlData.map( (wli, i) => {
                         return(
-                            <WatchEntryCard wli={wli} key={i} mpData={mpData} getItems={this.getAllWLI} />
+                            <WatchEntryCard wli={wli} key={i} mpData={mpData} getItems={this.getAllWLI} isLoading={isLoading} />
                         )
                     }) : null}
                 </div>
