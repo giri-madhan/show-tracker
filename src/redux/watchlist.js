@@ -24,6 +24,9 @@ export const wliSlice = createSlice({
   reducers: {
     deleteItem: (state, action) => {
       state.list = state.list.filter( item => item._id !== action.payload)
+    },
+    addItem: (state, action) => {
+        state.list = [...state.list, action.payload]
     }
   },
   extraReducers: {
@@ -45,5 +48,5 @@ export const wliSlice = createSlice({
 // Action creators are generated for each case reducer function
 //export const { logState } = showSlice.actions
 //all actions for countslice are held in showSlice.actions object, which is being destructured above
-export const {deleteItem} = wliSlice.actions
+export const {deleteItem, addItem} = wliSlice.actions
 export default wliSlice.reducer

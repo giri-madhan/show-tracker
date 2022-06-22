@@ -2,6 +2,7 @@ import React from 'react'
 import defaultPoster from '../../../icons/default_poster.jpg'
 
 const SearchCard = ({result, addToWatchList}) => {
+    
     const posterPath = 'https://image.tmdb.org/t/p/original'
     const generateGenre = (ids) => {
         const genres = []

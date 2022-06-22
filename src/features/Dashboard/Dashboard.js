@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import View from './MainView/View'
 import {useSelector, useDispatch} from 'react-redux'
 import {getMPs} from '../../redux/shows'
-import {getWLIs} from '../../redux/watchlist'
+import {addItem, getWLIs} from '../../redux/watchlist'
 
 
 import SearchContainer from './Search/SearchContainer'
@@ -36,15 +36,18 @@ const Dashboard = () => {
       dispatch(getWLIs())
     }, [])
 
+    const addToRedux = (r) => {
+      dispatch(addItem(r))
+    }
+
     return(
         <div className='dash-container'>
           <div style={{display: 'flex', height: '100%', width: '100%'}}>
-            {console.log(isLoading)}
             {/* NORMAL */}
             {/* <SearchContainer wlData={wlis} /> */}
             {/* <View mpData={mps} wlData={wlis} /> */}
             {/* REDUX */}
-            <SearchContainer wlData={list} />
+            <SearchContainer wlData={list} add={addToRedux} />
             <View mpData={showRedux.list} wlData={list} isLoading={isLoading} />
           </div>
         </div>

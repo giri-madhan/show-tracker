@@ -20,9 +20,11 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
 
     const deleteWLI = (id) => {
         axios.delete(`/api/deleteWLI`, {data: {id}}).then(res => {
+            //console.log(id)
+            //TO DO FIX BUG WHERE _ID DOESNT APPEAR IN REDUX? STATE / GET PASSED HERE -> 
+            //async problem, need to fetch again the auto generated_id from faunadb
             dispatch(deleteItem(id))
         }).catch(err => console.log(err))
-       
     }
 
     const openWatchedForm = (item) => {
@@ -31,7 +33,6 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
 
     useEffect(() => {
         setmpList(mpData)
-        //console.log('MP DATA:',mpData)
     }, [mpList])
 
     const addToWatched = (item) => {
