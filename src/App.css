@@ -89,6 +89,38 @@ body,html {
   width: 0
 }
 
+.watch-list-modal {
+  position: absolute;
+  width: 500px;
+  height: 400px;
+  right: 20%;
+  top: 75px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid #aaa;
+  border-radius: 15px;
+  height: 60px
+}
+
+.filter-btn:hover {
+  cursor: pointer;
+  background: cyan;
+  transition-duration: .5s;
+}
+
+.watch-list-modal-overlay {
+  position: fixed;
+  inset: 0px;
+  background-color: rgb(139 39 39 / 75%);
+}
+
 .wli-card {
   margin: 5px;
   background: rgb(21, 21, 30);
@@ -108,6 +140,11 @@ body,html {
 width: 60px;
 background: rgb(21, 21, 30);
 border: 1px solid rgb(107, 107, 107);
+}
+
+.complete-btn img, .delete-btn img {
+  margin-top: 2px;
+  margin-left: -0.5px;
 }
 
 .complete-btn:hover {
