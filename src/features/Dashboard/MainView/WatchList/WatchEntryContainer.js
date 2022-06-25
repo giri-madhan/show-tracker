@@ -27,14 +27,15 @@ export default class EntryContainer extends React.Component {
                             <span style={{padding: 5}}>Select Filter</span>
                             <button style={{padding: 5, marginRight: 5}} onClick={this.toggleModal}>X</button>
                         </div>
-                        
                 </Modal>
-                <div style={{display: 'flex', gap: 160, alignItems: 'center'}}>
-                    <button className='change-view-btn' onClick={changeDisplay}>{view === 'watchList' ? 'View Watched' : null}</button>
+                <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
                     <h1 style={{color: '#fff'}}>{view === 'watchList' ? 'Watch List' : null}</h1>
-                    <button className='filter-btn' onClick={this.toggleModal}>
-                        <img src={filterIcon} width={45} style={{marginTop: 2}} alt='filter results'/>
-                    </button>
+                    <div style={{display: 'flex', justifyContent: 'space-evenly', alignItems: 'center'}}>
+                        <button className='change-view-btn' onClick={changeDisplay}>{view === 'watchList' ? 'View Watched' : null}</button>
+                        <button className='filter-btn' onClick={this.toggleModal}>
+                            <img src={filterIcon} width={45} style={{marginTop: 2}} alt='filter results'/>
+                        </button>
+                    </div>
                 </div>
                 <div className='wli-container'>
                     {wlData ? wlData.map( (wli, i) => {
