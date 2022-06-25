@@ -33,7 +33,7 @@ export default class EntryContainer extends React.Component {
                     <button className='change-view-btn' onClick={changeDisplay}>{view === 'watchList' ? 'View Watched' : null}</button>
                     <h1 style={{color: '#fff'}}>{view === 'watchList' ? 'Watch List' : null}</h1>
                     <button className='filter-btn' onClick={this.toggleModal}>
-                        <img src={filterIcon} width={45} style={{marginTop: 2}}/>
+                        <img src={filterIcon} width={45} style={{marginTop: 2}} alt='filter results'/>
                     </button>
                 </div>
                 <div className='wli-container'>
