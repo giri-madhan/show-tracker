@@ -115,6 +115,24 @@ body,html {
   transition-duration: .5s;
 }
 
+.close-filter-btn {
+  border: 1px solid #cff;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  margin-right: 5px;
+  color: #cff;
+  background: none;
+  font-size: 24px
+}
+
+.close-filter-btn:hover {
+  cursor: pointer;
+  background: #585b86;
+  transition-duration: .5s;
+}
+
 .watch-list-modal-overlay {
   position: fixed;
   inset: 0px;

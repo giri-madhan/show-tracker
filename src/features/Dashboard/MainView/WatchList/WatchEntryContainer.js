@@ -23,9 +23,9 @@ export default class EntryContainer extends React.Component {
         return(
             <div className='watch-list-container' style={{width: '100%', height: '100%', overflowY: 'auto'}}>
                 <Modal isOpen={filterModalOpen} className='watch-list-modal' overlayClassName='watch-list-modal-overlay'>
-                        <div style={{display: 'flex', justifyContent: 'space-between', background: '#ccc', height: 50, alignItems: 'center' }}>
-                            <span style={{padding: 5}}>Select Filter</span>
-                            <button style={{padding: 5, marginRight: 5}} onClick={this.toggleModal}>X</button>
+                        <div style={{display: 'flex', justifyContent: 'space-between', background: '#313131', height: 50, alignItems: 'center' }}>
+                            <span style={{padding: 5, color: '#cff', fontSize: 24}}>Select Filter</span>
+                            <button className='close-filter-btn' onClick={this.toggleModal}>X</button>
                         </div>
                 </Modal>
                 <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
