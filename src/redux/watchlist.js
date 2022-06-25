@@ -1,10 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-// const getMPs = axios.get('/api/getMP').then( res => {
-//  return res.data
-// })
-
 export const getWLIs = createAsyncThunk('wlis/getWLIs', async () => {
   return axios.get('/api/getWLI').then(res => {
     return res.data
