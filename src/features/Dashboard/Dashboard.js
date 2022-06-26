@@ -27,11 +27,6 @@ const Dashboard = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-      //axios.get('/api/getMP').then(res => setMPs(res.data))
-      //axios.get('/api/getWLI').then(res => setWLIs(res.data))
-    }, [])
-
-    useEffect(() => {
       dispatch(getMPs())
       dispatch(getWLIs())
     }, [])
