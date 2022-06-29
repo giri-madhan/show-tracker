@@ -278,3 +278,33 @@ transition-duration: .5s;
   font-size: 20px;
   border-radius: 7px;
 }
+
+.search-card-outer-box {
+  width: 85%;
+  height: 130px;
+  background: transparent;
+  display: flex;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #000;
+}
+
+.search-card-inner-box {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden
+}
+
+@media only screen and (max-width: 800px) {
+
+  .search-card-outer-box {
+    box-shadow: none;
+  }
+
+  .search-card-inner-box {
+    display: none
+  }
+
+}

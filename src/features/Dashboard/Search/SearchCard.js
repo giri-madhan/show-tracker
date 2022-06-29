@@ -73,26 +73,15 @@ const SearchCard = ({result, addToWatchList}) => {
     }
 
     return(
-        <div style={{width: '85%', height: 130, background: '#171515', display: 'flex', borderRadius: 5, boxShadow: '0 0 5px #000'}}>
+        <div className='search-card-outer-box'>
             <img src={result.poster_path !== null ? posterPath+result.poster_path : defaultPoster} width={85} alt="" style={{borderRadius: '5px 0 0 5px'}} />
-            <div style={{width: '100%'}}>
-                <div style={{display: 'flex', flexDirection: 'column', color: '#fff', width: '100%'}}>
-                    <div style={{textAlign: 'center', marginBottom: 2, background: '#86242a'}}>
-                        <span style={{fontSize: 18}}>{result.title}</span>
-                    </div>
-                    <span style={{paddingLeft: 20}}>
-                        <span style={{fontWeight: 700}}>Genres: </span> 
-                        <span style={{color: '#aaa'}}>{generateGenre(result.genre_ids)}</span>
-                    </span>
-                    <span style={{paddingLeft: 20, paddingTop: 4}}>
-                        <span style={{fontWeight: 700}}>Release Date: </span> 
-                        <span style={{color: '#aaa'}}>{result.release_date}</span>
-                    </span>
-                    <span style={{paddingLeft: 20, paddingTop: 4}}>
-                        <span style={{fontWeight: 700}}>Original Language: </span> 
-                        <span style={{color: '#aaa'}}>{result.original_language.toUpperCase()}</span>
-                    </span>
-                </div>
+            <div className='search-card-inner-box' style={{width: '100%'}}>
+                
+                    {result.title}
+                    {generateGenre(result.genre_ids)}
+                    {result.release_date.substring(0,4)}
+                    {result.original_language.toUpperCase()}
+                
             </div>
             <button className='add-to-watchlist-btn' onClick={() => addToWatchList(result)}>+</button>
         </div>
