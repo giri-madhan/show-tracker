@@ -291,7 +291,7 @@ transition-duration: .5s;
 .search-card-inner-box {
   display: flex;
   flex-direction: column;
-  color: white;
+  color: #fff;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden
