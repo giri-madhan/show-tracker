@@ -22,7 +22,7 @@ const Dashboard = () => {
     const [mps, setMPs] = useState([])
     const [wlis, setWLIs] = useState([])
     const showRedux = useSelector(state => state.mps)
-    const {list, isLoading, status} = useSelector(state => state.wlis)
+    const {list, isLoading} = useSelector(state => state.wlis)
 
     const dispatch = useDispatch()
 
