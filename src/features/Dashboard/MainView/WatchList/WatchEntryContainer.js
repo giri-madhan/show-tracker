@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React from 'react'
 import WatchEntryCard from './WatchEntryCard'
 import Modal from 'react-modal'
