@@ -75,7 +75,7 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
                     <div style={{marginRight: 20}}>
                         <img src={wli.photo !== null ? posterPath+wli.photo : defaultPoster} width={100} alt="" style={{borderRadius: '5px 0 0 5px'}} />
                     </div>
-                    <div style={{width: '90%', marginTop: 5}}>
+                    <div style={{width: '90%', marginTop: 10}}>
                         <div style={{color: '#fff', fontSize: 30, display: 'flex', position: 'relative'}}>
                             <span>{wli.name}</span>
                             <span style={{marginLeft: 25}}>({wli.releaseDate ? wli.releaseDate.substring(0, 4) : null})</span>
