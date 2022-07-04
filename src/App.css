@@ -28,6 +28,12 @@ body,html {
   width: 0
 }
 
+.search-card-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: rgb(241, 100, 100)
+}
+
 .add-to-watchlist-btn {
   background: lightgreen;
   border: none;
@@ -294,7 +300,8 @@ transition-duration: .5s;
   color: #fff;
   white-space: nowrap;
   text-overflow: ellipsis;
-  overflow: hidden
+  overflow: hidden;
+  padding: 5px 10px 10px;
 }
 
 @media only screen and (max-width: 800px) {

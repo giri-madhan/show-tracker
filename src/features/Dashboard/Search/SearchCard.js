@@ -77,7 +77,7 @@ const SearchCard = ({result, addToWatchList}) => {
             <img src={result.poster_path !== null ? posterPath+result.poster_path : defaultPoster} width={85} alt="" style={{borderRadius: '5px 0 0 5px'}} />
             <div className='search-card-inner-box' style={{width: '100%'}}>
                 
-                    {result.title}
+                    <div className='search-card-title'>{result.title}</div>
                     {generateGenre(result.genre_ids)}
                     {result.release_date.substring(0,4)}
                     {result.original_language.toUpperCase()}
