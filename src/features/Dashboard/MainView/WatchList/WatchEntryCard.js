@@ -20,7 +20,6 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
 
     const deleteWLI = (id) => {
         axios.delete(`/api/deleteWLI`, {data: {id}}).then(res => {
-            //console.log(id)
             //TO DO FIX BUG WHERE _ID DOESNT APPEAR IN REDUX? STATE / GET PASSED HERE -> 
             //async problem, need to fetch again the auto generated_id from faunadb
             dispatch(deleteItem(id))
