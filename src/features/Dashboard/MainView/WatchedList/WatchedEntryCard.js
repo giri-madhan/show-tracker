@@ -17,7 +17,7 @@ const WatchedEntryCard = ({mp, cardView}) => {
                         style={{borderRadius: '5px 0 0 5px'}} />
                 </div>
                 <div style={{width:'50%', minWidth: 250}}>
-                <div style={{fontSize: 27, color: 'rgb(241, 100, 100)', marginTop: 5}}>
+                <div style={{fontSize: 27, color: 'rgb(241, 100, 100)', marginTop: 7}}>
                     {mp.name}
                     <span style={{color: '#aaa', marginLeft: 20, fontSize: 20}}>{`(${mp.releaseDate.substring(0,4)})`}</span>
                 </div>
