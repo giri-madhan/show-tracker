@@ -32,6 +32,7 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
 
     useEffect(() => {
         setmpList(mpData)
+        //why is dependency causing error here?
     }, [mpList])
 
     const addToWatched = (item) => {
