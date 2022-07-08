@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import defaultPoster from '../../../../icons/default_poster.jpg'
 
 const WatchedEntryCard = ({mp, cardView}) => {
