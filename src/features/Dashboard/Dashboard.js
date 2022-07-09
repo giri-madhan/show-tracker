@@ -13,7 +13,7 @@ import SearchContainer from './Search/SearchContainer'
 //TODO Add scrolling all containers as necessary
 //TODO Update UI with all components
 //TODO Check UI for responsiveness, add breakpoints as needed
-//TODO Clean up unsed code
+//TODO Clean up unused code
 //TODO lazy loading
 
 
