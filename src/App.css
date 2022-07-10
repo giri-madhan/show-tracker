@@ -198,7 +198,7 @@ transition-duration: .5s;
   border-radius: 7px;
   background: #313131;
   border: 1px solid #cff;
-  margin-left: auto;
+  margin-left: 5px;
   margin-right: 50px;
   font-weight: 500
 }
