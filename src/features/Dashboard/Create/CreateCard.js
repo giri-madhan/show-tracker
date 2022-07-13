@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import moment from 'moment'
 
 const CreateCard = ({item, setRating, watchDate, setWatchDate, notes, setNotes}) => {
