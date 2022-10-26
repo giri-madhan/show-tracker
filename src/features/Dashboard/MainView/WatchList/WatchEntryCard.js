@@ -4,7 +4,7 @@ import checkIcon from '../../../../icons/check.png'
 import deleteIcon from '../../../../icons/delete.png'
 import CreateCard from '../../Create/CreateCard'
 import defaultPoster from '../../../../icons/default_poster.jpg'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { deleteItem } from '../../../../redux/watchlist'
 
 const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
@@ -17,6 +17,8 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
     const [mpList, setmpList] = useState([])
     const posterPath = 'https://image.tmdb.org/t/p/original'
     const dispatch = useDispatch()
+    const s = useSelector(s => s)
+    console.log('s', s)
 
     const deleteWLI = (id) => {
         axios.delete(`/api/deleteWLI`, {data: {id}}).then(res => {

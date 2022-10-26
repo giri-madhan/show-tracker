@@ -15,6 +15,10 @@ export default class EntryContainer extends React.Component {
         : this.setState(s => ({filterModalOpen: true}))
     }
 
+    getAllWLI = () => {
+        console.log('got')
+    }
+
     render(){
         const {changeDisplay, view, mpData, wlData, isLoading} = this.props
         const {filterModalOpen} = this.state

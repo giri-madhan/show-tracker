@@ -2,7 +2,6 @@ import React from 'react'
 import SearchCard from './SearchCard'
 import axios from 'axios'
 
-
 export default class SearchContainer extends React.Component {
     state={
         searchQuery: '',
@@ -21,7 +20,7 @@ export default class SearchContainer extends React.Component {
     }
 
     addToWatchList = (item) => {
-        const {wlData, add} = this.props
+        const {wlData, add, getWLIs} = this.props
 
         axios.get(`https://api.themoviedb.org/3/movie/${item.id}?api_key=4524058d1b58bdbc0fa9f7631e0d6e02`)
         .then(res =>{ 
@@ -54,6 +53,7 @@ export default class SearchContainer extends React.Component {
                 //create a toast
                 axios.post('/api/createWLI', data).then(res => {
                     add(data)
+                    getWLIs() //gets updated list of backend items. Needed this to assign fauna id to wli to delete.
                 }).catch(err => console.log('Error creating WLI', err))
                 this.setState(s => ({searchQuery: '', searchResults: null}))
             } 
