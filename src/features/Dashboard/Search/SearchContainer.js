@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchCard from './SearchCard'
 import axios from 'axios'
+import { failToast, successToast } from '../../Toasts/toasts'
 
 export default class SearchContainer extends React.Component {
     state={
@@ -48,13 +49,16 @@ export default class SearchContainer extends React.Component {
             })
             
             if (arrCheck.includes(data.movieID)) {
-                alert("Already in your watch list!") //create a toast
+                failToast('Already in your Watch List')
             } else {
-                //create a toast
                 axios.post('/api/createWLI', data).then(res => {
                     add(data)
+                    successToast('Watch List Item Added')
                     getWLIs() //gets updated list of backend items. Needed this to assign fauna id to wli to delete.
-                }).catch(err => console.log('Error creating WLI', err))
+                }).catch(err => {
+                    failToast('Failed to Add Watch List Item')
+                    console.log('Error creating WLI', err)
+                })
                 this.setState(s => ({searchQuery: '', searchResults: null}))
             } 
         })

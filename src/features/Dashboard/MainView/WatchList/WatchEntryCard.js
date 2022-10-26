@@ -6,6 +6,7 @@ import CreateCard from '../../Create/CreateCard'
 import defaultPoster from '../../../../icons/default_poster.jpg'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteItem } from '../../../../redux/watchlist'
+import { failToast, successToast } from '../../../Toasts/toasts'
 
 const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
     const [overview, setOverview] = useState(false)
@@ -18,12 +19,9 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
     const posterPath = 'https://image.tmdb.org/t/p/original'
     const dispatch = useDispatch()
     const s = useSelector(s => s)
-    console.log('s', s)
 
     const deleteWLI = (id) => {
         axios.delete(`/api/deleteWLI`, {data: {id}}).then(res => {
-            //TO DO FIX BUG WHERE _ID DOESNT APPEAR IN REDUX? STATE / GET PASSED HERE -> 
-            //async problem, need to fetch again the auto generated_id from faunadb
             dispatch(deleteItem(id))
         }).catch(err => console.log(err))
     }
@@ -54,12 +52,13 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
         const inList = mpList.filter( mp => mp.movieID === item.movieID).length === 1
         
         if (inList) {
-            alert('In Watched ist')
+            failToast('Already in Watched List') //TODO this doesnt work properly
         } else {
             if (rating && watchDate) {
                 axios.post(`/api/createMP`, JSON.stringify(data)).then(res => console.log(res)).catch(err => console.log(err))
                 getItems()
                 deleteWLI(item._id)
+                successToast('Successfully Added to Watched List')
             } else {
                 alert('Please enter Watch Date and Rating.')
             }
@@ -88,7 +87,7 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
                                     <div>{wli.voteAverage}/10</div>
                                     <div>{wli.duration} Minutes</div>
                                     <div>{wli.genre}</div>
-                                </>) : <div style={{fontSize: 18, padding: 5, paddingRight: 25}}>{wli.overview}</div>}
+                                </>) : <div style={{fontSize: 18, padding: 5, paddingRight: 25, marginTop: -10}}>{wli.overview}</div>}
                         </div>
                     </div>
             </div>
