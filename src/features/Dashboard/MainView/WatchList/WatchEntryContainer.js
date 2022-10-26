@@ -41,7 +41,7 @@ export default class EntryContainer extends React.Component {
                     </div>
                 </div>
                 <div className='wli-container'>
-                    {wlData ? wlData.map( (wli, i) => {
+                    {wlData ? wlData.slice(0).reverse().map( (wli, i) => {
                         return(
                             <WatchEntryCard wli={wli} key={i} mpData={mpData} getItems={this.getAllWLI} isLoading={isLoading} />
                         )
