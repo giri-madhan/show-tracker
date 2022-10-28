@@ -4,7 +4,7 @@ import checkIcon from '../../../../icons/check.png'
 import deleteIcon from '../../../../icons/delete.png'
 import CreateCard from '../../Create/CreateCard'
 import defaultPoster from '../../../../icons/default_poster.jpg'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { deleteItem } from '../../../../redux/watchlist'
 import { failToast, successToast } from '../../../Toasts/toasts'
 
@@ -18,12 +18,15 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
     const [mpList, setmpList] = useState([])
     const posterPath = 'https://image.tmdb.org/t/p/original'
     const dispatch = useDispatch()
-    const s = useSelector(s => s)
 
     const deleteWLI = (id) => {
         axios.delete(`/api/deleteWLI`, {data: {id}}).then(res => {
             dispatch(deleteItem(id))
-        }).catch(err => console.log(err))
+            successToast('Successfully Deleted Item')
+        }).catch(err => {
+            failToast('Failed to Delete Item')
+            console.log(err)
+        })
     }
 
     const openWatchedForm = (item) => {
