@@ -25,7 +25,7 @@ export default class SearchContainer extends React.Component {
 
         axios.get(`https://api.themoviedb.org/3/movie/${item.id}?api_key=4524058d1b58bdbc0fa9f7631e0d6e02`)
         .then(res =>{ 
-            const genreString = res.data.genres.map( g => {
+            const genreString = res.data.genres.forEach( g => {
                 return g.name
             })
             const finalGenreString = genreString.toString().replace(/,/g, ', ')
@@ -66,6 +66,7 @@ export default class SearchContainer extends React.Component {
 
     render(){
         const {searchQuery, searchResults} = this.state
+
         return(
             <div className='search-container'>
                 <div className='sticky' style={{width: '100%', display: 'flex', height: 70, padding: 20}}>
@@ -86,7 +87,7 @@ export default class SearchContainer extends React.Component {
                                 <SearchCard result={result} addToWatchList={this.addToWatchList} key={i}/>
                             </>
                         )
-                    }) : null}
+                    }) : <div style={{color: '#fff', fontSize: 20}}>No search results.</div>}
                 </div>
             </div>
         )

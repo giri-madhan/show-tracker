@@ -73,6 +73,8 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
         setWatched(false)
     }
 
+    
+
     return(
         <div style={{display: 'flex', width: '90%'}}>
             <div className='wli-card' onClick={() => setOverview(!overview)}>

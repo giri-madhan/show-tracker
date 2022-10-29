@@ -21,7 +21,8 @@ export const mpSlice = createSlice({
   name: 'show',
   initialState: {
     list: [], 
-    status: null
+    status: null,
+    isLoading: true
   },
   reducers: {
     
@@ -33,9 +34,11 @@ export const mpSlice = createSlice({
     [getMPs.fulfilled]: (state, {payload}) => {
       state.list = payload
       state.status = 'success'
+      state.isLoading = false
     },
     [getMPs.rejected]: (state, action) => {
       state.status = 'failed'
+      state.isLoading = false
     }
   }
 })
