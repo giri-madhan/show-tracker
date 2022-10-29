@@ -117,7 +117,7 @@ body,html {
 
 .filter-btn:hover {
   cursor: pointer;
-  background: cyan;
+  background: rgb(43, 43, 94);
   transition-duration: .5s;
 }
 
@@ -222,7 +222,7 @@ transition-duration: .5s;
 }
 
 .change-view-btn:hover {
-  background: #585b86;
+  background: rgb(43, 43, 94);
   cursor: pointer
 }
 
