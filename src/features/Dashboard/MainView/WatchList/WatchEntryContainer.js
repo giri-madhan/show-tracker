@@ -4,37 +4,16 @@ import Modal from 'react-modal'
 import filterIcon from '../../../../icons/filter.png'
 import { useSelector } from 'react-redux'
 import GenreFilterBtns from './GenreFilterButtons'
-import { genreList } from '../../../../utils/getGenre'
 
 const EntryContainer = (props) => {
     const [filterModalOpen, setFilterModalOpen] = useState(false)
     const watchListItems = useSelector(s => s.wlis.list)
     const [watchList, setWatchList] = useState(null)
-    const {changeDisplay, view, mpData, wlData, isLoading} = props
+    const {changeDisplay, view, mpData, isLoading} = props
 
     useEffect(() => {
         setWatchList(watchListItems)
     }, [watchListItems])
-
-    const filterResults = (option) => {
-        option = option.toLowerCase()
-        let w = [...watchListItems]
-        if (option === 'dateasc') {
-            setWatchList(w.sort((a, b)=> new Date(b.releaseDate) - new Date(a.releaseDate)))
-            setFilterModalOpen(false)
-        } 
-        if (option === 'datedesc') { // most recent first
-            setWatchList(w.sort((a, b)=> new Date(a.releaseDate) - new Date(b.releaseDate)))
-            setFilterModalOpen(false)
-        }
-        genreList.forEach(item => {
-            item = item.toLowerCase()
-            if (option === item) {
-                setWatchList(w.filter(z => z.genre.toLowerCase().includes(item)))
-                setFilterModalOpen(false)
-            }
-        })
-    }
 
     const toggleModal = () => {
         filterModalOpen ? setFilterModalOpen(s => false) 
@@ -48,10 +27,11 @@ const EntryContainer = (props) => {
                             <span style={{padding: 5, color: '#cff', fontSize: 24}}>Select Filter</span>
                             <button className='close-filter-btn' onClick={toggleModal}>X</button>
                         </div>
-                        <button onClick={() => filterResults('dateDesc')} >Newest First</button>
-                        <button onClick={() => filterResults('dateAsc')} >Oldest First</button>
-                        <button onClick={() => filterResults('horror')} >Horror</button>
-                        <GenreFilterBtns filterResults={filterResults}/>
+                        <GenreFilterBtns 
+                            watchListItems={watchListItems} 
+                            setWatchList={setWatchList}
+                            setFilterModalOpen={setFilterModalOpen}
+                        />
                 </Modal>
                 <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
                     <h1 style={{color: '#fff'}}>{view === 'watchList' ? 'Watch List' : null}</h1>
