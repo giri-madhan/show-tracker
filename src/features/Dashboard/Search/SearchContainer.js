@@ -27,10 +27,8 @@ export default class SearchContainer extends React.Component {
         .then(res =>{ 
             console.log('rd',res.data)
             const genreString = res.data.genres.map( g => {
-                console.log('g:',g)
                 return g.name
             })
-            console.log('gs',genreString)
             const finalGenreString = genreString.toString().replace(/,/g, ', ')
             const finalVoteAverage = +res.data.vote_average.toFixed(0)
             const data = {
@@ -46,7 +44,6 @@ export default class SearchContainer extends React.Component {
             }
 
             const arrCheck = []
-            //use .some
             wlData.forEach(item => {
                 arrCheck.push(item.movieID)
             })

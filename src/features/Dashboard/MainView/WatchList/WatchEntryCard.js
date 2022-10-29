@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux'
 import { deleteItem } from '../../../../redux/watchlist'
 import { failToast, successToast } from '../../../Toasts/toasts'
 
-const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
+const WatchEntryCard = ({wli, mpData}) => {
     const [overview, setOverview] = useState(false)
     const [watched, setWatched] = useState(false)
     const [rating, setRating] = useState(0)
@@ -59,7 +59,6 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
         } else {
             if (rating && watchDate) {
                 axios.post(`/api/createMP`, JSON.stringify(data)).then(res => console.log(res)).catch(err => console.log(err))
-                getItems()
                 deleteWLI(item._id)
                 successToast('Successfully Added to Watched List')
             } else {
@@ -72,8 +71,6 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
     const cancelWatchedForm = () => {
         setWatched(false)
     }
-
-    
 
     return(
         <div style={{display: 'flex', width: '90%'}}>
