@@ -135,7 +135,7 @@ body,html {
 
 .close-filter-btn:hover {
   cursor: pointer;
-  background: #585b86;
+  background: rgb(43, 43, 94);
   transition-duration: .5s;
 }
 
@@ -242,7 +242,7 @@ transition-duration: .5s;
 
 .clear-search-btn:hover {
   cursor: pointer;
-  background: #585b86;
+  background: rgb(43, 43, 94);
   transition-duration: .3s;
 }
 
@@ -268,7 +268,7 @@ transition-duration: .5s;
 
 .btn-pill button:hover {
   cursor: pointer;
-  background: #585b86
+  background: rgb(43, 43, 94);
 }
 
 .minimal-watched-entry-card {
