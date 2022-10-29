@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import checkIcon from '../../../../icons/check.png'
 import deleteIcon from '../../../../icons/delete.png'
+import backIcon from '../../../../icons/back.png'
 import CreateCard from '../../Create/CreateCard'
 import defaultPoster from '../../../../icons/default_poster.jpg'
 import { useDispatch } from 'react-redux'
@@ -35,7 +36,6 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
 
     useEffect(() => {
         setmpList(mpData)
-        //why is dependency causing error here?
     }, [mpList])
 
     const addToWatched = (item) => {
@@ -96,12 +96,13 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
             </div>
             <div style={{width: '10%', display: 'flex', flexDirection: 'column', position: 'relative', right: 30, gap: 40}}>
                 <button className='complete-btn' 
-                onClick={!watched ? () => openWatchedForm(wli) : () => addToWatched(wli)} 
-                style={{height: 60, borderRadius: 100}}>
+                    onClick={!watched ? () => openWatchedForm(wli) : () => addToWatched(wli)} 
+                    style={{height: 60, borderRadius: 100}}
+                >
                     <img src={checkIcon} width={45} alt='add to watched list'/>
                 </button>
                 <button className='delete-btn' onClick={!watched ? () => deleteWLI(wli._id): () => cancelWatchedForm()} style={{height: 60, borderRadius: 150}}>
-                    <img src={deleteIcon} width={45} alt='delete from watch list'/>
+                    <img src={!watched ? deleteIcon : backIcon} width={45} alt='delete from watch list'/>
                 </button>
             </div>
             {watched ? (
