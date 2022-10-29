@@ -24,6 +24,8 @@ const GenreFilterBtns = (props) => {
 
     return (
         <>
+            <button onClick={() => filterResults('datedesc')}>Most Recent First</button>
+            <button onClick={() => filterResults('dateasc')}>Oldest First</button>
             {genreList.map((g, idx) => {
                 return <button onClick={() => {
                     filterResults(g.toLowerCase())
