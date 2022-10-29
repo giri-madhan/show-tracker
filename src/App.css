@@ -288,7 +288,7 @@ transition-duration: .5s;
 .search-card-outer-box {
   width: 85%;
   height: 130px;
-  background: transparent;
+  background: rgb(43, 43, 94);
   display: flex;
   border-radius: 5px;
   box-shadow: 0 0 5px #000;
