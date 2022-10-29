@@ -7,12 +7,11 @@ import {addItem, getWLIs} from '../../redux/watchlist'
 
 import SearchContainer from './Search/SearchContainer'
 
-//TODO Refresh component when movie added to watched
-//TODO Send toast when adding, deleting, and moving movies
 //TODO Add scrolling all containers as necessary+
 //TODO Check UI for responsiveness, add breakpoints as needed
 //TODO Clean up unused code
 //TODO lazy loading
+//TODO issue with typing 'clover' into search, blows up app
 
 
 const Dashboard = () => {
