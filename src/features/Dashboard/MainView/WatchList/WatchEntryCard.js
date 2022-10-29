@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux'
 import { deleteItem } from '../../../../redux/watchlist'
 import { failToast, successToast } from '../../../Toasts/toasts'
 
-const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
+const WatchEntryCard = ({wli, mpData}) => {
     const [overview, setOverview] = useState(false)
     const [watched, setWatched] = useState(false)
     const [rating, setRating] = useState(0)
@@ -56,12 +56,13 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
         
         if (inList) {
             failToast('Already in Watched List') //TODO this doesnt work properly
+            cleanFormValues()
         } else {
             if (rating && watchDate) {
                 axios.post(`/api/createMP`, JSON.stringify(data)).then(res => console.log(res)).catch(err => console.log(err))
-                getItems()
                 deleteWLI(item._id)
                 successToast('Successfully Added to Watched List')
+                cleanFormValues()
             } else {
                 alert('Please enter Watch Date and Rating.')
             }
@@ -69,11 +70,16 @@ const WatchEntryCard = ({wli, getItems, mpData, isLoading}) => {
         }
     }
 
-    const cancelWatchedForm = () => {
+    const cleanFormValues = () => {
+        setWatchDate('')
+        setRating(0)
+        setNotes('')
         setWatched(false)
     }
 
-    
+    const cancelWatchedForm = () => {
+        cleanFormValues()
+    }
 
     return(
         <div style={{display: 'flex', width: '90%'}}>
