@@ -25,9 +25,12 @@ export default class SearchContainer extends React.Component {
 
         axios.get(`https://api.themoviedb.org/3/movie/${item.id}?api_key=4524058d1b58bdbc0fa9f7631e0d6e02`)
         .then(res =>{ 
-            const genreString = res.data.genres.forEach( g => {
+            console.log('rd',res.data)
+            const genreString = res.data.genres.map( g => {
+                console.log('g:',g)
                 return g.name
             })
+            console.log('gs',genreString)
             const finalGenreString = genreString.toString().replace(/,/g, ', ')
             const finalVoteAverage = +res.data.vote_average.toFixed(0)
             const data = {
