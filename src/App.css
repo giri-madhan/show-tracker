@@ -142,7 +142,7 @@ body,html {
 .watch-list-modal-overlay {
   position: fixed;
   inset: 0px;
-  background-color: rgb(139 39 39 / 75%);
+  background-color: rgba(63, 63, 63, 0.75);
 }
 
 .wli-card {
