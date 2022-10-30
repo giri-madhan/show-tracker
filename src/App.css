@@ -117,7 +117,8 @@ body,html {
 
 .filter-btn:hover {
   cursor: pointer;
-  background: rgb(43, 43, 94);
+  background:#dfd;
+  color: #313131;
   transition-duration: .5s;
 }
 
@@ -135,7 +136,8 @@ body,html {
 
 .close-filter-btn:hover {
   cursor: pointer;
-  background: rgb(43, 43, 94);
+  background:#dfd;
+  color: #313131;
   transition-duration: .5s;
 }
 
@@ -154,12 +156,13 @@ body,html {
   margin: 20px;
   border-radius: 11px;
   background: #313131;
-  border: 1px solid #cff;
-  font-weight: 500;
+  border: 1px solid #dfd;
+  font-weight: 700;
 }
 
 .filter-modal-btn:hover {
-  background: rgb(43, 43, 94);
+  background:#dfd;
+  color: #313131;
   cursor: pointer;
 }
 
@@ -229,7 +232,8 @@ transition-duration: .5s;
 
 .get-movies-btn:hover {
   cursor: pointer;
-  background: rgb(43, 43, 94);
+  background:#dfd;
+  color: #313131;
   transition-duration: .3s;
 }
 .change-view-btn {
@@ -246,7 +250,8 @@ transition-duration: .5s;
 }
 
 .change-view-btn:hover {
-  background: rgb(43, 43, 94);
+  background:#dfd;
+  color: #313131;
   cursor: pointer
 }
 
@@ -266,7 +271,8 @@ transition-duration: .5s;
 
 .clear-search-btn:hover {
   cursor: pointer;
-  background: rgb(43, 43, 94);
+  background:#dfd;
+  color: #313131;
   transition-duration: .3s;
 }
 
@@ -292,7 +298,8 @@ transition-duration: .5s;
 
 .btn-pill button:hover {
   cursor: pointer;
-  background: rgb(43, 43, 94);
+  background:#dfd;
+  color: #313131;
 }
 
 .minimal-watched-entry-card {
