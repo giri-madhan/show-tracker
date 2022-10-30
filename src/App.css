@@ -95,16 +95,17 @@ body,html {
 }
 
 .watch-list-modal {
-  position: absolute;
-  width: 500px;
-  height: 400px;
-  right: 20%;
-  top: 75px;
   border: 1px solid rgb(204, 204, 204);
-  background: rgb(255, 255, 255);
   overflow: auto;
+  background:#232323;
   border-radius: 4px;
   outline: none;
+  position: absolute;
+  width: 500px;
+  height: 700px;
+  top: 50%;
+  left: 50%;
+  margin: -400px 0 0 -250px;
 }
 
 .filter-btn {
