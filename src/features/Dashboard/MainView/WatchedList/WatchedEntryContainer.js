@@ -9,9 +9,12 @@ export default class EntryContainer extends React.Component {
         return(
             <div className='watched-entry-container'>
                 <div style={{display: 'flex', height: 80, alignItems: 'center', padding: '10px 0', margin: '0 50px'}}>
-                    <h1 style={{color: '#fff', margin: '0 auto'}}>{view === 'watched' ? 'Watched History' : null}</h1>
+                    <h1 style={{color: '#fff'}}>
+                        {view === 'watched' ? 'Watched History' : null}
+                    </h1>
                     <button 
                         className='change-view-btn'
+                        style={{marginLeft: 'auto'}}
                         onClick={changeDisplay}>
                             {view === 'watched' ? 'View Watch List' : null}
                     </button> 
