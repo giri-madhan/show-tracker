@@ -67,11 +67,10 @@ body,html {
 }
 
 .robust-watched-entry-card {
-  margin: 0 auto;
+  margin: 0 50px;
   margin-bottom: 10px;
   background: rgb(21, 21, 30);
   border: 1px solid #666;
-  width: 90%;
   height: 100px;
   gap: 10px;
   border-radius: 7px;
@@ -241,7 +240,6 @@ transition-duration: .5s;
   font-size: 20px;
   width: 200px;
   height: 45px;
-  margin: 20px;
   border-radius: 11px;
   background: #313131;
   border: 1px solid #cff;
