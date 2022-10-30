@@ -8,9 +8,13 @@ export default class EntryContainer extends React.Component {
 
         return(
             <div className='watched-entry-container'>
-                <div style={{display: 'flex', alignItems: 'center'}}>
+                <div style={{display: 'flex', height: 80, alignItems: 'center', padding: '10px 0', margin: '0 50px'}}>
                     <h1 style={{color: '#fff', margin: '0 auto'}}>{view === 'watched' ? 'Watched History' : null}</h1>
-                    <button className='change-view-btn' onClick={changeDisplay}>{view === 'watched' ? 'View Watch List' : null}</button>
+                    <button 
+                        className='change-view-btn'
+                        onClick={changeDisplay}>
+                            {view === 'watched' ? 'View Watch List' : null}
+                    </button> 
                 </div>
                <div>
                    {this.props.mpData.map( (mp, i) => (
