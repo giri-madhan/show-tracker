@@ -19,7 +19,7 @@ body,html {
   width: 30%;
   height: 100%;
   overflow-y: auto;
-  background: #3345;
+  background: #33334455;
 }
 
 .search-container::-webkit-scrollbar {
@@ -137,6 +137,30 @@ body,html {
   cursor: pointer;
   background: rgb(43, 43, 94);
   transition-duration: .5s;
+}
+
+.filter-modal-btns-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 5px;
+  background: #232323;
+}
+
+.filter-modal-btn {
+  color:#dfd;
+  font-size: 16px;
+  height: 50px;
+  width: 120px;
+  margin: 20px;
+  border-radius: 11px;
+  background: #313131;
+  border: 1px solid #cff;
+  font-weight: 500;
+}
+
+.filter-modal-btn:hover {
+  background: rgb(43, 43, 94);
+  cursor: pointer;
 }
 
 .watch-list-modal-overlay {
