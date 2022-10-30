@@ -144,7 +144,7 @@ body,html {
 .filter-modal-btns-container {
   display: grid;
   grid-template-columns: auto auto auto;
-  padding: 5px;
+  padding: 3px;
   background: #232323;
 }
 
