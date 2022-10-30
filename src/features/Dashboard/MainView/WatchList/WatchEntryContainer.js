@@ -23,8 +23,8 @@ const EntryContainer = (props) => {
         return(
             <div className='watch-list-container' style={{width: '100%', height: '100%', overflowY: 'auto'}}>
                 <Modal isOpen={filterModalOpen} className='watch-list-modal' overlayClassName='watch-list-modal-overlay'>
-                        <div style={{display: 'flex', justifyContent: 'space-between', background: '#313131', height: 50, alignItems: 'center' }}>
-                            <span style={{padding: 5, color: '#cff', fontSize: 24}}>Select Filter</span>
+                        <div style={{display: 'flex', background: '#313131', height: 50, alignItems: 'center' }}>
+                            <span style={{padding: 5, color: '#cff', fontSize: 24, margin:'0 auto'}}>Select Filter</span>
                             <button className='close-filter-btn' onClick={toggleModal}>X</button>
                         </div>
                         <GenreFilterBtns 

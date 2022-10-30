@@ -23,15 +23,15 @@ const GenreFilterBtns = (props) => {
     }
 
     return (
-        <>
-            <button onClick={() => filterResults('datedesc')}>Most Recent First</button>
-            <button onClick={() => filterResults('dateasc')}>Oldest First</button>
+        <div className='filter-modal-btns-container'>
+            <button className='filter-modal-btn' onClick={() => filterResults('datedesc')}>Most Recent First</button>
+            <button className='filter-modal-btn' onClick={() => filterResults('dateasc')}>Oldest First</button>
             {genreList.map((g, idx) => {
-                return <button onClick={() => {
+                return <button className='filter-modal-btn' onClick={() => {
                     filterResults(g.toLowerCase())
                 }} key={idx}>{g}</button>
             })}
-        </>
+        </div>
     )
 }
 
