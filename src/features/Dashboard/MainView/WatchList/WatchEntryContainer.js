@@ -52,7 +52,7 @@ const EntryContainer = (props) => {
                         )
                     }) : (
                         <div style={{width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                            <SpinnerDiamond size={400} />
+                            <SpinnerDiamond size={400} color='#dfd' secondaryColor='#313131' speed={250} thickness={40} />
                         </div>    
                     )}
                 </div>
