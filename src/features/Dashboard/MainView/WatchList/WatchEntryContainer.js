@@ -4,6 +4,7 @@ import Modal from 'react-modal'
 import filterIcon from '../../../../icons/filter.png'
 import { useSelector } from 'react-redux'
 import GenreFilterBtns from './GenreFilterButtons'
+import { SpinnerDiamond } from 'spinners-react'
 
 const EntryContainer = (props) => {
     const [filterModalOpen, setFilterModalOpen] = useState(false)
@@ -12,7 +13,9 @@ const EntryContainer = (props) => {
     const {changeDisplay, view, mpData, isLoading} = props
 
     useEffect(() => {
-        setWatchList(watchListItems)
+        setTimeout(() => {
+            setWatchList(watchListItems)
+        }, 1000)
     }, [watchListItems])
 
     const toggleModal = () => {
@@ -47,7 +50,11 @@ const EntryContainer = (props) => {
                         return(
                             <WatchEntryCard wli={wli} key={i} mpData={mpData} isLoading={isLoading} />
                         )
-                    }) : <div style={{color: '#fff', fontSize: 50}}>No Results</div>}
+                    }) : (
+                        <div style={{width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                            <SpinnerDiamond size={400} />
+                        </div>    
+                    )}
                 </div>
             </div>
         )
