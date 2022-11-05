@@ -5,6 +5,7 @@ import filterIcon from '../../../../icons/filter.png'
 import { useSelector } from 'react-redux'
 import GenreFilterBtns from './GenreFilterButtons'
 import { SpinnerDiamond } from 'spinners-react'
+import Spinner from '../../../Spinners/Spinner'
 
 const EntryContainer = (props) => {
     const [filterModalOpen, setFilterModalOpen] = useState(false)
@@ -51,8 +52,8 @@ const EntryContainer = (props) => {
                             <WatchEntryCard wli={wli} key={i} mpData={mpData} isLoading={isLoading} />
                         )
                     }) : (
-                        <div style={{width: '100%', height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                            <SpinnerDiamond size={400} color='#dfd' secondaryColor='#313131' speed={250} thickness={40} />
+                        <div style={{width: '100%', height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                            <Spinner type='circle' />
                         </div>    
                     )}
                 </div>
