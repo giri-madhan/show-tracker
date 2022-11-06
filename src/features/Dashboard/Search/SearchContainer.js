@@ -70,13 +70,15 @@ export default class SearchContainer extends React.Component {
         return(
             <div className='search-container'>
                 <div className='sticky' style={{width: '100%', display: 'flex', height: 70, padding: 20}}>
-                    <input 
-                        type='text' 
-                        value={searchQuery} 
-                        style={{width: '60%', marginRight: 'auto', marginLeft: 20, minWidth: 100, fontSize: 20, borderRadius: 7}}
-                        onChange={(e) => this.setState({searchQuery: e.target.value})} placeholder='Search Movies' 
-                    />
-                    {searchQuery !== '' ? <button className='clear-search-btn' onClick={this.clearSearch}>X</button>: null}
+                    <form style={{display: 'flex', width: '100%'}}>
+                        <input 
+                            type='text' 
+                            value={searchQuery} 
+                            style={{flexGrow: 2, marginRight: 'auto', fontSize: 20, borderRadius: 7}}
+                            onChange={(e) => this.setState({searchQuery: e.target.value})} placeholder='Search Movies' 
+                        />
+                        {searchQuery !== '' ? <button className='clear-search-btn' onClick={this.clearSearch}>X</button>: null}
+                    </form>
                     <button className='get-movies-btn' onClick={this.getMovies}>Get Movies</button>
                 </div>
                 
