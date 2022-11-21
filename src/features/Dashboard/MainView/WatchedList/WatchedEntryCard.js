@@ -1,5 +1,6 @@
 import React from 'react'
 import defaultPoster from '../../../../icons/default_poster.jpg'
+import formatDate from '../../../../utils/formatDate'
 
 const WatchedEntryCard = ({mp}) => {
     const posterPath = 'https://image.tmdb.org/t/p/original'
@@ -25,7 +26,7 @@ const WatchedEntryCard = ({mp}) => {
                         {mp.duration} mins
                     </div>
                 </div>
-                <div className='c' style={{flex: 1}}>{mp.watchDate}</div>
+                <div className='c' style={{flex: 1}}>{formatDate(mp.watchDate)}</div>
                 <div className='c' style={{fontSize: 40, flex: 1, height: '100%'}}>
                     <div>{mp.rating}/10</div>
                 </div>
