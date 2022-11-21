@@ -20,7 +20,7 @@ export default class EntryContainer extends React.Component {
                     </button> 
                 </div>
                <div>
-                   {this.props.mpData.map( (mp, i) => (
+                   {this.props.mpData.slice(0).reverse().map( (mp, i) => (
                        <WatchedEntryCard mp={mp} key={i}  />
                    ))}
                </div>
