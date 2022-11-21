@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 //TODO Image rendering problem
 //TODO Change conditionally render after adding comment
 //TODO Accounts or public/private at least
+//TODO Fix fail toast for already in watch list
 //TODO (OPTIONAL) Add a different way to visualize watched entries
 
 
