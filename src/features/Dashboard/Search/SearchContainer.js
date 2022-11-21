@@ -77,7 +77,7 @@ export default class SearchContainer extends React.Component {
                             style={{flexGrow: 2, marginRight: 'auto', fontSize: 20, borderRadius: 7}}
                             onChange={(e) => this.setState({searchQuery: e.target.value})} placeholder='Search Movies' 
                         />
-                        {searchQuery !== '' ? <button className='clear-search-btn' onClick={this.clearSearch}>X</button>: null}
+                        {searchQuery !== '' ? <button tabIndex={-1} className='clear-search-btn' onClick={this.clearSearch}>X</button>: null}
                     </form>
                     <button className='get-movies-btn' onClick={this.getMovies}>Get Movies</button>
                 </div>
