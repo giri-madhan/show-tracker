@@ -67,6 +67,7 @@ body,html {
 }
 
 .robust-watched-entry-card {
+  display: flex;
   margin: 0 50px;
   margin-bottom: 10px;
   background: rgb(21, 21, 30);
@@ -333,6 +334,12 @@ transition-duration: .5s;
   text-overflow: ellipsis;
   overflow: hidden;
   padding: 5px 10px 10px;
+}
+
+.c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 800px) {
