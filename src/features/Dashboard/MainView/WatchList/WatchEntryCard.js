@@ -81,13 +81,15 @@ const WatchEntryCard = ({wli, mpData}) => {
         resetForm()
     }
 
+    console.log(watched)
+
     return(
-        <div style={{display: 'flex', width: '90%'}}>
+        <div style={{display: 'flex', width: '100%'}}>
             <div className='wli-card' onClick={() => setOverview(!overview)}>
                     <div style={{marginRight: 20}}>
                         <img src={wli.photo !== null ? posterPath+wli.photo : defaultPoster} width={100} alt="" style={{borderRadius: '5px 0 0 5px'}} />
                     </div>
-                    <div style={{width: '90%', marginTop: 10}}>
+                    {!watched ? <div style={{ marginTop: 10}}>
                         <div style={{color: '#fff', fontSize: 30, display: 'flex', position: 'relative'}}>
                             <span>{wli.name}</span>
                             <span style={{marginLeft: 25}}>({wli.releaseDate ? wli.releaseDate.substring(0, 4) : null})</span>
@@ -98,9 +100,24 @@ const WatchEntryCard = ({wli, mpData}) => {
                                     <div>{wli.voteAverage}/10</div>
                                     <div>{wli.duration} Minutes</div>
                                     <div>{wli.genre}</div>
-                                </>) : <div style={{fontSize: 18, padding: 5, paddingRight: 25, marginTop: -10}}>{wli.overview}</div>}
+                                </>
+                                ) : (
+                                <div style={{fontSize: 18, padding: 5, paddingRight: 25, marginTop: -10}}>{wli.overview}</div>
+                                )}
                         </div>
-                    </div>
+                    </div> : (
+                            <CreateCard 
+                                item={wli} 
+                                notes={notes} 
+                                setNotes={setNotes} 
+                                rating={rating} 
+                                setRating={setRating} 
+                                watchDate={watchDate} 
+                                setWatchDate={setWatchDate} 
+                                watchCount={watchCount} 
+                                setWatchCount={setWatchCount} 
+                            />
+                    )}
             </div>
             <div style={{width: '10%', display: 'flex', flexDirection: 'column', position: 'relative', right: 30, gap: 40}}>
                 <button className='complete-btn' 
@@ -113,21 +130,6 @@ const WatchEntryCard = ({wli, mpData}) => {
                     <img src={!watched ? deleteIcon : backIcon} width={45} alt='delete from watch list'/>
                 </button>
             </div>
-            {watched ? (
-                <div className='watched-overlay'>
-                    <CreateCard 
-                        item={wli} 
-                        notes={notes} 
-                        setNotes={setNotes} 
-                        rating={rating} 
-                        setRating={setRating} 
-                        watchDate={watchDate} 
-                        setWatchDate={setWatchDate} 
-                        watchCount={watchCount} 
-                        setWatchCount={setWatchCount} 
-                    />
-                </div>
-            ) : null}
         </div>
     )
 }
