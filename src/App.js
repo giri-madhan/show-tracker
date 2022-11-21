@@ -7,7 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 //TODO Watched List Filters / Reverse Order
 //TODO Image rendering problem
 //TODO Change conditionally render after adding comment
-//TODO tabIndex -1 on clear search btn
 //TODO Accounts or public/private at least
 //TODO (OPTIONAL) Add a different way to visualize watched entries
 

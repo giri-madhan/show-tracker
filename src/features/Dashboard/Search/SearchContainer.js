@@ -9,7 +9,8 @@ export default class SearchContainer extends React.Component {
         searchResults: null
     }
 
-    getMovies = () => {
+    getMovies = (e) => {
+        e.preventDefault();
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=4524058d1b58bdbc0fa9f7631e0d6e02&language=en-US&query=${this.state.searchQuery}`)
         .then(res => {
           this.setState({searchResults: res.data.results})
@@ -70,7 +71,8 @@ export default class SearchContainer extends React.Component {
         return(
             <div className='search-container'>
                 <div className='sticky' style={{width: '100%', display: 'flex', height: 70, padding: 20}}>
-                    <form style={{display: 'flex', width: '100%'}}>
+                    <form style={{display: 'flex', width: '100%'}} onSubmit={(e) => this.getMovies(e)}>
+                    <input type='submit' style={{display: 'none'}} />
                         <input 
                             type='text' 
                             value={searchQuery} 
@@ -78,8 +80,9 @@ export default class SearchContainer extends React.Component {
                             onChange={(e) => this.setState({searchQuery: e.target.value})} placeholder='Search Movies' 
                         />
                         {searchQuery !== '' ? <button tabIndex={-1} className='clear-search-btn' onClick={this.clearSearch}>X</button>: null}
+                        <input type='submit' className='get-movies-btn' value='Get Movies' />
                     </form>
-                    <button className='get-movies-btn' onClick={this.getMovies}>Get Movies</button>
+                    {/* <button className='get-movies-btn' onClick={this.getMovies}>Get Movies</button> */}
                 </div>
                 
                 <div className='search-container-items' style={{display: 'flex', flexDirection: 'column', gap: 20, justifyContent: 'center', alignItems: 'center', marginTop: 40}}>
