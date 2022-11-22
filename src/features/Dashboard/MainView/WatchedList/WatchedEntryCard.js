@@ -1,18 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
 import defaultPoster from '../../../../icons/default_poster.jpg'
 import formatDate from '../../../../utils/formatDate'
 
 const WatchedEntryCard = ({mp}) => {
     const posterPath = 'https://image.tmdb.org/t/p/original'
+    const [imgLoaded, setImgLoaded] = useState(false)
+    const [mpImg, setMpImg] = useState('')
     
     return(
         <>
             <div className='robust-watched-entry-card'>
                 <div style={{width:66}}>
-                    <img src={mp.photo ? posterPath+mp.photo : defaultPoster} 
+                    <img src={mp.photo !== null && imgLoaded ? mpImg : defaultPoster} 
                         alt={`${mp.name}`}
                         width={66} 
-                        style={{borderRadius: '5px 0 0 5px'}} />
+                        style={{borderRadius: '5px 0 0 5px'}} 
+                        onLoad={() => {
+                            setImgLoaded(true)
+                            setMpImg(posterPath + mp.photo)
+                        }}
+                    />
                 </div>
                 <div style={{flex: 4, minWidth: 250}}>
                     <div style={{fontSize: 27, color: 'rgb(241, 100, 100)', marginTop: 7}}>
