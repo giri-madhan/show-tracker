@@ -76,14 +76,13 @@ export default class SearchContainer extends React.Component {
                         <input 
                             type='text' 
                             value={searchQuery} 
-                            style={{flex: 1, marginRight: 'auto', fontSize: 20, borderRadius: 7}}
+                            style={{width: '80%', minWidth: 150, fontSize: 20, borderRadius: 7}}
                             onChange={(e) => this.setState({searchQuery: e.target.value})} placeholder='Search Movies' 
                         />
                         {searchQuery !== '' ? <button tabIndex={-1} className='clear-search-btn' onClick={this.clearSearch}>X</button>: null}
-                        <input type='submit' className='get-movies-btn' value='Get Movies' />
+                        <input type='submit' className='get-movies-btn' style={{width: '20%', marginLeft: 15}} value='Search' />
                     </form>
                 </div>
-                
                 <div className='search-container-items' style={{display: 'flex', flexDirection: 'column', gap: 20, justifyContent: 'center', alignItems: 'center', marginTop: 40}}>
                     {searchResults !== null ? searchResults.map( (result, i) => {
                         return (
