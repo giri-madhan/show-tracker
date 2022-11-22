@@ -17,6 +17,8 @@ const WatchEntryCard = ({wli, mpData}) => {
     const [watchCount, setWatchCount] = useState('')
     const [notes, setNotes] = useState('')
     const [mpList, setmpList] = useState([])
+    const [imgSrc, setImgSrc] = useState('')
+    const [imgLoaded, setImgLoaded] = useState(false)
     const posterPath = 'https://image.tmdb.org/t/p/original'
     const dispatch = useDispatch()
 
@@ -85,7 +87,16 @@ const WatchEntryCard = ({wli, mpData}) => {
         <div style={{display: 'flex', width: '110%'}}>
             <div className='wli-card' onClick={() => setOverview(!overview)}>
                     <div style={{marginRight: 20}}>
-                        <img src={wli.photo !== null ? posterPath+wli.photo : defaultPoster} width={100} alt="" style={{borderRadius: '5px 0 0 5px'}} />
+                        <img 
+                            src={wli.photo !== null && imgLoaded ? imgSrc : defaultPoster} 
+                            width={100} 
+                            alt="" 
+                            style={{borderRadius: '5px 0 0 5px'}}
+                            onLoad={() => {
+                                setImgLoaded(true)
+                                setImgSrc(posterPath+wli.photo)
+                            }}
+                        />
                     </div>
                     {!watched ? (
                     <div style={{ marginTop: 10}}>
