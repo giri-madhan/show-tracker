@@ -4,7 +4,6 @@ import Modal from 'react-modal'
 import filterIcon from '../../../../icons/filter.png'
 import { useSelector } from 'react-redux'
 import GenreFilterBtns from './GenreFilterButtons'
-import { SpinnerDiamond } from 'spinners-react'
 import Spinner from '../../../Spinners/Spinner'
 
 const EntryContainer = (props) => {
@@ -25,7 +24,7 @@ const EntryContainer = (props) => {
     }
 
         return(
-            <div className='watch-list-container' style={{width: '100%', height: '100%', overflowY: 'auto'}}>
+            <div className='watch-list-container'>
                 <Modal isOpen={filterModalOpen} className='watch-list-modal' overlayClassName='watch-list-modal-overlay'>
                         <div style={{display: 'flex', background: '#313131', height: 50, alignItems: 'center' }}>
                             <span style={{ color: '#fff', fontWeight: 700, fontSize: 26, margin:'0 auto'}}>Select Filter</span>
@@ -48,7 +47,7 @@ const EntryContainer = (props) => {
                 </div>
                 <div className='wli-container'>
                     { watchList ? watchList.slice(0).reverse().map( (wli, i) => {
-                        return(
+                        return (
                             <WatchEntryCard wli={wli} key={i} mpData={mpData} isLoading={isLoading} />
                         )
                     }) : (
