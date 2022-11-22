@@ -72,17 +72,16 @@ export default class SearchContainer extends React.Component {
             <div className='search-container'>
                 <div className='sticky' style={{width: '100%', display: 'flex', height: 70, padding: 20}}>
                     <form style={{display: 'flex', width: '100%'}} onSubmit={(e) => this.getMovies(e)}>
-                    <input type='submit' style={{display: 'none'}} />
+                        <input type='submit' style={{display: 'none'}} />
                         <input 
                             type='text' 
                             value={searchQuery} 
-                            style={{flexGrow: 2, marginRight: 'auto', fontSize: 20, borderRadius: 7}}
+                            style={{flex: 1, marginRight: 'auto', fontSize: 20, borderRadius: 7}}
                             onChange={(e) => this.setState({searchQuery: e.target.value})} placeholder='Search Movies' 
                         />
                         {searchQuery !== '' ? <button tabIndex={-1} className='clear-search-btn' onClick={this.clearSearch}>X</button>: null}
                         <input type='submit' className='get-movies-btn' value='Get Movies' />
                     </form>
-                    {/* <button className='get-movies-btn' onClick={this.getMovies}>Get Movies</button> */}
                 </div>
                 
                 <div className='search-container-items' style={{display: 'flex', flexDirection: 'column', gap: 20, justifyContent: 'center', alignItems: 'center', marginTop: 40}}>
