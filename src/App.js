@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 //TODO Accounts or public/private at least
 //TODO Fix fail toast for already in watch list
 //TODO Mobile View
+//TODO Color-code watched entry rating
 //TODO (OPTIONAL) Add a different way to visualize watched entries
 //TODO (Optional) Watched List Filters / Reverse Order
 
