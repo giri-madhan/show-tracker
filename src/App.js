@@ -4,7 +4,6 @@ import Home from './features/Dashboard/Dashboard'
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-//TODO Image rendering problem
 //TODO Accounts or public/private at least
 //TODO Fix fail toast for already in watch list
 //TODO Mobile View
