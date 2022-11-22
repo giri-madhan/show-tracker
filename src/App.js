@@ -11,7 +11,6 @@ import 'react-toastify/dist/ReactToastify.css';
 //TODO (OPTIONAL) Add a different way to visualize watched entries
 //TODO (Optional) Watched List Filters / Reverse Order
 
-
 function App() {
   return (
     <div className="App">
