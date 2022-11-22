@@ -1,8 +1,9 @@
 import './App.css'
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Home from './features/Dashboard/Dashboard'
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import LandingPage from './features/Landing/Landing';
 
 //TODO Accounts or public/private at least
 //TODO Fix fail toast for already in watch list
@@ -12,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 //TODO (Optional) Watched List Filters / Reverse Order
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false)
   return (
     <div className="App">
       <ToastContainer
@@ -26,7 +28,7 @@ function App() {
         pauseOnHover
         theme="dark"
       />
-      <Home />
+      { !loggedIn ? <Home /> : <LandingPage />}
     </div>
   );
 }
