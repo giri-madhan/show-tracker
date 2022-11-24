@@ -6,10 +6,23 @@ const WatchedEntryCard = ({mp}) => {
     const posterPath = 'https://image.tmdb.org/t/p/original'
     const [imgLoaded, setImgLoaded] = useState(false)
     const [mpImg, setMpImg] = useState('')
+
+    const formatRatingStyle = () => {
+        if (mp.rating) {
+            if (mp.rating === 10) return 'rgb(0, 255, 0)'
+            if (mp.rating === 9) return 'rgb(50, 240, 0)'
+            if (mp.rating === 8) return 'rgb(100, 220, 0)'
+            if (mp.rating === 7) return 'rgb(150, 200, 0)'
+            if (mp.rating === 6) return 'rgb(200, 180, 0)'
+            if (mp.rating === 5) return 'rgb(250, 160, 0)'
+            if (mp.rating < 5) return 'rgb(255, 0, 0)'
+        }
+    }
     
     return(
         <>
             <div className='robust-watched-entry-card'>
+                {console.log(mp.rating)}
                 <div style={{width:66}}>
                     <img src={mp.photo !== null && imgLoaded ? mpImg : defaultPoster} 
                         alt={`${mp.name}`}
@@ -35,7 +48,7 @@ const WatchedEntryCard = ({mp}) => {
                 </div>
                 <div className='c' style={{flex: 1}}>{formatDate(mp.watchDate)}</div>
                 <div className='c' style={{fontSize: 40, flex: 1, height: '100%'}}>
-                    <div>{mp.rating}/10</div>
+                    <div style={{color: formatRatingStyle()}}>{mp.rating}/10</div>
                 </div>
             </div>
         </>
