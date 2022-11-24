@@ -5,6 +5,7 @@ import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import LandingPage from './features/Landing/Landing';
 
+//TODO (critical) Fix WLI img render issue, problem is with defaultposter and state(commit 38edcc6...)
 //TODO Accounts or public/private at least
 //TODO Fix fail toast for already in watch list
 //TODO Mobile View
