@@ -22,7 +22,6 @@ const WatchedEntryCard = ({mp}) => {
     return(
         <>
             <div className='robust-watched-entry-card'>
-                {console.log(mp.rating)}
                 <div style={{width:66}}>
                     <img src={mp.photo !== null && imgLoaded ? mpImg : defaultPoster} 
                         alt={`${mp.name}`}
