@@ -1,6 +1,6 @@
 const GET_MPs = `
     query FindAllMPs{
-        allMPs{
+        allMPs(_size: 500){
           data {
             _id
             name
