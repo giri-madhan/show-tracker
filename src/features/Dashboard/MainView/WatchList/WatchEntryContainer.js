@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import WatchEntryCard from './WatchEntryCard'
 import Modal from 'react-modal'
 import filterIcon from '../../../../icons/filter.png'
@@ -9,14 +9,7 @@ import Spinner from '../../../Spinners/Spinner'
 const EntryContainer = (props) => {
     const [filterModalOpen, setFilterModalOpen] = useState(false)
     const watchListItems = useSelector(s => s.wlis.list)
-    const [watchList, setWatchList] = useState(null)
     const {changeDisplay, view, mpData, isLoading} = props
-
-    useEffect(() => {
-        setTimeout(() => {
-            setWatchList(watchListItems)
-        }, 1000)
-    }, [watchListItems])
 
     const toggleModal = () => {
         filterModalOpen ? setFilterModalOpen(s => false) 
@@ -26,15 +19,14 @@ const EntryContainer = (props) => {
         return(
             <div className='watch-list-container'>
                 <Modal isOpen={filterModalOpen} className='watch-list-modal' overlayClassName='watch-list-modal-overlay'>
-                        <div style={{display: 'flex', background: '#313131', height: 50, alignItems: 'center' }}>
-                            <span style={{ color: '#fff', fontWeight: 700, fontSize: 26, margin:'0 auto'}}>Select Filter</span>
-                            <button className='close-filter-btn' onClick={toggleModal}>X</button>
-                        </div>
-                        <GenreFilterBtns 
-                            watchListItems={watchListItems} 
-                            setWatchList={setWatchList}
-                            setFilterModalOpen={setFilterModalOpen}
-                        />
+                    <div style={{display: 'flex', background: '#313131', height: 50, alignItems: 'center' }}>
+                        <span style={{ color: '#fff', fontWeight: 700, fontSize: 26, margin:'0 auto'}}>Select Filter</span>
+                        <button className='close-filter-btn' onClick={toggleModal}>X</button>
+                    </div>
+                    <GenreFilterBtns 
+                        watchListItems={watchListItems} 
+                        setFilterModalOpen={setFilterModalOpen}
+                    />
                 </Modal>
                 <div style={{display: 'flex', alignItems: 'center', height: 80, margin: '0 50px', padding: '10px 0'}}>
                     <h1 style={{color: '#fff'}}>{view === 'watchList' ? 'Watch List' : null}</h1>
