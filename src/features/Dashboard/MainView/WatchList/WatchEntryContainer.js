@@ -46,9 +46,9 @@ const EntryContainer = (props) => {
                     </div>
                 </div>
                 <div className='wli-container'>
-                    { watchList ? watchList.slice(0).reverse().map( (wli, i) => {
+                    { watchListItems ? watchListItems.slice(0).reverse().map( (wli, i) => {
                         return (
-                            <WatchEntryCard wli={wli} key={i} mpData={mpData} isLoading={isLoading} />
+                            <WatchEntryCard wli={wli} key={wli._id} mpData={mpData} isLoading={isLoading} />
                         )
                     }) : (
                         <div style={{width: '100%', height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
