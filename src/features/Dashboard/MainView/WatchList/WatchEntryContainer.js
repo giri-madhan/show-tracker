@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import WatchEntryCard from './WatchEntryCard'
 import Modal from 'react-modal'
 import filterIcon from '../../../../icons/filter.png'
@@ -9,16 +9,30 @@ import Spinner from '../../../Spinners/Spinner'
 const EntryContainer = (props) => {
     const [filterModalOpen, setFilterModalOpen] = useState(false)
     const watchListItems = useSelector(s => s.wlis.list)
+    const [filteredList, setFilteredList] = useState([])
     const {changeDisplay, view, mpData, isLoading} = props
 
     const toggleModal = () => {
         filterModalOpen ? setFilterModalOpen(s => false) 
         : setFilterModalOpen(s => true)
     }
+    
+    const getDisplayList = () => {
+        if (filteredList.length > 0) {
+            return filteredList
+        } else if (filteredList.length === 0) {
+            return watchListItems
+        }
+    }
+    
+
+    useEffect(() => {
+        console.log('fl',filteredList)
+    }, [filteredList])
 
         return(
             <div className='watch-list-container'>
-                <Modal isOpen={filterModalOpen} className='watch-list-modal' overlayClassName='watch-list-modal-overlay'>
+                <Modal isOpen={filterModalOpen} className='watch-list-modal' overlayClassName='watch-list-modal-overlay' ariaHideApp={false}>
                     <div style={{display: 'flex', background: '#313131', height: 50, alignItems: 'center' }}>
                         <span style={{ color: '#fff', fontWeight: 700, fontSize: 26, margin:'0 auto'}}>Select Filter</span>
                         <button className='close-filter-btn' onClick={toggleModal}>X</button>
@@ -26,6 +40,7 @@ const EntryContainer = (props) => {
                     <GenreFilterBtns 
                         watchListItems={watchListItems} 
                         setFilterModalOpen={setFilterModalOpen}
+                        setFilteredList={setFilteredList}
                     />
                 </Modal>
                 <div style={{display: 'flex', alignItems: 'center', height: 80, margin: '0 50px', padding: '10px 0'}}>
@@ -38,11 +53,9 @@ const EntryContainer = (props) => {
                     </div>
                 </div>
                 <div className='wli-container'>
-                    { watchListItems ? watchListItems.slice(0).reverse().map( (wli, i) => {
-                        return (
-                            <WatchEntryCard wli={wli} key={wli._id} mpData={mpData} isLoading={isLoading} />
-                        )
-                    }) : (
+                    { getDisplayList() ? getDisplayList().slice(0).reverse().map( (wli, i) => (
+                        <WatchEntryCard wli={wli} key={wli._id} mpData={mpData} isLoading={isLoading} />  
+                    )) : (
                         <div style={{width: '100%', height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                             <Spinner type='circle' />
                         </div>    
