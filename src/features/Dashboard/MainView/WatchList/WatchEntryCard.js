@@ -87,14 +87,15 @@ const WatchEntryCard = ({wli, mpData}) => {
         <div style={{display: 'flex', width: '110%'}}>
             <div className='wli-card' onClick={() => setOverview(!overview)}>
                     <div style={{marginRight: 20}}>
+                        {console.log(wli.photo, imgLoaded)}
                         <img 
                             src={wli.photo !== null && imgLoaded ? imgSrc : defaultPoster} 
                             width={100} 
                             alt="" 
                             style={{borderRadius: '5px 0 0 5px'}}
                             onLoad={() => {
-                                setImgLoaded(true)
                                 setImgSrc(posterPath+wli.photo)
+                                setTimeout(() => {setImgLoaded(true)}, 500)
                             }}
                         />
                     </div>
@@ -112,7 +113,9 @@ const WatchEntryCard = ({wli, mpData}) => {
                                     <div>{wli.genre}</div>
                                 </>
                                 ) : (
-                                <div style={{fontSize: 18, padding: 5, paddingRight: 25, marginTop: -10}}>{wli.overview}</div>
+                                <div style={{fontSize: 18, padding: 5, paddingRight: 25, marginTop: -10}}>
+                                    {wli.overview}
+                                    </div>
                                 )}
                         </div>
                     </div> 
