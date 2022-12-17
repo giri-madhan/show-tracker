@@ -1,7 +1,24 @@
 import { genreList } from '../../../../utils/getGenre'
 
 const GenreFilterBtns = (props) => {
-    console.log(props)
+    const {watchListItems} = props
+
+    const getGenres = () => {
+        let currentGenres = []
+        let allGenres = genreList
+        
+        watchListItems.forEach( item => {
+        
+            if (item.genre.includes(',')) {
+                item.genre.split(',').map(x => {
+                    if (!currentGenres.includes(x.trim())) currentGenres.push(x.trim())
+                })
+            } else {
+                if (!currentGenres.includes(item.genre)) currentGenres.push(item.genre)
+            }
+        })
+        return currentGenres.sort()
+    }
 
     const filterResults = (option) => {
         option = option.toLowerCase()
@@ -14,7 +31,7 @@ const GenreFilterBtns = (props) => {
             props.setFilteredList(w.sort((a, b)=> new Date(a.releaseDate) - new Date(b.releaseDate)))
             props.setFilterModalOpen(false)
         }
-        genreList.forEach(item => {
+        getGenres().forEach(item => {
             item = item.toLowerCase()
             if (option === item) {
                 props.setFilteredList(w.filter(z => z.genre.toLowerCase().includes(item)))
@@ -27,7 +44,7 @@ const GenreFilterBtns = (props) => {
         <div className='filter-modal-btns-container'>
             <button className='filter-modal-btn' onClick={() => filterResults('datedesc')}>Most Recent First</button>
             <button className='filter-modal-btn' onClick={() => filterResults('dateasc')}>Oldest First</button>
-            {genreList.map((g, idx) => {
+            {getGenres().map((g, idx) => {
                 return <button className='filter-modal-btn' onClick={() => {
                     filterResults(g.toLowerCase())
                 }} key={idx}>{g}</button>

@@ -87,7 +87,6 @@ const WatchEntryCard = ({wli, mpData}) => {
         <div style={{display: 'flex', width: '110%'}}>
             <div className='wli-card' onClick={() => setOverview(!overview)}>
                     <div style={{marginRight: 20}}>
-                        {console.log(wli.photo, imgLoaded)}
                         <img 
                             src={wli.photo !== null && imgLoaded ? imgSrc : defaultPoster} 
                             width={100} 
