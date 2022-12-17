@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import WatchEntryCard from './WatchEntryCard'
 import Modal from 'react-modal'
 import filterIcon from '../../../../icons/filter.png'
@@ -24,11 +24,6 @@ const EntryContainer = (props) => {
             return watchListItems
         }
     }
-    
-
-    useEffect(() => {
-        console.log('fl',filteredList)
-    }, [filteredList])
 
         return(
             <div className='watch-list-container'>
