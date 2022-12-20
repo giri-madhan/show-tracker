@@ -13,6 +13,8 @@ import axios from 'axios'
 export const getMPs = createAsyncThunk('mps/getMPs', async () => {
   return axios.get('/api/getMP').then(res => {
     return res.data
+  }).catch(err => {
+    throw new Error(err)
   })
 })
 
