@@ -4,6 +4,7 @@ import Home from './features/Dashboard/Dashboard'
 import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import LandingPage from './features/Landing/Landing';
+import { useAuth0 } from '@auth0/auth0-react'
 
 //TODO Accounts or public/private at least
 //TODO Fix fail toast for already in watch list
@@ -12,7 +13,8 @@ import LandingPage from './features/Landing/Landing';
 //TODO (Optional) Watched List Filters / Reverse Order
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false)
+  const {loginWithRedirect, user, isAuthenticated} = useAuth0()
+
   return (
     <div className="App">
       <ToastContainer
@@ -27,7 +29,7 @@ function App() {
         pauseOnHover
         theme="dark"
       />
-      { !loggedIn ? <Home /> : <LandingPage />}
+      { !isAuthenticated ? <Home /> : <LandingPage />}
     </div>
   );
 }

@@ -1,26 +1,19 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
+import { useAuth0 } from '@auth0/auth0-react'
 
 const LandingPage = () => {
-    const [creds, setCreds] = useState({username: '', password: ''})
+    //TODO Add background
+    const {loginWithRedirect} = useAuth0()
 
-    const login = (e) => {
+    const authenticate = (e) => {
         e.preventDefault()
+        loginWithRedirect()
     }
-
-    const onChange = (e) => {
-        setCreds(prev => ({...prev, [e.target.name]: e.target.value}))
-    }
-
-    const inputStyle = {width: 200, height: 50, borderRadius: 12, border: 'none'}
 
 return(
     <div className='c' style={{width: '100vw', height: '100%', background: '#222', flexDirection: 'column'}}>
-        <div style={{fontSize: 40, color: '#fff'}}>MW Movie Tracker</div>
-        <form onSubmit={login} style={{display: 'flex', flexDirection: 'column', gap: 20}}>
-            <input style={inputStyle} type='text' placeholder='Username' name='username' value={creds.username} onChange={onChange} />
-            <input style={inputStyle} type='password' placeholder='Password' name='password' value={creds.pw} onChange={onChange} />
-            <input className='login' type='submit' />
-        </form>
+        <div style={{fontSize: 40, color: '#fff', marginBottom: 20}}>MW Movie Tracker</div>
+        <button style={{height: 80, width: 200, borderRadius: 12, background: '#9FE2BF'}} onClick={authenticate}>Authenticate </button>
         
     </div>
 )
