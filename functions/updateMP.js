@@ -1,5 +1,5 @@
 require('dotenv').config()
-const {UPDATE_MP} = require("./utilities/MPQueries")
+const {UPDATE_MP} = require("./utilities/mpQueries")
 const sendQuery = require("./utilities/sendQuery")
 const formattedResponse = require('./utilities/formattedResponse')
 
