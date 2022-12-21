@@ -54,10 +54,10 @@ const WatchEntryCard = ({wli, mpData}) => {
             photo: item.photo,
             notes
         }
-        const inList = mpList.filter( mp => mp.movieID === item.movieID).length === 1
+        const inList = mpList.filter( mp => mp.movieID === item.movieID).length > 0
         
         if (inList) {
-            failToast('Already in Watched List')
+            failToast('Already in Watched List') // TODO this doesn't work
             resetForm()
         } else {
             if (rating && watchDate) {
