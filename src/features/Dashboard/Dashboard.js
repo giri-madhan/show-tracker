@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import View from './MainView/View'
 import {useSelector, useDispatch} from 'react-redux'
-import {getMPs} from '../../redux/shows'
 import {addItem, getWLIs} from '../../redux/watchlist'
 
 
@@ -11,7 +10,6 @@ import SearchContainer from './Search/SearchContainer'
 //TODO Check UI for responsiveness, add breakpoints as needed
 //TODO Clean up unused code
 //TODO lazy loading
-//TODO issue with typing 'clover' into search, blows up app
 
 
 const Dashboard = () => {
