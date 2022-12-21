@@ -16,24 +16,17 @@ import SearchContainer from './Search/SearchContainer'
 
 const Dashboard = () => {
 
-    const [mps, setMPs] = useState([])
-    const [wlis, setWLIs] = useState([])
     const showRedux = useSelector(state => state.mps)
     const {list, isLoading} = useSelector(state => state.wlis)
 
     const dispatch = useDispatch()
 
     useEffect(() => {
-      dispatchMPs()
       dispatchWLIs()
     }, [])
 
     const dispatchWLIs = () => {
       dispatch(getWLIs())
-    }
-
-    const dispatchMPs = () => {
-      dispatch(getMPs())
     }
 
     const addToRedux = (r) => {
@@ -43,10 +36,6 @@ const Dashboard = () => {
     return(
         <div className='dash-container'>
           <div style={{display: 'flex', height: '100%', width: '100%'}}>
-            {/* NORMAL */}
-            {/* <SearchContainer wlData={wlis} /> */}
-            {/* <View mpData={mps} wlData={wlis} /> */}
-            {/* REDUX */}
             <SearchContainer wlData={list} add={addToRedux} getWLIs={dispatchWLIs} />
             <View mpData={showRedux.list} wlData={list} isLoading={isLoading} />
           </div>

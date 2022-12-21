@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import WatchedEntryCard from './WatchedEntryCard'
 import LogoutButton from '../../../Buttons/LogoutButton'
+import { useDispatch } from 'react-redux'
+import {getMPs} from '../../../../redux/shows'
 
 const EntryContainer = (props) => {
     const {changeDisplay, view, mpData} = props
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getMPs())
+    }, [getMPs])
+    
 
     return(
         <div className='watched-entry-container'>

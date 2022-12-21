@@ -43,7 +43,7 @@ const WatchEntryCard = ({wli, mpData}) => {
     const addToWatched = (item) => {
         const data = {
             name: item.name,
-            rating: +rating,
+            rating: +rating || 0,
             genre: item.genre,
             movieID: item.movieID,
             releaseDate: item.releaseDate,
@@ -57,10 +57,10 @@ const WatchEntryCard = ({wli, mpData}) => {
         const inList = mpList.filter( mp => mp.movieID === item.movieID).length > 0
         
         if (inList) {
-            failToast('Already in Watched List') // TODO this doesn't work
+            failToast('Already in Watched List')
             resetForm()
         } else {
-            if (rating && watchDate) {
+            if (data.rating !== undefined && data.watchDate) {
                 axios.post(`/api/createMP`, JSON.stringify(data))
                     .then(res => {
                         deleteWLI(item._id)
