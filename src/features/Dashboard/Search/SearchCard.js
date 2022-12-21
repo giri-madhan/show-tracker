@@ -24,6 +24,7 @@ const SearchCard = ({result, addToWatchList}) => {
                     <div className='search-card-title'>{result?.title}</div>
                     {generateGenre(result.genre_ids)}
                     {result?.release_date.substring(0,4)}
+                    {' '}
                     {result?.original_language.toUpperCase()}
                 
             </div>
