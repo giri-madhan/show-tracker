@@ -35,8 +35,8 @@ body,html {
 .search-container {
   width: 30%;
   height: 100%;
-  overflow-y: auto;
   background: #33334455;
+  overflow: hidden auto;
 }
 
 .search-container::-webkit-scrollbar {

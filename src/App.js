@@ -8,7 +8,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 //TODO Accounts or public/private at least -> guest data or separate accounts
 //TODO Mobile / Responsive View
-//TODO Add scrolling all containers as necessary (search container scrolls right, check others)
+//TODO Add scrolling all containers as necessary (check all containers)
 //TODO Clean up unused code
 //TODO lazy loading
 //TODO refactor weCard setState logic for data object....dont need state here
