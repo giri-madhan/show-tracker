@@ -7,9 +7,12 @@ import LandingPage from './features/Landing/Landing';
 import { useAuth0 } from '@auth0/auth0-react'
 
 //TODO Accounts or public/private at least
-//TODO Fix fail toast for already in watch list
 //TODO Mobile View
-//TODO (OPTIONAL) Add a different way to visualize watched entries
+//TODO Add scrolling all containers as necessary+
+//TODO Check UI for responsiveness, add breakpoints as needed
+//TODO Clean up unused code
+//TODO lazy loading
+//TODO (OPTIONAL) Add a different way to visualize watched entries...chart with genre / ratings / duration etc?
 //TODO (Optional) Watched List Filters / Reverse Order
 
 function App() {
