@@ -85,9 +85,10 @@ export default class SearchContainer extends React.Component {
                 </div>
                 <div className='search-container-items' style={{display: 'flex', flexDirection: 'column', gap: 20, justifyContent: 'center', alignItems: 'center', marginTop: 40}}>
                     {searchResults !== null ? searchResults.map( (result, i) => {
+                        console.log(result)
                         return (
                             <>
-                                <SearchCard result={result} addToWatchList={this.addToWatchList} key={i}/>
+                                <SearchCard result={result} addToWatchList={this.addToWatchList} key={result.id}/>
                             </>
                         )
                     }) : <div style={{color: '#fff', fontSize: 20}}>No search results.</div>}
