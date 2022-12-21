@@ -61,9 +61,15 @@ const WatchEntryCard = ({wli, mpData}) => {
             resetForm()
         } else {
             if (rating && watchDate) {
-                axios.post(`/api/createMP`, JSON.stringify(data)).then(res => console.log(res)).catch(err => console.log(err))
-                deleteWLI(item._id)
-                successToast('Successfully Added to Watched List')
+                axios.post(`/api/createMP`, JSON.stringify(data))
+                    .then(res => {
+                        deleteWLI(item._id)
+                        successToast('Successfully Added to Watched List')
+                    })
+                    .catch(err => {
+                        failToast('Item not added.')
+                        console.log(err)
+                    })
                 resetForm()
             } else {
                 alert('Please enter Watch Date and Rating.')
