@@ -1,5 +1,6 @@
 import React from 'react'
 import WatchedEntryCard from './WatchedEntryCard'
+import LogoutButton from '../../../Buttons/LogoutButton'
 
 const EntryContainer = (props) => {
     const {changeDisplay, view, mpData} = props
@@ -10,12 +11,15 @@ const EntryContainer = (props) => {
                 <h1 style={{color: '#fff'}}>
                     {view === 'watched' && 'Watched History'}
                 </h1>
-                <button 
-                    className='change-view-btn'
-                    style={{marginLeft: 'auto'}}
-                    onClick={changeDisplay}>
-                        {view === 'watched' && 'View Watch List'}
-                </button> 
+                <div style={{display: 'flex', marginLeft: 'auto', alignItems: 'center', gap: 20}}>
+                    <button 
+                        className='change-view-btn'
+                        style={{marginLeft: 'auto'}}
+                        onClick={changeDisplay}>
+                            {view === 'watched' && 'View Watch List'}
+                    </button> 
+                    <LogoutButton />
+                </div>
             </div>
             <div>
                 {mpData.slice(0).reverse().map((mp, i) => (

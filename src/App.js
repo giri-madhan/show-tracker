@@ -29,7 +29,7 @@ function App() {
         pauseOnHover
         theme="dark"
       />
-      { !isAuthenticated ? <Home /> : <LandingPage />}
+      { isAuthenticated ? <Home /> : <LandingPage />}
     </div>
   );
 }

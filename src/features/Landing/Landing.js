@@ -13,8 +13,7 @@ const LandingPage = () => {
 return(
     <div className='c' style={{width: '100vw', height: '100%', background: '#222', flexDirection: 'column'}}>
         <div style={{fontSize: 40, color: '#fff', marginBottom: 20}}>MW Movie Tracker</div>
-        <button style={{height: 80, width: 200, borderRadius: 12, background: '#9FE2BF'}} onClick={authenticate}>Authenticate </button>
-        
+        <button className='auth-btn' onClick={authenticate}>Authenticate</button>
     </div>
 )
 }

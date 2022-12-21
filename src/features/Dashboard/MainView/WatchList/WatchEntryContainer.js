@@ -5,6 +5,7 @@ import filterIcon from '../../../../icons/filter.png'
 import { useSelector } from 'react-redux'
 import GenreFilterBtns from './GenreFilterButtons'
 import Spinner from '../../../Spinners/Spinner'
+import LogoutButton from '../../../Buttons/LogoutButton'
 
 const EntryContainer = (props) => {
     const [filterModalOpen, setFilterModalOpen] = useState(false)
@@ -40,11 +41,12 @@ const EntryContainer = (props) => {
                 </Modal>
                 <div style={{display: 'flex', alignItems: 'center', height: 80, margin: '0 50px', padding: '10px 0'}}>
                     <h1 style={{color: '#fff'}}>{view === 'watchList' ? 'Watch List' : null}</h1>
-                    <div style={{display: 'flex', marginLeft: 'auto',alignItems: 'center', gap: 20}}>
+                    <div style={{display: 'flex', marginLeft: 'auto', alignItems: 'center', gap: 20}}>
                         <button className='filter-btn' onClick={toggleModal}>
                             <img src={filterIcon} width={45} style={{marginTop: 2}} alt='filter results'/>
                         </button>
                         <button className='change-view-btn' onClick={changeDisplay}>{view === 'watchList' ? 'View Watched' : null}</button>
+                        <LogoutButton />
                     </div>
                 </div>
                 <div className='wli-container'>

@@ -14,23 +14,22 @@ body,html {
   justify-content: center;
 }
 
-.login {
-  background:rgb(180, 180, 224);
-  color: #fff; 
-  font-weight: 700;
-  font-size: 16;
-  border-radius: 12px;
-  border: none;
+.auth-btn {
+  height: 80px;
   width: 200px;
-  height: 50px;
-  color: #15151e
+  border-radius: 12px;
+  background: #313131;
+  border: 2px solid #9FE2BF;
+  color: #9FE2BF;
+  font-size: 20px;
+  font-weight: 700;
 }
 
-.login:hover {
+.auth-btn:hover {
+  background: #9FE2BF;
+  border: #313131;
+  color: #313131;
   cursor: pointer;
-  background:rgb(65, 65, 104);
-  color: #fff;
-  transition-duration: .5s;
 }
 
 .search-container {
@@ -135,7 +134,7 @@ body,html {
 
 .filter-btn {
   background: transparent;
-  border: 1px solid rgb(107, 107, 107);
+  border: 2px solid rgb(107, 107, 107);
   border-radius: 15px;
   height: 60px;
 }
@@ -148,7 +147,7 @@ body,html {
 }
 
 .close-filter-btn {
-  border: 1px solid #cff;
+  border: 2px solid #cff;
   border-radius: 10px;
   width: 40px;
   height: 40px;
@@ -181,7 +180,7 @@ body,html {
   margin: 20px;
   border-radius: 11px;
   background: #313131;
-  border: 1px solid #dfd;
+  border: 2px solid #dfd;
   font-weight: 700;
 }
 
@@ -215,7 +214,7 @@ body,html {
 .complete-btn, .delete-btn {
 width: 60px;
 background: rgb(21, 21, 30);
-border: 1px solid rgb(107, 107, 107);
+border: 2px solid rgb(107, 107, 107);
 }
 
 .complete-btn img, .delete-btn img {
@@ -247,7 +246,7 @@ transition-duration: .5s;
   font-size: 16px;
   border-radius: 7px;
   background: #313131;
-  border: 1px solid #cff;
+  border: 2px solid #cff;
   margin-left: 5px;
   margin-right: 50px;
   font-weight: 500
@@ -266,7 +265,7 @@ transition-duration: .5s;
   height: 45px;
   border-radius: 11px;
   background: #313131;
-  border: 1px solid #cff;
+  border: 2px solid #cff;
   font-weight: 500;
  
 }
@@ -284,7 +283,7 @@ transition-duration: .5s;
   height: 50px;
   border-radius: 11px;
   background: #313131;
-  border: 1px solid #cff;
+  border: 2px solid #cff;
   font-weight: 500;
   position:relative;
   left: -55px;
@@ -362,6 +361,22 @@ transition-duration: .5s;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.logout-btn {
+  height: 50px;
+  width: 80px; 
+  border-radius: 12px; 
+  background: #313131; 
+  color: #F47174;
+  border: 2px solid #F47174;
+  font-weight: 700
+}
+
+.logout-btn:hover {
+  background: #F47174;
+  color: #313131;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 800px) {
