@@ -6,12 +6,6 @@ import {addItem, getWLIs} from '../../redux/watchlist'
 
 import SearchContainer from './Search/SearchContainer'
 
-//TODO Add scrolling all containers as necessary+
-//TODO Check UI for responsiveness, add breakpoints as needed
-//TODO Clean up unused code
-//TODO lazy loading
-
-
 const Dashboard = () => {
 
     const showRedux = useSelector(state => state.mps)

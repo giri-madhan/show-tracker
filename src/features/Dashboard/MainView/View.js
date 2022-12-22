@@ -7,7 +7,7 @@ export default class View extends React.Component {
     state = {
         display: 'watchList'
     }
-arg
+
     changeView = (arg) => {
         if (this.state.display === 'watchList') this.setState({display: 'watched'})
         if (this.state.display === 'watched') this.setState({display: 'watchList'})
