@@ -83,6 +83,13 @@ body,html {
   width: 0
 }
 
+.charts {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow: auto;
+}
+
 .robust-watched-entry-card {
   display: flex;
   margin: 0 50px;
