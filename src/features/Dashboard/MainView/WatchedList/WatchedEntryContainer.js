@@ -21,6 +21,9 @@ const EntryContainer = (props) => {
                     {view === 'watched' && 'Watched History'}
                 </h1>
                 <div style={{display: 'flex', marginLeft: 'auto', alignItems: 'center', gap: 20}}>
+                    <button className='change-view-btn' onClick={() => changeDisplay('charts')}>
+                        Charts
+                    </button>
                     <button 
                         className='change-view-btn'
                         style={{marginLeft: 'auto'}}

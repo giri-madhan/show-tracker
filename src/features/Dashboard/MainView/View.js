@@ -1,15 +1,17 @@
 import React from 'react'
 import Watched from '../MainView/WatchedList/WatchedEntryContainer'
 import WatchList from '../MainView/WatchList/WatchEntryContainer'
+import DataChart from './ChartView/DataChart'
 
 export default class View extends React.Component {
     state = {
         display: 'watchList'
     }
-
-    changeView = () => {
-        if(this.state.display === 'watchList') this.setState({display: 'watched'})
-        if(this.state.display === 'watched') this.setState({display: 'watchList'})
+arg
+    changeView = (arg) => {
+        if (this.state.display === 'watchList') this.setState({display: 'watched'})
+        if (this.state.display === 'watched') this.setState({display: 'watchList'})
+        if (arg === 'charts') this.setState({display: 'charts'})
     }
 
     render(){
@@ -18,11 +20,10 @@ export default class View extends React.Component {
         
         return(
             <div style={{width: '100%'}}>
-                {display === 'watchList' ? (
-                <WatchList view={display} changeDisplay={this.changeView} mpData={mpData} wlData={wlData} isLoading={isLoading} />
-                ) : (
-                <Watched view={display} changeDisplay={this.changeView} wlData={wlData} />
-                )}
+                {display === 'watchList' ? <WatchList view={display} changeDisplay={this.changeView} mpData={mpData} wlData={wlData} isLoading={isLoading} />
+                : display === 'watched' ? <Watched view={display} changeDisplay={this.changeView} wlData={wlData} />
+                : display === 'charts' ? <DataChart changeDisplay={this.changeView} /> : null
+                }
             </div>
         )
     }
