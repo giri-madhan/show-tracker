@@ -31,7 +31,7 @@ const Dashboard = () => {
           <div style={{display: 'flex', height: '100%', width: '100%'}}>
             <SearchContainer 
               wlData={list} 
-              add={addToRedux} 
+              addToRedux={addToRedux} 
               getWLIs={dispatchWLIs} 
               viewDisplay={viewDisplay}
               setViewDisplay={setViewDisplay}  

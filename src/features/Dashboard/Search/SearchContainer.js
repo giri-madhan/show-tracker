@@ -22,7 +22,7 @@ export default class SearchContainer extends React.Component {
     }
 
     addToWatchList = (item) => {
-        const {wlData, add, getWLIs, viewDisplay, setViewDisplay} = this.props
+        const {wlData, addToRedux, getWLIs, viewDisplay, setViewDisplay} = this.props
 
         axios.get(`https://api.themoviedb.org/3/movie/${item.id}?api_key=4524058d1b58bdbc0fa9f7631e0d6e02`)
         .then(res =>{ 
@@ -52,7 +52,7 @@ export default class SearchContainer extends React.Component {
                 failToast('Already in your Watch List')
             } else {
                 axios.post('/api/createWLI', data).then(res => {
-                    add(data)
+                    addToRedux(data)
                     successToast('Watch List Item Added')
                     if (viewDisplay !== 'watchList') setViewDisplay('watchList')
                     getWLIs() //gets updated list of backend items. Needed this to assign fauna id to wli to delete.
