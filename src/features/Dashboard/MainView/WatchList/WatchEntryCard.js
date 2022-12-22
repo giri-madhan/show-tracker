@@ -24,7 +24,7 @@ const WatchEntryCard = ({wli, mpData}) => {
     const deleteWLI = (id) => {
         axios.delete(`/api/deleteWLI`, {data: {id}}).then(res => {
             dispatch(deleteItem(id))
-            successToast('Successfully Deleted Item')
+            successToast(`${wli?.name || 'Item'} Removed From Watch List`)
         }).catch(err => {
             failToast('Failed to Delete Item')
             console.log(err)
