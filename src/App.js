@@ -9,8 +9,10 @@ import { useAuth0 } from '@auth0/auth0-react'
 //TODO Accounts or public/private at least -> guest data or separate accounts
 //TODO Mobile / Responsive View
 //TODO if on watched list and add movie to WL, change view to WL
+//TODO add to top button on wl, watched
 //TODO if movie exists in watched, let user choose to add again; watchCount + 1 instead of new watched instance?
 //TODO Clean up unused code
+//TODO convert class components to func components
 //TODO lazy loading
 //TODO refactor weCard setState logic for data object....dont need state here
 //TODO Add a different way to visualize watched entries...chart with genre / ratings / duration etc? chartjs or my own + animation

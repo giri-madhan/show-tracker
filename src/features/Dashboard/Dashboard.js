@@ -8,6 +8,7 @@ import SearchContainer from './Search/SearchContainer'
 
 const Dashboard = () => {
 
+    const [viewDisplay, setViewDisplay] = useState('watchList')
     const showRedux = useSelector(state => state.mps)
     const {list, isLoading} = useSelector(state => state.wlis)
 
@@ -28,8 +29,20 @@ const Dashboard = () => {
     return(
         <div className='dash-container'>
           <div style={{display: 'flex', height: '100%', width: '100%'}}>
-            <SearchContainer wlData={list} add={addToRedux} getWLIs={dispatchWLIs} />
-            <View mpData={showRedux.list} wlData={list} isLoading={isLoading} />
+            <SearchContainer 
+              wlData={list} 
+              add={addToRedux} 
+              getWLIs={dispatchWLIs} 
+              viewDisplay={viewDisplay}
+              setViewDisplay={setViewDisplay}  
+            />
+            <View 
+              mpData={showRedux.list} 
+              wlData={list} 
+              isLoading={isLoading} 
+              viewDisplay={viewDisplay} 
+              setViewDisplay={setViewDisplay} 
+              />
           </div>
         </div>
     )

@@ -11,7 +11,7 @@ const EntryContainer = (props) => {
     const [filterModalOpen, setFilterModalOpen] = useState(false)
     const watchListItems = useSelector(s => s.wlis.list)
     const [filteredList, setFilteredList] = useState([])
-    const {changeDisplay, view, mpData, isLoading} = props
+    const {setViewDisplay, viewDisplay, mpData, isLoading} = props
 
     const toggleModal = () => {
         filterModalOpen ? setFilterModalOpen(s => false) 
@@ -40,12 +40,14 @@ const EntryContainer = (props) => {
                     />
                 </Modal>
                 <div style={{display: 'flex', alignItems: 'center', height: 80, margin: '0 50px', padding: '10px 0'}}>
-                    <h1 style={{color: '#fff'}}>{view === 'watchList' ? 'Watch List' : null}</h1>
+                    <h1 style={{color: '#fff'}}>{viewDisplay === 'watchList' ? 'Watch List' : null}</h1>
                     <div style={{display: 'flex', marginLeft: 'auto', alignItems: 'center', gap: 20}}>
                         <button className='filter-btn' onClick={toggleModal}>
                             <img src={filterIcon} width={45} style={{marginTop: 2}} alt='filter results'/>
                         </button>
-                        <button className='change-view-btn' onClick={changeDisplay}>{view === 'watchList' ? 'View Watched' : null}</button>
+                        <button className='change-view-btn' onClick={() => setViewDisplay('watched')}>
+                            {viewDisplay === 'watchList' && 'View Watched'}
+                        </button>
                         <LogoutButton />
                     </div>
                 </div>
