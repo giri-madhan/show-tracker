@@ -16,7 +16,6 @@ const WatchEntryCard = ({wli, mpData}) => {
     const [watchDate, setWatchDate] = useState('')
     const [watchCount, setWatchCount] = useState('')
     const [notes, setNotes] = useState('')
-    const [mpList, setmpList] = useState([])
     const [imgSrc, setImgSrc] = useState('')
     const [imgLoaded, setImgLoaded] = useState(false)
     const posterPath = 'https://image.tmdb.org/t/p/original'
@@ -36,10 +35,6 @@ const WatchEntryCard = ({wli, mpData}) => {
         setWatched(true)
     }
 
-    useEffect(() => {
-        setmpList(mpData)
-    }, [mpList])
-
     const addToWatched = (item) => {
         const data = {
             name: item.name,
@@ -54,7 +49,7 @@ const WatchEntryCard = ({wli, mpData}) => {
             photo: item.photo,
             notes
         }
-        const inList = mpList.filter( mp => mp.movieID === item.movieID).length > 0
+        const inList = mpData.filter( mp => mp.movieID === item.movieID).length > 0
         
         if (inList) {
             failToast('Already in Watched List')

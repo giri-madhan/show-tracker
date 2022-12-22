@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react'
 import WatchedEntryCard from './WatchedEntryCard'
 import LogoutButton from '../../../Buttons/LogoutButton'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {getMPs} from '../../../../redux/shows'
 
 const EntryContainer = (props) => {
-    const {changeDisplay, view, mpData} = props
+    const {changeDisplay, view} = props
     const dispatch = useDispatch()
+    const watchedItems = useSelector(state => state.mps.list)
 
     useEffect(() => {
-        dispatch(getMPs())
-    }, [getMPs])
+        dispatch(getMPs()) // rehydrates stale redux data after adding something to watched list
+    }, [dispatch])
     
 
     return(
@@ -30,8 +31,8 @@ const EntryContainer = (props) => {
                 </div>
             </div>
             <div>
-                {mpData.slice(0).reverse().map((mp, i) => (
-                    <WatchedEntryCard mp={mp} key={i}  />
+                {watchedItems.slice(0).reverse().map((mp, i) => (
+                    <WatchedEntryCard mp={mp} key={mp.movieID || mp._id || i}  />
                 ))}
             </div>
         </div>

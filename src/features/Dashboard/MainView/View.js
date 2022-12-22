@@ -21,7 +21,7 @@ export default class View extends React.Component {
                 {display === 'watchList' ? (
                 <WatchList view={display} changeDisplay={this.changeView} mpData={mpData} wlData={wlData} isLoading={isLoading} />
                 ) : (
-                <Watched view={display} changeDisplay={this.changeView} mpData={mpData} wlData={wlData} />
+                <Watched view={display} changeDisplay={this.changeView} wlData={wlData} />
                 )}
             </div>
         )

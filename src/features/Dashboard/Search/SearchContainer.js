@@ -26,7 +26,6 @@ export default class SearchContainer extends React.Component {
 
         axios.get(`https://api.themoviedb.org/3/movie/${item.id}?api_key=4524058d1b58bdbc0fa9f7631e0d6e02`)
         .then(res =>{ 
-            console.log('rd',res.data)
             const genreString = res.data.genres.map( g => {
                 return g.name
             })
