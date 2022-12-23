@@ -8,8 +8,9 @@ const DashHeader = (props) => {
         viewDisplay = 'watchList',
         setViewDisplay,
         watchListItems,
-        filteredList, // need to add this
-        setFilteredList // need to add this
+        filteredList,
+        setFilterList,
+        filter
     } = props
 
     const [filterModalOpen, setFilterModalOpen] = useState(false)
@@ -38,10 +39,14 @@ const DashHeader = (props) => {
                         toggle={setFilterModalOpen} 
                         watchListItems={watchListItems}
                         filteredList={filteredList}
-                        setFilteredList={setFilteredList}
+                        setFilterList={setFilterList}
                     />
+                    {(filter &&  filteredList.length > 0) && <span style={{fontSize: 30, color: '#9fe'}} className='center' onClick={() => setFilterList([])}>
+                       {filter} {'(' + filteredList.length + ')'}
+                       <button className='clear-filter'>X</button>
+                    </span>}
                     <button className='filter-btn' onClick={setFilterModalOpen}>
-                        <img src={filterIcon} width={45} style={{marginTop: 2}} alt='filter results'/>
+                       <img src={filterIcon} width={45} style={{marginTop: 2}} alt='filter results'/>
                     </button>
                 </>    
                 }

@@ -2,7 +2,7 @@ import Modal from 'react-modal'
 import GenreFilterBtns from '../MainView/WatchList/GenreFilterButtons'
 
 const DashFilterModal = (props) => {
-    const {isOpen, toggle, watchListItems, setFilteredList} = props
+    const {isOpen, toggle, watchListItems, setFilterList} = props
 
     return (
         <Modal isOpen={isOpen} className='watch-list-modal' overlayClassName='watch-list-modal-overlay' ariaHideApp={false}>
@@ -13,7 +13,7 @@ const DashFilterModal = (props) => {
             <GenreFilterBtns 
                 watchListItems={watchListItems} 
                 setFilterModalOpen={toggle}
-                setFilteredList={setFilteredList}
+                setFilterList={setFilterList}
             />
         </Modal>
     )

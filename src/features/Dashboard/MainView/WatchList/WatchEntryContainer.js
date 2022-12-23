@@ -7,9 +7,23 @@ import DashHeader from '../../DashHeader/DashHeader'
 const EntryContainer = (props) => {
     const watchListItems = useSelector(s => s.wlis.list)
     const [filteredList, setFilteredList] = useState([])
+    const [filter, setFilter] = useState('')
     const {setViewDisplay, viewDisplay, mpData, isLoading, wlData} = props
 
-    
+    const setFilterListAndType = (data, filter) => {
+        setFilteredList(data)
+
+        let formattedFilter
+        if (filter === 'dateasc') {
+            formattedFilter = 'Oldest First'
+        } 
+        else if (filter === 'datedesc') {
+            formattedFilter = 'Newest First'
+        } else {
+            formattedFilter = filter[0].toUpperCase() + filter.substring(1)
+        }
+        setFilter(formattedFilter)
+    }
     
     const getDisplayList = () => {
         if (filteredList.length > 0) {
@@ -25,8 +39,9 @@ const EntryContainer = (props) => {
                     viewDisplay={viewDisplay} 
                     setViewDisplay={setViewDisplay} 
                     filteredList={filteredList} 
-                    setFilteredList={setFilteredList}
+                    setFilterList={setFilterListAndType}
                     watchListItems={watchListItems}
+                    filter={filter}
                 />
                 <div className='wli-container'>
                     { getDisplayList() ? getDisplayList().slice(0).reverse().map( wli => (

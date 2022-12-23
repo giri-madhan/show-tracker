@@ -12,14 +12,14 @@ const CreateCard = ({setRating, watchDate, setWatchDate, notes, setNotes}) => {
     }
 
     return(
-        <div className='c' style={{gap: 5, width: '100%', padding: 20}}>
+        <div className='center' style={{gap: 5, width: '100%', padding: 20}}>
             <div style={{display: 'flex', flexDirection: 'column', flex: 1, gap: 10, height: '100%'}}>
-                <div className='c' style={{height: 50}}>
+                <div className='center' style={{height: 50}}>
                     <span style={{color: '#ddd', fontSize: 14, flex: 1}}>Watch Date: </span>
                     <input style={{borderRadius: 15, height: 50, flex: 2}} type='date' value={watchDate || moment().format('MM.dd.yyyy')} onChange={e => setWatchDate(e.target.value)}/>
                 </div>
                 
-                <div className='c'>
+                <div className='center'>
                     <span style={{color: '#ddd', fontSize: 14, flex: 1}}>Rating: </span>
                     <select style={{height: 50, borderRadius: 15, flex: 2 }} onChange={(e) => setRating(e.target.value)}>
                     {generateOptions()}

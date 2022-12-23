@@ -207,6 +207,24 @@ body,html {
   transition-duration: .5s;
 }
 
+.clear-filter {
+  background: transparent;
+  border: 2px solid rgb(107, 107, 107);
+  border-radius: 15px;
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
+  color: #F47174;
+  font-weight: 700;
+}
+
+.clear-filter:hover {
+  background: #F47174;
+  color: #313131;
+  transition-duration: .5s;
+  cursor: pointer;
+}
+
 .close-filter-btn {
   border: 2px solid #cff;
   border-radius: 10px;
@@ -420,7 +438,7 @@ transition-duration: .5s;
   padding: 5px 10px 10px;
 }
 
-.c {
+.center {
   display: flex;
   justify-content: center;
   align-items: center;

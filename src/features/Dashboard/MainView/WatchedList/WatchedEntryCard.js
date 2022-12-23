@@ -45,8 +45,8 @@ const WatchedEntryCard = ({mp}) => {
                         {mp.duration} mins
                     </div>
                 </div>
-                <div className='c' style={{flex: 1}}>{formatDate(mp.watchDate)}</div>
-                <div className='c' style={{fontSize: 40, flex: 1, height: '100%'}}>
+                <div className='center' style={{flex: 1}}>{formatDate(mp.watchDate)}</div>
+                <div className='center' style={{fontSize: 40, flex: 1, height: '100%'}}>
                     <div style={{color: formatRatingStyle()}}>{mp.rating}/10</div>
                 </div>
             </div>
