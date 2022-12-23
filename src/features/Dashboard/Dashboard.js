@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import View from './MainView/View'
 import {useSelector, useDispatch} from 'react-redux'
 import {addItem, getWLIs} from '../../redux/watchlist'
+import data from '../../database/fakeData'
 
 
 import SearchContainer from './Search/SearchContainer'
@@ -38,7 +39,7 @@ const Dashboard = () => {
             />
             <View 
               mpData={showRedux.list} 
-              wlData={list} 
+              wlData={list || data} 
               isLoading={isLoading} 
               viewDisplay={viewDisplay} 
               setViewDisplay={setViewDisplay} 

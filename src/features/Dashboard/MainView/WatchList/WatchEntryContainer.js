@@ -1,56 +1,33 @@
 import React, {useState} from 'react'
 import WatchEntryCard from './WatchEntryCard'
-import Modal from 'react-modal'
-import filterIcon from '../../../../icons/filter.png'
 import { useSelector } from 'react-redux'
-import GenreFilterBtns from './GenreFilterButtons'
 import Spinner from '../../../Spinners/Spinner'
-import LogoutButton from '../../../Buttons/LogoutButton'
+import DashHeader from '../../DashHeader/DashHeader'
 
 const EntryContainer = (props) => {
-    const [filterModalOpen, setFilterModalOpen] = useState(false)
     const watchListItems = useSelector(s => s.wlis.list)
     const [filteredList, setFilteredList] = useState([])
-    const {setViewDisplay, viewDisplay, mpData, isLoading} = props
+    const {setViewDisplay, viewDisplay, mpData, isLoading, wlData} = props
 
-    const toggleModal = () => {
-        filterModalOpen ? setFilterModalOpen(s => false) 
-        : setFilterModalOpen(s => true)
-    }
+    
     
     const getDisplayList = () => {
         if (filteredList.length > 0) {
             return filteredList
         } else if (filteredList.length === 0) {
-            return watchListItems
+            return wlData
         }
     }
 
         return(
             <div className='watch-list-container'>
-                <Modal isOpen={filterModalOpen} className='watch-list-modal' overlayClassName='watch-list-modal-overlay' ariaHideApp={false}>
-                    <div style={{display: 'flex', background: '#313131', height: 50, alignItems: 'center' }}>
-                        <span style={{ color: '#fff', fontWeight: 700, fontSize: 26, margin:'0 auto'}}>Select Filter</span>
-                        <button className='close-filter-btn' onClick={toggleModal}>X</button>
-                    </div>
-                    <GenreFilterBtns 
-                        watchListItems={watchListItems} 
-                        setFilterModalOpen={setFilterModalOpen}
-                        setFilteredList={setFilteredList}
-                    />
-                </Modal>
-                <div style={{display: 'flex', alignItems: 'center', height: 80, margin: '0 50px', padding: '10px 0'}}>
-                    <h1 style={{color: '#fff'}}>{viewDisplay === 'watchList' ? 'Watch List' : null}</h1>
-                    <div style={{display: 'flex', marginLeft: 'auto', alignItems: 'center', gap: 20}}>
-                        <button className='filter-btn' onClick={toggleModal}>
-                            <img src={filterIcon} width={45} style={{marginTop: 2}} alt='filter results'/>
-                        </button>
-                        <button className='change-view-btn' onClick={() => setViewDisplay('watched')}>
-                            {viewDisplay === 'watchList' && 'View Watched'}
-                        </button>
-                        <LogoutButton />
-                    </div>
-                </div>
+                <DashHeader 
+                    viewDisplay={viewDisplay} 
+                    setViewDisplay={setViewDisplay} 
+                    filteredList={filteredList} 
+                    setFilteredList={setFilteredList}
+                    watchListItems={watchListItems}
+                />
                 <div className='wli-container'>
                     { getDisplayList() ? getDisplayList().slice(0).reverse().map( wli => (
                         <WatchEntryCard wli={wli} key={wli._id} mpData={mpData} isLoading={isLoading} />  
