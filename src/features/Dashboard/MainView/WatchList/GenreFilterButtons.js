@@ -43,9 +43,9 @@ const GenreFilterBtns = (props) => {
 
     return (
         <div className='filter-modal-btns-container'>
-            <button className='filter-modal-btn' onClick={() => filterResults('datedesc')}>Most Recent First</button>
-            <button className='filter-modal-btn' onClick={() => filterResults('dateasc')}>Oldest First</button>
-            <button className='filter-modal-btn' onClick={() => filterResults('imdb')}>Top Rated First</button>
+            <button className='filter-modal-btn' onClick={() => filterResults('datedesc')}>Newest</button>
+            <button className='filter-modal-btn' onClick={() => filterResults('dateasc')}>Oldest</button>
+            <button className='filter-modal-btn' onClick={() => filterResults('imdb')}>Top Rated</button>
             {getGenres().map((g, idx) => {
                 return <button className='filter-modal-btn' onClick={() => {
                     filterResults(g.toLowerCase())
