@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import axios from 'axios'
 import checkIcon from '../../../../icons/check.png'
 import deleteIcon from '../../../../icons/delete.png'
@@ -31,7 +31,7 @@ const WatchEntryCard = ({wli, mpData}) => {
         })
     }
 
-    const openWatchedForm = (item) => {
+    const openWatchedForm = () => {
         setWatched(true)
     }
 
@@ -80,7 +80,7 @@ const WatchEntryCard = ({wli, mpData}) => {
         setWatched(false)
     }
 
-    const cancelWatchedForm = () => {
+    const closeWatchedForm = () => {
         resetForm()
     }
 
@@ -135,13 +135,13 @@ const WatchEntryCard = ({wli, mpData}) => {
             </div>
             <div style={{width: '10%', display: 'flex', flexDirection: 'column', position: 'relative', right: 30, gap: 40}}>
                 <button className='complete-btn' 
-                    onClick={!watched ? () => openWatchedForm(wli) : () => addToWatched(wli)} 
+                    onClick={!watched ? () => openWatchedForm() : () => addToWatched(wli)} 
                     style={{height: 60, borderRadius: 100}}
                 >
                     <img src={checkIcon} width={45} alt='add to watched list'/>
                 </button>
-                <button className='delete-btn' onClick={!watched ? () => deleteWLI(wli._id): () => cancelWatchedForm()} style={{height: 60, borderRadius: 150}}>
-                    <img src={!watched ? deleteIcon : backIcon} width={45} alt='delete from watch list'/>
+                <button className='delete-btn' onClick={!watched ? () => deleteWLI(wli._id): () => closeWatchedForm()} style={{height: 60, borderRadius: 150}}>
+                    <img src={!watched ? deleteIcon : backIcon} width={45} alt='remove from watch list'/>
                 </button>
             </div>
         </div>

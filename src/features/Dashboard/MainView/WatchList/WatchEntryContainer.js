@@ -1,11 +1,9 @@
 import React, {useState} from 'react'
 import WatchEntryCard from './WatchEntryCard'
-import { useSelector } from 'react-redux'
 import Spinner from '../../../Spinners/Spinner'
 import DashHeader from '../../DashHeader/DashHeader'
 
 const EntryContainer = (props) => {
-    const watchListItems = useSelector(s => s.wlis.list)
     const [filteredList, setFilteredList] = useState([])
     const [filter, setFilter] = useState('')
     const {setViewDisplay, viewDisplay, mpData, isLoading, wlData} = props
@@ -40,7 +38,7 @@ const EntryContainer = (props) => {
                     setViewDisplay={setViewDisplay} 
                     filteredList={filteredList} 
                     setFilterList={setFilterListAndType}
-                    watchListItems={watchListItems}
+                    watchListItems={wlData}
                     filter={filter}
                 />
                 <div className='wli-container'>
