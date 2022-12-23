@@ -12,8 +12,6 @@ import { useAuth0 } from '@auth0/auth0-react'
 //TODO add to top button on wl, watched
 //TODO if movie exists in watched, let user choose to add again; watchCount + 1 instead of new watched instance?
 //TODO Clean up unused code
-//TODO Add sort by imdb rating to watchlist
-//TODO Add clear filters button
 //TODO convert class components to func components
 //TODO lazy loading
 //TODO refactor weCard setState logic for data object....dont need state here
