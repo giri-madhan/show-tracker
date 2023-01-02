@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import DashHeader from '../../DashHeader/DashHeader'
+import GenrePieChart from './Charts/GenrePieChart'
 
 const StatsContainer = (props) => {
     const {viewDisplay, setViewDisplay, mpData, wlData} = props
@@ -27,6 +28,11 @@ const StatsContainer = (props) => {
                 <span>
                     Hours Spent: {calculateWatchTime()}
                 </span>
+                <div id='chart-container'>
+                    <GenrePieChart mpData={mpData} />
+                
+                </div>
+                
             </div>
         </div>
     )
