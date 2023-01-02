@@ -113,6 +113,8 @@ body,html {
   max-height: 1000px;
   height: 450px;
   border: 2px solid white;
+  border-radius: 12px;
+  box-shadow: 0px 0px 12px 1px #333;
 }
 
 .robust-watched-entry-card {
