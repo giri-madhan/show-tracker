@@ -46,10 +46,29 @@ body,html {
   width: 0
 }
 
+.search-container-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
 .search-card-title {
   font-size: 24px;
   font-weight: 700;
   color: rgb(241, 100, 100)
+}
+
+.search-card-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-card-description-dlv {
+  display: flex;
+  flex-direction: column;
 }
 
 .add-to-watchlist-btn {
@@ -474,6 +493,7 @@ transition-duration: .5s;
   cursor: pointer;
   transition-duration: .5s;
 }
+/*Media Queries*/
 
 @media only screen and (max-width: 800px) {
 
@@ -481,8 +501,57 @@ transition-duration: .5s;
     box-shadow: none;
   }
 
-  .search-card-inner-box {
-    display: none
+}
+@media only screen and (max-width: 600px) {
+  .dash-container-inner{
+    flex-direction: column
+  }
+  
+  .search-container {
+    height: 40% !important;
+    width: 100%;
+    overflow: scroll;
   }
 
+  .search-container-items {
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .search-card-outer-box {
+    height: 60px;
+  }
+
+  .search-card-inner-box {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 5px 10px 10px;
+  }
+
+  .search-card-title {
+    font-size: 14px;
+  }
+
+  .search-card-description {
+    font-size: 12px;
+  }
+
+  .search-card-description-genres {
+    display: flex;
+  }
+
+  .search-card-description-dlv {
+    flex-direction: row;
+    gap: 5px
+  }
+
+  #search-card-img {
+      height: 60px;
+      width: 60px;
+  }
+
+  #display-container {
+    height: 60% !important;
+  }
 }

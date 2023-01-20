@@ -83,8 +83,8 @@ export default class SearchContainer extends React.Component {
                         <input type='submit' className='get-movies-btn' style={{width: '20%', marginLeft: 15}} value='Search' />
                     </form>
                 </div>
-                <div className='search-container-items' style={{display: 'flex', flexDirection: 'column', gap: 20, justifyContent: 'center', alignItems: 'center', marginTop: 40}}>
-                    {searchResults !== null ? searchResults.map( (result, i) => {
+                <div className='search-container-items'>
+                    {searchResults !== null ? searchResults.map( (result) => {
                         return (
                             <>
                                 <SearchCard result={result} addToWatchList={this.addToWatchList} key={result.id}/>
