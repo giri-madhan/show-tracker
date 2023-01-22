@@ -30,7 +30,7 @@ const DashHeader = (props) => {
 
     return(
         <div className='dash-header'>
-            <h1 style={{color: '#fff'}}>{getDisplayName()}</h1>
+            <h1 id='header-title' style={{color: '#fff'}}>{getDisplayName()}</h1>
                 <div style={{display: 'flex', marginLeft: 'auto', alignItems: 'center', gap: 20}}>
                 {viewDisplay === 'watchList' && 
                 <>

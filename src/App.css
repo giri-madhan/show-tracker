@@ -554,4 +554,17 @@ transition-duration: .5s;
   #display-container {
     height: 60% !important;
   }
+
+  #header-title {
+    display: none;
+  }
+
+  .dash-header {
+    background: none;
+    margin-top: 10px;
+  }
+
+  /* .user-menu-icon {
+    display: none;
+  } */
 }
