@@ -32,7 +32,7 @@ const EntryContainer = (props) => {
     }
 
         return(
-            <div className='watch-list-container'>
+            <div className='display-entry-container'>
                 <DashHeader 
                     viewDisplay={viewDisplay} 
                     setViewDisplay={setViewDisplay} 
@@ -41,15 +41,15 @@ const EntryContainer = (props) => {
                     watchListItems={wlData}
                     filter={filter}
                 />
-                <div className='wli-container'>
-                    { getDisplayList() ? getDisplayList().slice(0).reverse().map( wli => (
-                        <WatchEntryCard wli={wli} key={wli._id} mpData={mpData} isLoading={isLoading} />  
-                    )) : (
-                        <div style={{width: '100%', height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                            <Spinner type='circle' />
-                        </div>    
-                    )}
-                </div>
+                <div className='watch-list-container'>
+                        { getDisplayList() ? getDisplayList().slice(0).reverse().map( wli => (
+                            <WatchEntryCard wli={wli} key={wli._id} mpData={mpData} isLoading={isLoading} />  
+                        )) : (
+                            <div style={{width: '100%', height: '80vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                                <Spinner type='circle' />
+                            </div>    
+                        )}
+                    </div>
             </div>
         )
     }

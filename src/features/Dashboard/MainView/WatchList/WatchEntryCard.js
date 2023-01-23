@@ -85,7 +85,7 @@ const WatchEntryCard = ({wli, mpData}) => {
     }
 
     return(
-        <div style={{display: 'flex', width: '110%'}}>
+        <div style={{display: 'flex', width: '90%', justifyContent: 'center'}}>
             <div className='wli-card' onClick={() => setOverview(!overview)}>
                     <div style={{marginRight: 20}}>
                         <img 
