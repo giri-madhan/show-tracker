@@ -146,13 +146,13 @@ body,html {
 }
 
 .robust-watched-entry-card {
-  display: flex;
   background: #15151e;
   border: 1px solid #666;
   height: 100px;
   gap: 10px;
   border-radius: 7px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 66px 3fr 1fr;
   font-size: 20px;
   color: #aaa;
   width: 90%;
@@ -161,7 +161,7 @@ body,html {
 #watched-entry-title {
   font-size: clamp(16px, 2vw, 25px);
   color: rgb(241, 100, 100);
-  margin-top: 7
+  margin-top: 7px
 }
 
 .watch-list-container {
@@ -573,7 +573,6 @@ transition-duration: .5s;
     width: 100%;
     padding: 5px;
     margin-top: 10px;
-    
   }
 
   #dash-header-container {
@@ -582,16 +581,51 @@ transition-duration: .5s;
     grid-template-columns: repeat(4, 1fr) !important;
     width: 100%;
   }
+  
+  .robust-watched-entry-card {
+    background: #15151e;
+    border: 1px solid #666;
+    height: 100px;
+    gap: 10px;
+    border-radius: 7px;
+    display: grid;
+    grid-template-columns: 66px 180px 1fr;
+    font-size: 20px;
+    color: #aaa;
+    width: 90%;
+  }
+
+  #watched-entry-info-container {
+    
+  }
 
   #watched-entry-title {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: flex-start;
+    overflow: auto !important;
+    white-space: nowrap;
+    margin-top: 2px !important;
+    padding-bottom: 0px !important; 
+  }
+
+  #watched-entry-title::-webkit-scrollbar {
+    scrollbar-width: none; 
+    -ms-overflow-style: none;  
+    width: 0;
+    height: 5px
   }
 
   #watched-entry-title span {
-    margin: 0 !important
+    margin: 0 !important;
+  }
+
+  #watched-entry-genres {
+    font-size: clamp(10px, 12px, 15px) !important;
+    overflow: auto;
+    white-space: nowrap;
+    margin-top: 3px !important;
   }
 
   #watched-entry-dateRating {
@@ -603,6 +637,10 @@ transition-duration: .5s;
 
   #watched-entry-dateRating span {
     margin: 0 !important
+  }
+
+  #watched-entry-duration {
+    font-size: clamp(10px, 2rem, 15px)
   }
 
   /* .user-menu-icon {

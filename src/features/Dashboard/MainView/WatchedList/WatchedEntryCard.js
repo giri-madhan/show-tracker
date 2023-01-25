@@ -22,7 +22,7 @@ const WatchedEntryCard = ({mp}) => {
     return(
         <>
             <div className='robust-watched-entry-card'>
-                <div style={{width:66}}>
+                <div>
                     <img src={mp.photo !== null && imgLoaded ? mpImg : defaultPoster} 
                         alt={`${mp.name}`}
                         width={66} 
@@ -33,7 +33,7 @@ const WatchedEntryCard = ({mp}) => {
                         }}
                     />
                 </div>
-                <div style={{flex: 1}}>
+                <div id='watched-entry-info-container'>
                     <div id='watched-entry-title'>
                         <span>
                             {mp.name}
@@ -42,15 +42,15 @@ const WatchedEntryCard = ({mp}) => {
                             {`(${mp.releaseDate.substring(0,4)})`}
                         </span>
                     </div>
-                    <div style={{marginTop: 15}}>
-                        {mp.genre}
+                    <div style={{marginTop: 15}} id='watched-entry-genres'>
+                        {mp.genre.split(',').slice(0,3).join(',')}
                     </div>
-                    <div>
+                    <div id='watched-entry-duration'>
                         {mp.duration} mins
                     </div>
                 </div>
-                <div id='watched-entry-dateRating' className='center' style={{height:'100%', marginRight: 10, fontSize: 'clamp(14px, 2vw, 40px)'}}>
-                    <span style={{marginRight: 20}}>
+                <div id='watched-entry-dateRating' className='center' style={{height:'100%', fontSize: 'clamp(14px, 2vw, 40px)'}}>
+                    <span style={{marginRight: 10}}>
                         {formatDate(mp.watchDate)}
                     </span>
                     <span style={{color: formatRatingStyle()}}>{mp.rating}/10</span>
