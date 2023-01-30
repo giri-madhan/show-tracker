@@ -22,10 +22,7 @@ const UserMenu = (props) => {
         >
             {user.name || 'MW'}
             <Modal isOpen={userModalOpen} className='user-menu-modal' overlayClassName='user-menu-modal-overlay' ariaHideApp={false}>
-            
                 <LogoutButton />
-                <LogoutButton />
-                
             </Modal>
 
         </div>
