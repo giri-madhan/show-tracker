@@ -114,7 +114,7 @@ const WatchEntryCard = ({wli, mpData}) => {
                                     <div id='wli-genre'>{wli.genre}</div>
                                 </div>
                                 ) : (
-                                <div style={{fontSize: 18, padding: 5, paddingRight: 25, marginTop: -10}}>
+                                <div id='wli-overview' style={{fontSize: 18, padding: 5, paddingRight: 25, marginTop: -10}}>
                                     {wli.overview}
                                     </div>
                                 )}

@@ -619,12 +619,16 @@ transition-duration: .5s;
     width: 40px;
     height: 40px !important;
     border: none !important;
-    }
-    
-    .complete-btn img, .delete-btn img {
-      margin-top: 2px;
-      margin-left: -14px;
-    }
+  }
+  
+  .complete-btn img, .delete-btn img {
+    margin-top: 2px;
+    margin-left: -14px;
+  }
+
+  #wli-overview {
+    font-size: 10px !important;
+  }
 
   #wli-img-container {
     margin-right: 10px !important
@@ -636,7 +640,8 @@ transition-duration: .5s;
   }
 
   #wli-title-container {
-    margin-top: 5px !important
+    margin-top: 5px !important;
+    overflow-y: scroll;
   }
 
   #wli-title {
