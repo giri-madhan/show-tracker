@@ -333,6 +333,15 @@ body,html {
   cursor: url('/public/icons8-view-50.png'), auto;	
 }
 
+#action-btn-container {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  right: 30px;
+  gap: 40px
+}
+
 .complete-btn, .delete-btn {
 width: 60px;
 background: #15151e;
@@ -594,6 +603,78 @@ transition-duration: .5s;
     font-size: 20px;
     color: #aaa;
     width: 90%;
+  }
+
+  .wli-card{
+    height: 100px;
+  }
+
+  #action-btn-container {
+    width: 5%;
+    right: 20px;
+    gap: 20px;
+  }
+
+  .complete-btn, .delete-btn {
+    width: 40px;
+    height: 40px !important;
+    border: none !important;
+    }
+    
+    .complete-btn img, .delete-btn img {
+      margin-top: 2px;
+      margin-left: -14px;
+    }
+
+  #wli-img-container {
+    margin-right: 10px !important
+  }
+
+  #wli-img {
+    height: 100%;
+    width: 66px;
+  }
+
+  #wli-title-container {
+    margin-top: 5px !important
+  }
+
+  #wli-title {
+    font-size: 14px !important;
+    gap: 4px;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  #wli-title span {
+    margin: 0 !important;
+  }
+
+  #wli-release-date {
+    font-size: 10px;
+  }
+
+  #wli-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 12px 12px 12px;
+    grid-template-areas: 
+    "t1 ."
+    "t2 ."
+    "genre genre";
+    font-size: 10px;
+  }
+
+  #wli-t1 {
+    grid-area: t1
+  }
+
+  #wli-t2 {
+    grid-area: t2
+  }
+
+  #wli-genre {
+    grid-area: genre
   }
 
   #watched-entry-info-container {
