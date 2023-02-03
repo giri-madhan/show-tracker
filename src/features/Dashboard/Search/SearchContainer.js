@@ -84,13 +84,10 @@ export default class SearchContainer extends React.Component {
                     </form>
                 </div>
                 <div className='search-container-items'>
-                    {searchResults !== null ? searchResults.map( (result) => {
-                        return (
-                            <>
-                                <SearchCard result={result} addToWatchList={this.addToWatchList} key={result.id}/>
-                            </>
+                    {searchResults !== null ? searchResults.map( (result) => (
+                            <SearchCard result={result} addToWatchList={this.addToWatchList} key={result.id}/>
                         )
-                    }) : <div style={{color: '#fff', fontSize: 20}}>No search results.</div>}
+                    ) : <div style={{color: '#fff', fontSize: 20}}>No search results.</div>}
                 </div>
             </div>
         )
