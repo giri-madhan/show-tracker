@@ -528,9 +528,15 @@ transition-duration: .5s;
   }
   
   .search-container {
-    height: 40% !important;
+    height: 300px;
     width: 100%;
-    overflow: scroll;
+    overflow: hidden auto;
+    transition-duration: 1s;
+  }
+
+  .search-container.empty {
+    height: 150px !important;
+    transition-duration: 1s;
   }
 
   .search-container-items {
@@ -572,7 +578,7 @@ transition-duration: .5s;
   }
 
   #display-container {
-    height: 60% !important;
+    height: 40% !important;
   }
 
   #header-title {
@@ -582,7 +588,7 @@ transition-duration: .5s;
   .dash-header {
     width: 100%;
     padding: 5px;
-    margin-top: 10px;
+    border-top: 1px solid #666
   }
 
   #dash-header-container {
@@ -680,10 +686,6 @@ transition-duration: .5s;
 
   #wli-genre {
     grid-area: genre
-  }
-
-  #watched-entry-info-container {
-    
   }
 
   #watched-entry-title {

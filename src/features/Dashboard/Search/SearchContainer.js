@@ -69,7 +69,7 @@ export default class SearchContainer extends React.Component {
         const {searchQuery, searchResults} = this.state
 
         return(
-            <div className='search-container'>
+            <div className={`search-container ${searchResults === null ? 'empty' : ''}`}> 
                 <div className='sticky' style={{width: '100%', display: 'flex', height: 70, padding: 20}}>
                     <form style={{display: 'flex', width: '100%'}} onSubmit={(e) => this.getMovies(e)}>
                         <input type='submit' style={{display: 'none'}} />
