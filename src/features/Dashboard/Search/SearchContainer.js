@@ -10,7 +10,7 @@ export default class SearchContainer extends React.Component {
     }
 
     getMovies = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=4524058d1b58bdbc0fa9f7631e0d6e02&language=en-US&query=${this.state.searchQuery}`)
         .then(res => {
           this.setState({searchResults: res.data.results})

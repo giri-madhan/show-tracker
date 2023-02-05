@@ -1,6 +1,6 @@
 const GET_WLIs = `
     query FindAllWLIs{
-        allWLI{
+        allWLI(_size: 500){
           data {
             _id
             name
