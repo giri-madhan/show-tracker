@@ -610,6 +610,26 @@ transition-duration: .5s;
     height: 60px;
   }
 
+  .watch-list-modal {
+    width: 98%;
+    top: 0%;
+    left: 0%;
+    margin: 0;
+    overflow: auto;
+  }
+
+  .filter-modal-btns-container {
+    grid-template-columns: repeat(4, 80px);
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .filter-modal-btn {
+    font-size: .7rem;
+    width: 80px;
+  }
+
   #filter-choice-text {
     font-size: 1rem
   }
