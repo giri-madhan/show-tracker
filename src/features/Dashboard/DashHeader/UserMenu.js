@@ -1,7 +1,6 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import Modal from 'react-modal'
 import LogoutButton from '../../Buttons/LogoutButton'
-import DashFilterModal from './DashFilterModal'
 
 const UserMenu = (props) => {
     const {
@@ -21,10 +20,9 @@ const UserMenu = (props) => {
             onClick={() => setUserModalOpen(!userModalOpen)}
         >
             {user.name || 'MW'}
-            <Modal isOpen={userModalOpen} className='user-menu-modal' overlayClassName='user-menu-modal-overlay' ariaHideApp={false}>
+            <Modal shouldCloseOnOverlayClick={true} isOpen={userModalOpen} className={`user-menu-modal ${userModalOpen ? 'transition-open' : null}`} overlayClassName='user-menu-modal-overlay' ariaHideApp={false}>
                 <LogoutButton />
             </Modal>
-
         </div>
     )
 }
