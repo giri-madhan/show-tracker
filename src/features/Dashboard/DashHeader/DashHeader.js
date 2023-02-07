@@ -30,36 +30,40 @@ const DashHeader = (props) => {
 
     return(
         <div className='dash-header'>
-            <h1 style={{color: '#fff'}}>{getDisplayName()}</h1>
-                <div style={{display: 'flex', marginLeft: 'auto', alignItems: 'center', gap: 20}}>
-                {viewDisplay === 'watchList' && 
-                <>
-                    <DashFilterModal 
-                        isOpen={filterModalOpen} 
-                        toggle={setFilterModalOpen} 
-                        watchListItems={watchListItems}
-                        filteredList={filteredList}
-                        setFilterList={setFilterList}
-                    />
-                    {(filter &&  filteredList.length > 0) && <span style={{fontSize: 30, color: '#9fe'}} className='center' onClick={() => setFilterList([])}>
-                       {filter} {'(' + filteredList.length + ')'}
-                       <button className='clear-filter'>X</button>
-                    </span>}
-                    <button className='filter-btn' onClick={setFilterModalOpen}>
-                       <img src={filterIcon} width={45} style={{marginTop: 2}} alt='filter results'/>
-                    </button>
-                </>    
-                }
-                {viewDisplay !== 'watchList' && <button className='change-view-btn' onClick={() => setViewDisplay('watchList')}>
-                    Watch List
-                </button>}
-                {viewDisplay !== 'watched' && <button className='change-view-btn' onClick={() => setViewDisplay('watched')}>
-                    Watched
-                </button>}
-                {viewDisplay !== 'stats' && <button className='change-view-btn' onClick={() => setViewDisplay('stats')}>
-                    Statistics
-                </button>}
-                <UserMenu />
+            <h1 id='header-title' style={{color: '#fff'}}>{getDisplayName()}</h1>
+                <div id='dash-header-container' style={{display: 'flex', marginLeft: 'auto', alignItems: 'center', gap: 20}}>
+                    {viewDisplay === 'watchList' && 
+                    <>
+                        <DashFilterModal 
+                            isOpen={filterModalOpen} 
+                            toggle={setFilterModalOpen} 
+                            watchListItems={watchListItems}
+                            filteredList={filteredList}
+                            setFilterList={setFilterList}
+                        />
+                        {(filter &&  filteredList.length > 0) && (
+                        <span id='filter-choice-text' className='center' onClick={() => setFilterList([])}>
+                            {filter} {'(' + filteredList.length + ')'}
+                        <button className='clear-filter'>X</button>
+                        </span>
+                        )}
+                        <button className='filter-btn' onClick={setFilterModalOpen}>
+                            <img src={filterIcon} width={45} style={{marginTop: 2}} alt='filter results'/>
+                        </button>
+                    </>    
+                    }
+                    {viewDisplay !== 'watchList' && <button className='change-view-btn' onClick={() => setViewDisplay('watchList')}>
+                        Watch List
+                    </button>}
+                    {viewDisplay !== 'watched' && <button className='change-view-btn' onClick={() => setViewDisplay('watched')}>
+                        Watched
+                    </button>}
+                    {viewDisplay !== 'stats' && <button className='change-view-btn' onClick={() => setViewDisplay('stats')}>
+                        Statistics
+                    </button>}
+                    <div className='center'>
+                        <UserMenu />
+                    </div>
                 </div>
         </div>
     )

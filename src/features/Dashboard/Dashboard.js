@@ -27,7 +27,7 @@ const Dashboard = () => {
 
     return(
         <div className='dash-container'>
-          <div style={{display: 'flex', height: '100%', width: '100%'}}>
+          <div className='dash-container-inner' style={{display: 'flex', height: '100%', width: '100%'}}>
             <SearchContainer 
               wlData={list} 
               addToRedux={addToRedux} 

@@ -15,12 +15,12 @@ const EntryContainer = (props) => {
     
 
     return(
-        <div className='watched-entry-container'>
+        <div className='display-entry-container'>
             <DashHeader 
-                viewDisplay={viewDisplay} 
-                setViewDisplay={setViewDisplay} 
-            />
-            <div style={{paddingTop: 100}}>
+                    viewDisplay={viewDisplay} 
+                    setViewDisplay={setViewDisplay} 
+                />
+            <div className='watched-entry-container'>
                 {watchedItems.slice(0).reverse().map((mp, i) => (
                     <WatchedEntryCard mp={mp} key={mp.movieID || mp._id || i}  />
                 ))}

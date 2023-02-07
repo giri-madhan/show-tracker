@@ -46,10 +46,29 @@ body,html {
   width: 0
 }
 
+.search-container-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
 .search-card-title {
   font-size: 24px;
   font-weight: 700;
   color: rgb(241, 100, 100)
+}
+
+.search-card-description {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-card-description-dlv {
+  display: flex;
+  flex-direction: column;
 }
 
 .add-to-watchlist-btn {
@@ -72,11 +91,21 @@ body,html {
   background: #0D1117;
 }
 
+.display-entry-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .watched-entry-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-  overflow: auto;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  gap: 20px;
+  margin-top: 100px;
   }
 
 .watched-entry-container::-webkit-scrollbar {
@@ -94,7 +123,11 @@ body,html {
   padding: 0 50px; 
   background: #191e23;
   position: fixed;
-  z-index: 2;
+}
+
+#filter-choice-text {
+  font-size: 30;
+  color: #9fe
 }
 
 .stats-container {
@@ -118,39 +151,40 @@ body,html {
 }
 
 .robust-watched-entry-card {
-  display: flex;
-  margin: 0 50px;
-  margin-bottom: 10px;
   background: #15151e;
   border: 1px solid #666;
   height: 100px;
   gap: 10px;
   border-radius: 7px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 66px 3fr 1fr;
   font-size: 20px;
   color: #aaa;
-  min-width: 430px;
+  width: 90%;
 }
 
-.wli-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin: 0 50px 0 50px;
-  padding-top: 100px;
+#watched-entry-title {
+  font-size: clamp(16px, 2vw, 25px);
+  color: rgb(241, 100, 100);
+  margin-top: 7px
 }
 
 .watch-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
-  height: 100%;
-  overflow-y: scroll;
+  height: 100vh;
+  margin-top: 100px;
+  overflow-y: auto;
   overflow-x: hidden;
+  gap: 10px;
 }
 
 .watch-list-container::-webkit-scrollbar {
   scrollbar-width: none; 
   -ms-overflow-style: none;  
-  width: 0
+  width: 0;
 }
 
 .watch-list-modal {
@@ -181,8 +215,18 @@ body,html {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
   gap: 20px;
   padding: 10px;
+}
+
+.user-menu-modal-overlay {
+  background-color: rgba(63, 63, 63, 0.75);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .user-menu-icon {
@@ -303,6 +347,15 @@ body,html {
   cursor: url('/public/icons8-view-50.png'), auto;	
 }
 
+#action-btn-container {
+  width: 10%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  right: 30px;
+  gap: 40px
+}
+
 .complete-btn, .delete-btn {
 width: 60px;
 background: #15151e;
@@ -359,7 +412,6 @@ transition-duration: .5s;
   background: #313131;
   border: 2px solid #cff;
   font-weight: 700;
- 
 }
 
 .change-view-btn:hover {
@@ -474,6 +526,7 @@ transition-duration: .5s;
   cursor: pointer;
   transition-duration: .5s;
 }
+/*Media Queries*/
 
 @media only screen and (max-width: 800px) {
 
@@ -481,8 +534,277 @@ transition-duration: .5s;
     box-shadow: none;
   }
 
-  .search-card-inner-box {
-    display: none
+}
+@media only screen and (max-width: 600px) {
+  
+  .dash-container-inner{
+    flex-direction: column
   }
 
+  .change-view-btn {
+    font-size: 14px;
+    width: 90px;
+  }
+  
+  .search-container {
+    height: 300px;
+    width: 100%;
+    overflow: hidden auto;
+    transition-duration: 1s;
+  }
+
+  .search-container.empty {
+    height: 150px !important;
+    transition-duration: 1s;
+  }
+
+  .search-container-items {
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  .search-card-outer-box {
+    height: 60px;
+  }
+
+  .search-card-inner-box {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 5px 10px 10px;
+  }
+
+  .search-card-title {
+    font-size: 14px;
+  }
+
+  .search-card-description {
+    font-size: 12px;
+  }
+
+  .search-card-description-genres {
+    display: flex;
+  }
+
+  .search-card-description-dlv {
+    flex-direction: row;
+    gap: 5px
+  }
+
+  #search-card-img {
+      height: 60px;
+      width: 60px;
+  }
+
+  #display-container {
+    height: 40% !important;
+  }
+
+  #header-title {
+    display: none;
+  }
+
+  .dash-header {
+    width: 100%;
+    padding: 5px;
+    border-top: 1px solid #666
+  }
+
+  .user-menu-modal {
+    width: 20%;
+    min-height: 100%;
+    background: #232323;
+    outline: none;
+    border: unset;
+    border-radius: unset;
+    border-left: 2px solid #9fe;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 5s;
+    transition: ease-in;
+    animation: slidein .7s;
+  }
+
+  @keyframes slidein {
+    from {
+      width: 0;
+    }
+    to {
+      width: 20%;
+    }
+  }
+  #dash-header-container {
+    gap: 4px !important;  
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 5px;
+    width: 100%;
+    height: 60px;
+  }
+
+  .watch-list-modal {
+    width: 98%;
+    top: 0%;
+    left: 0%;
+    margin: 0;
+    overflow: auto;
+  }
+
+  .filter-modal-btns-container {
+    grid-template-columns: repeat(4, 80px);
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .filter-modal-btn {
+    font-size: .7rem;
+    width: 80px;
+  }
+
+  #filter-choice-text {
+    font-size: 1rem
+  }
+  
+  .robust-watched-entry-card {
+    background: #15151e;
+    border: 1px solid #666;
+    height: 100px;
+    gap: 10px;
+    border-radius: 7px;
+    display: grid;
+    grid-template-columns: 66px 180px 1fr;
+    font-size: 20px;
+    color: #aaa;
+    width: 90%;
+  }
+
+  .wli-card{
+    height: 100px;
+  }
+
+  #action-btn-container {
+    width: 5%;
+    right: 20px;
+    gap: 20px;
+  }
+
+  .complete-btn, .delete-btn {
+    width: 40px;
+    height: 40px !important;
+    border: none !important;
+  }
+  
+  .complete-btn img, .delete-btn img {
+    margin-top: 2px;
+    margin-left: -14px;
+  }
+
+  #wli-overview {
+    font-size: 10px !important;
+  }
+
+  #wli-img-container {
+    margin-right: 10px !important
+  }
+
+  #wli-img {
+    height: 100%;
+    width: 66px;
+  }
+
+  #wli-title-container {
+    margin-top: 5px !important;
+    overflow-y: scroll;
+  }
+
+  #wli-title {
+    font-size: 14px !important;
+    gap: 4px;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  #wli-title span {
+    margin: 0 !important;
+  }
+
+  #wli-release-date {
+    font-size: 10px;
+  }
+
+  #wli-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 12px 12px 12px;
+    grid-template-areas: 
+    "t1 ."
+    "t2 ."
+    "genre genre";
+    font-size: 10px;
+  }
+
+  #wli-t1 {
+    grid-area: t1
+  }
+
+  #wli-t2 {
+    grid-area: t2
+  }
+
+  #wli-genre {
+    grid-area: genre
+  }
+
+  #watched-entry-title {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow: auto !important;
+    white-space: nowrap;
+    margin-top: 2px !important;
+    padding-bottom: 0px !important; 
+  }
+
+  #watched-entry-title::-webkit-scrollbar {
+    scrollbar-width: none; 
+    -ms-overflow-style: none;  
+    width: 0;
+    height: 5px
+  }
+
+  #watched-entry-title span {
+    margin: 0 !important;
+  }
+
+  #watched-entry-genres {
+    font-size: clamp(10px, 12px, 15px) !important;
+    overflow: auto;
+    white-space: nowrap;
+    margin-top: 3px !important;
+  }
+
+  #watched-entry-dateRating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+
+  #watched-entry-dateRating span {
+    margin: 0 !important
+  }
+
+  #watched-entry-duration {
+    font-size: clamp(10px, 2rem, 15px)
+  }
+
+  /* .user-menu-icon {
+    display: none;
+  } */
 }

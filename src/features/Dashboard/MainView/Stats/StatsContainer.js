@@ -18,7 +18,7 @@ const StatsContainer = (props) => {
                 viewDisplay={viewDisplay} 
                 setViewDisplay={setViewDisplay} 
             />
-            <div style={{paddingTop: 100, display: 'flex', flexDirection: 'column'}}>
+            <div style={{ display: 'flex', flexDirection: 'column'}}>
                 <span>
                     Movies in Watch List: {wlData.length}
                 </span>

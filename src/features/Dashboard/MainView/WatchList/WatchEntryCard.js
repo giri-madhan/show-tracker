@@ -85,10 +85,11 @@ const WatchEntryCard = ({wli, mpData}) => {
     }
 
     return(
-        <div style={{display: 'flex', width: '110%'}}>
+        <div style={{display: 'flex', width: '90%', justifyContent: 'center'}}>
             <div className='wli-card' onClick={() => setOverview(!overview)}>
-                    <div style={{marginRight: 20}}>
+                    <div id='wli-img-container' style={{marginRight: 20}}>
                         <img 
+                            id='wli-img'
                             src={wli.photo !== null && imgLoaded ? imgSrc : defaultPoster} 
                             width={100} 
                             alt="" 
@@ -100,20 +101,20 @@ const WatchEntryCard = ({wli, mpData}) => {
                         />
                     </div>
                     {!watched ? (
-                    <div style={{ marginTop: 10}}>
-                        <div style={{color: '#fff', fontSize: 30, display: 'flex', position: 'relative'}}>
+                    <div id='wli-title-container' style={{ marginTop: 10}}>
+                        <div id='wli-title' style={{color: '#fff', fontSize: 30, display: 'flex', position: 'relative'}}>
                             <span>{wli.name}</span>
-                            <span style={{marginLeft: 25}}>({wli.releaseDate ? wli.releaseDate.substring(0, 4) : null})</span>
+                            <span id='wli-release-date' style={{marginLeft: 25}}>({wli.releaseDate ? wli.releaseDate.substring(0, 4) : null})</span>
                         </div>
-                        <div style={{marginTop: 15, fontSize: 24, color: '#bbb'}}>
+                        <div id='wli-info-container' style={{marginTop: 15, fontSize: 24, color: '#bbb'}}>
                             {!overview ? (
-                                <>
-                                    <div>{wli.voteAverage}/10</div>
-                                    <div>{wli.duration} Minutes</div>
-                                    <div>{wli.genre}</div>
-                                </>
+                                <div id='wli-info'>
+                                    <div id='wli-t1'>{wli.voteAverage}/10</div>
+                                    <div id='wli-t2'>{wli.duration} Minutes</div>
+                                    <div id='wli-genre'>{wli.genre}</div>
+                                </div>
                                 ) : (
-                                <div style={{fontSize: 18, padding: 5, paddingRight: 25, marginTop: -10}}>
+                                <div id='wli-overview' style={{fontSize: 18, padding: 5, paddingRight: 25, marginTop: -10}}>
                                     {wli.overview}
                                     </div>
                                 )}
@@ -133,7 +134,7 @@ const WatchEntryCard = ({wli, mpData}) => {
                         />
                     )}
             </div>
-            <div style={{width: '10%', display: 'flex', flexDirection: 'column', position: 'relative', right: 30, gap: 40}}>
+            <div id='action-btn-container'>
                 <button className='complete-btn' 
                     onClick={!watched ? () => openWatchedForm() : () => addToWatched(wli)} 
                     style={{height: 60, borderRadius: 100}}

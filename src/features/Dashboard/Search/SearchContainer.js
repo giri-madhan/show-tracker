@@ -69,7 +69,7 @@ export default class SearchContainer extends React.Component {
         const {searchQuery, searchResults} = this.state
 
         return(
-            <div className='search-container'>
+            <div className={`search-container ${searchResults === null ? 'empty' : ''}`}> 
                 <div className='sticky' style={{width: '100%', display: 'flex', height: 70, padding: 20}}>
                     <form style={{display: 'flex', width: '100%'}} onSubmit={(e) => this.getMovies(e)}>
                         <input type='submit' style={{display: 'none'}} />
@@ -83,14 +83,11 @@ export default class SearchContainer extends React.Component {
                         <input type='submit' className='get-movies-btn' style={{width: '20%', marginLeft: 15}} value='Search' />
                     </form>
                 </div>
-                <div className='search-container-items' style={{display: 'flex', flexDirection: 'column', gap: 20, justifyContent: 'center', alignItems: 'center', marginTop: 40}}>
-                    {searchResults !== null ? searchResults.map( (result, i) => {
-                        return (
-                            <>
-                                <SearchCard result={result} addToWatchList={this.addToWatchList} key={result.id}/>
-                            </>
+                <div className='search-container-items'>
+                    {searchResults !== null ? searchResults.map( (result) => (
+                            <SearchCard result={result} addToWatchList={this.addToWatchList} key={result.id}/>
                         )
-                    }) : <div style={{color: '#fff', fontSize: 20}}>No search results.</div>}
+                    ) : <div style={{color: '#fff', fontSize: 20}}>No search results.</div>}
                 </div>
             </div>
         )

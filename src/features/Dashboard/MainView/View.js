@@ -7,7 +7,7 @@ const View = (props) => {
     const {mpData, wlData, isLoading, viewDisplay, setViewDisplay} = props
     
     return(
-        <div style={{width: '100%'}}>
+        <div id='display-container' style={{width: '100%'}}>
             {viewDisplay === 'watchList' ? <WatchList viewDisplay={viewDisplay} setViewDisplay={setViewDisplay} mpData={mpData} wlData={wlData} isLoading={isLoading} />
             : viewDisplay === 'watched' ? <Watched viewDisplay={viewDisplay} setViewDisplay={setViewDisplay} wlData={wlData} />
             : viewDisplay === 'stats' ? <Stats viewDisplay={viewDisplay} setViewDisplay={setViewDisplay} mpData={mpData} wlData={wlData} /> : null
