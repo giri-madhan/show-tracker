@@ -15,6 +15,12 @@ const DashHeader = (props) => {
 
     const [filterModalOpen, setFilterModalOpen] = useState(false)
 
+    const handleToggleFilterModal = (event) => {
+        event.preventDefault()
+        setFilterModalOpen(!filterModalOpen)
+    }
+
+
     const getDisplayName = () => {
         switch(viewDisplay) {
             case 'watchList':
@@ -36,7 +42,7 @@ const DashHeader = (props) => {
                     <>
                         <DashFilterModal 
                             isOpen={filterModalOpen} 
-                            toggle={setFilterModalOpen} 
+                            toggle={handleToggleFilterModal} 
                             watchListItems={watchListItems}
                             filteredList={filteredList}
                             setFilterList={setFilterList}
