@@ -16,6 +16,7 @@ const DashHeader = (props) => {
     const [filterModalOpen, setFilterModalOpen] = useState(false)
 
     const handleToggleFilterModal = (event) => {
+        console.log(event)
         event.preventDefault()
         setFilterModalOpen(!filterModalOpen)
     }
@@ -53,7 +54,7 @@ const DashHeader = (props) => {
                         <button className='clear-filter'>X</button>
                         </span>
                         )}
-                        <button className='filter-btn' onClick={setFilterModalOpen}>
+                        <button className='filter-btn' onClick={() => setFilterModalOpen(!filterModalOpen)}>
                             <img src={filterIcon} width={45} style={{marginTop: 2}} alt='filter results'/>
                         </button>
                     </>    

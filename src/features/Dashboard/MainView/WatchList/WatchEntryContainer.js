@@ -11,16 +11,18 @@ const EntryContainer = (props) => {
     const setFilterListAndType = (data, filter) => {
         setFilteredList(data)
 
-        let formattedFilter
-        if (filter === 'dateasc') {
-            formattedFilter = 'Oldest First'
-        } 
-        else if (filter === 'datedesc') {
-            formattedFilter = 'Newest First'
-        } else {
-            formattedFilter = filter[0].toUpperCase() + filter.substring(1)
+        if (filter) {
+            let formattedFilter
+            if (filter === 'dateasc') {
+                formattedFilter = 'Oldest First'
+            } 
+            else if (filter === 'datedesc') {
+                formattedFilter = 'Newest First'
+            } else {
+                formattedFilter = filter[0].toUpperCase() + filter.substring(1)
+            }
+            setFilter(formattedFilter)
         }
-        setFilter(formattedFilter)
     }
     
     const getDisplayList = () => {

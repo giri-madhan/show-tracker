@@ -17,38 +17,38 @@ const GenreFilterBtns = (props) => {
         return currentGenres.sort()
     }
 
-    const filterResults = (option) => {
+    const filterResults = (option, e) => {
         option = option.toLowerCase()
-        let w = [...props.watchListItems]
+        let w = [...watchListItems]
         if (option === 'dateasc') {
             props.setFilterList(w.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate)), option)
-            props.setFilterModalOpen(false)
+            props.setFilterModalOpen(e)
         } 
         if (option === 'datedesc') { // most recent first
             props.setFilterList(w.sort((a, b) => new Date(a.releaseDate) - new Date(b.releaseDate)), option)
-            props.setFilterModalOpen(false)
+            props.setFilterModalOpen(e)
         }
         if (option === 'imdb') {
             props.setFilterList(w.sort((a, b) => a.voteAverage - b.voteAverage), 'Top Rated')
-            props.setFilterModalOpen(false)
+            props.setFilterModalOpen(e)
         }
         getGenres().forEach(item => {
             item = item.toLowerCase()
             if (option === item) {
                 props.setFilterList(w.filter(z => z.genre.toLowerCase().includes(item)), option)
-                props.setFilterModalOpen(false)
+                props.setFilterModalOpen(e)
             }
         })
     }
 
     return (
         <div className='filter-modal-btns-container'>
-            <button className='filter-modal-btn' onClick={() => filterResults('datedesc')}>Newest</button>
-            <button className='filter-modal-btn' onClick={() => filterResults('dateasc')}>Oldest</button>
-            <button className='filter-modal-btn' onClick={() => filterResults('imdb')}>Top Rated</button>
+            <button className='filter-modal-btn' onClick={(e) => filterResults('datedesc', e)}>Newest</button>
+            <button className='filter-modal-btn' onClick={(e) => filterResults('dateasc', e)}>Oldest</button>
+            <button className='filter-modal-btn' onClick={(e) => filterResults('imdb', e)}>Top Rated</button>
             {getGenres().map((g, idx) => {
-                return <button className='filter-modal-btn' onClick={() => {
-                    filterResults(g.toLowerCase())
+                return <button className='filter-modal-btn' onClick={(e) => {
+                    filterResults(g.toLowerCase(), e)
                 }} key={idx}>{g}</button>
             })}
         </div>
