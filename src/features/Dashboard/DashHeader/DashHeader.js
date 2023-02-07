@@ -41,10 +41,12 @@ const DashHeader = (props) => {
                             filteredList={filteredList}
                             setFilterList={setFilterList}
                         />
-                        {(filter &&  filteredList.length > 0) && <span style={{fontSize: 30, color: '#9fe'}} className='center' onClick={() => setFilterList([])}>
-                        {filter} {'(' + filteredList.length + ')'}
+                        {(filter &&  filteredList.length > 0) && (
+                        <span id='filter-choice-text' className='center' onClick={() => setFilterList([])}>
+                            {filter} {'(' + filteredList.length + ')'}
                         <button className='clear-filter'>X</button>
-                        </span>}
+                        </span>
+                        )}
                         <button className='filter-btn' onClick={setFilterModalOpen}>
                             <img src={filterIcon} width={45} style={{marginTop: 2}} alt='filter results'/>
                         </button>
