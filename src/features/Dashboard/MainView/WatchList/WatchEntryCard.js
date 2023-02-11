@@ -109,7 +109,7 @@ const WatchEntryCard = ({wli, mpData}) => {
                         <div id='wli-info-container' style={{marginTop: 15, fontSize: 24, color: '#bbb'}}>
                             {!overview ? (
                                 <div id='wli-info'>
-                                    <div id='wli-t1'>{wli.voteAverage}/10</div>
+                                    <div id='wli-t1' style={{color: '#f5c518'}}>{wli.voteAverage}/10 (IMDb)</div>
                                     <div id='wli-t2'>{wli.duration} Minutes</div>
                                     <div id='wli-genre'>{wli.genre}</div>
                                 </div>
