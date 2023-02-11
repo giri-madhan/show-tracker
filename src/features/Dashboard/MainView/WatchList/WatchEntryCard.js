@@ -132,7 +132,14 @@ const WatchEntryCard = ({wli, mpData}) => {
                                     <div id='wli-genre'>{wli.genre}</div>
                                     {whereToWatch && <div id='wli-where-to-watch'>
                                         {whereToWatch?.flatrate?.map((a,i) => {
-                                            return <img key={i} src={posterPath + a.logo_path} width={20} />
+                                            return (
+                                                <img 
+                                                    key={i} 
+                                                    src={posterPath + a.logo_path} 
+                                                    height={50}
+                                                    style={{borderRadius: 5}}
+                                                />
+                                            )
                                         })}
                                     </div>}
                                 </div>
