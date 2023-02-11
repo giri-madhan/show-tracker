@@ -186,9 +186,7 @@ const WatchEntryCard = ({wli, mpData}) => {
                                                 className='center'
                                                 style={{
                                                     height: 50, 
-                                                    background: '#111',
-                                                    padding: 5,
-                                                    borderRadius:5
+                                                    padding: 5
                                                 }}
                                             >
                                                 No Platforms Found
