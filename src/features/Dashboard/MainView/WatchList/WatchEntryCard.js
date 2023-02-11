@@ -99,7 +99,7 @@ const WatchEntryCard = ({wli, mpData}) => {
     return(
         <div style={{display: 'flex', width: '90%', justifyContent: 'center'}}>
             <div className='wli-card' onClick={() => setOverview(!overview)}>
-                    <div id='wli-img-container' style={{marginRight: 20}}>
+                    <div id='wli-img-container'>
                         <img 
                             id='wli-img'
                             src={wli.photo !== null && imgLoaded ? imgSrc : defaultPoster} 
@@ -114,12 +114,14 @@ const WatchEntryCard = ({wli, mpData}) => {
                         />
                     </div>
                     {!watched ? (
-                    <div id='wli-title-container' style={{ marginTop: 10}}>
-                        <div id='wli-title' style={{color: '#fff', fontSize: 30, display: 'flex', position: 'relative'}}>
+                    <div id='wli-title-container' style={{ marginTop:2}}>
+                        <div id='wli-title'>
                             <span>{wli.name}</span>
-                            <span id='wli-release-date' style={{marginLeft: 25}}>({wli.releaseDate ? wli.releaseDate.substring(0, 4) : null})</span>
+                            <span id='wli-release-date'>
+                                ({wli.releaseDate ? wli.releaseDate.substring(0, 4) : null})
+                            </span>
                         </div>
-                        <div id='wli-info-container' style={{marginTop: 5, fontSize: 24, color: '#bbb'}}>
+                        <div id='wli-info-container' style={{marginTop: 12, fontSize: 24, color: '#bbb'}}>
                             {!overview ? (
                                 <div id='wli-info'>
                                     <div id='wli-t1'>
@@ -128,9 +130,21 @@ const WatchEntryCard = ({wli, mpData}) => {
                                         </span>
                                         <span> (IMDb) </span>
                                         <span>| {wli.duration} Minutes</span>
+                                        <span> | {wli.genre.split(',').slice(0,2).join(',')}</span>
                                     </div>
-                                    <div id='wli-genre'>{wli.genre}</div>
-                                    {whereToWatch && <div id='wli-where-to-watch'>
+                                    {whereToWatch?.flatrate?.length > 0 ? (
+                                    <div id='wli-where-to-watch'>
+                                        <span 
+                                            className='center'
+                                            style={{
+                                                height: 50, 
+                                                background: '#111',
+                                                padding: 2,
+                                                borderRadius:5
+                                            }}
+                                        >
+                                            Stream:
+                                        </span>
                                         {whereToWatch?.flatrate?.map((a,i) => {
                                             return (
                                                 <img 
@@ -141,12 +155,52 @@ const WatchEntryCard = ({wli, mpData}) => {
                                                 />
                                             )
                                         })}
-                                    </div>}
+                                    </div>
+                                    ) : whereToWatch?.flatrate?.length > 0 ? (
+                                        <div id='wli-where-to-watch'>
+                                            <span 
+                                                className='center'
+                                                style={{
+                                                    height: 50, 
+                                                    background: '#111',
+                                                    padding: 2,
+                                                    borderRadius:5
+                                                }}
+                                            >
+                                                Rent:
+                                            </span>
+                                            {whereToWatch?.rent?.map((a,i) => {
+                                                return (
+                                                    <img 
+                                                        key={i} 
+                                                        src={posterPath + a.logo_path} 
+                                                        height={50}
+                                                        style={{borderRadius: 5}}
+                                                    />
+                                                )
+                                            })}
+                                        </div>
+                                    ) : (
+                                        <div id='wli-where-to-watch'>
+                                            <span 
+                                                className='center'
+                                                style={{
+                                                    height: 50, 
+                                                    background: '#111',
+                                                    padding: 5,
+                                                    borderRadius:5
+                                                }}
+                                            >
+                                                No Platforms Found
+                                            </span>
+                                            
+                                        </div>
+                                    )}
                                 </div>
                                 ) : (
                                 <div id='wli-overview' style={{fontSize: 18, padding: 5, paddingRight: 25, marginTop: -10}}>
                                     {wli.overview}
-                                    </div>
+                                </div>
                                 )}
                         </div>
                     </div> 
