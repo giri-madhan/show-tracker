@@ -1,23 +1,12 @@
 import React, {useState} from 'react'
 import defaultPoster from '../../../../icons/default_poster.jpg'
 import formatDate from '../../../../utils/formatDate'
+import formatRatingStyle from '../../../../utils/formatRatingStyle'
 
 const WatchedEntryCard = ({mp}) => {
     const posterPath = 'https://image.tmdb.org/t/p/original'
     const [imgLoaded, setImgLoaded] = useState(false)
     const [mpImg, setMpImg] = useState('')
-
-    const formatRatingStyle = () => {
-        if (mp.rating) {
-            if (mp.rating === 10) return 'rgb(0, 255, 0)'
-            if (mp.rating === 9) return 'rgb(50, 240, 0)'
-            if (mp.rating === 8) return 'rgb(100, 220, 0)'
-            if (mp.rating === 7) return 'rgb(150, 200, 0)'
-            if (mp.rating === 6) return 'rgb(200, 180, 0)'
-            if (mp.rating === 5) return 'rgb(250, 160, 0)'
-            if (mp.rating < 5) return 'rgb(255, 0, 0)'
-        }
-    }
     
     return(
         <>
@@ -53,7 +42,7 @@ const WatchedEntryCard = ({mp}) => {
                     <span style={{marginRight: 10}}>
                         {formatDate(mp.watchDate)}
                     </span>
-                    <span style={{color: formatRatingStyle()}}>{mp.rating}/10</span>
+                    <span style={{color: formatRatingStyle(mp.rating)}}>{mp.rating}/10</span>
                 </div>
             </div>
         </>
