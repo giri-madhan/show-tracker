@@ -103,7 +103,8 @@ const WatchEntryCard = ({wli, mpData}) => {
                         <img 
                             id='wli-img'
                             src={wli.photo !== null && imgLoaded ? imgSrc : defaultPoster} 
-                            width={100} 
+                            width={110}
+                            height={'100%'}
                             alt="" 
                             style={{borderRadius: '5px 0 0 5px'}}
                             onLoad={() => {
@@ -118,7 +119,7 @@ const WatchEntryCard = ({wli, mpData}) => {
                             <span>{wli.name}</span>
                             <span id='wli-release-date' style={{marginLeft: 25}}>({wli.releaseDate ? wli.releaseDate.substring(0, 4) : null})</span>
                         </div>
-                        <div id='wli-info-container' style={{marginTop: 15, fontSize: 24, color: '#bbb'}}>
+                        <div id='wli-info-container' style={{marginTop: 5, fontSize: 24, color: '#bbb'}}>
                             {!overview ? (
                                 <div id='wli-info'>
                                     <div id='wli-t1'>
@@ -127,8 +128,13 @@ const WatchEntryCard = ({wli, mpData}) => {
                                         </span>
                                         <span> (IMDb) </span>
                                         <span>| {wli.duration} Minutes</span>
-                                        </div>
+                                    </div>
                                     <div id='wli-genre'>{wli.genre}</div>
+                                    {whereToWatch && <div id='wli-where-to-watch'>
+                                        {whereToWatch?.flatrate?.map((a,i) => {
+                                            return <img key={i} src={posterPath + a.logo_path} width={20} />
+                                        })}
+                                    </div>}
                                 </div>
                                 ) : (
                                 <div id='wli-overview' style={{fontSize: 18, padding: 5, paddingRight: 25, marginTop: -10}}>

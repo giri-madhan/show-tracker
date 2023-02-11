@@ -340,7 +340,7 @@ body,html {
   background: #15151e;
   border: 1px solid #666;
   width: 100%;
-  height: 150px;
+  height: 180px;
   border-radius: 7px;
   display: flex;
   justify-content: flex-start;
@@ -348,6 +348,14 @@ body,html {
 
 .wli-card:hover {
   cursor: url('/public/icons8-view-50.png'), auto;	
+}
+
+#wli-where-to-watch {
+  display: flex;
+  gap: 5px;
+  background: #333;
+  padding: 3px;
+  border-radius: 5px;
 }
 
 #create-card-container {
@@ -727,8 +735,8 @@ transition-duration: .5s;
     width: 90%;
   }
 
-  .wli-card{
-    height: 100px;
+  .wli-card {
+    height: 110px;
   }
 
   #create-card-container {
@@ -816,11 +824,11 @@ transition-duration: .5s;
   #wli-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 12px 12px 12px;
+    grid-template-rows: 12px 12px 20px; /*adjusts row height*/
     grid-template-areas: 
-    "t1 ."
-    "t2 ."
-    "genre genre";
+    "t1 ." /*. means empty but still take up space*/
+    "genre genre"
+    "watch .";
     font-size: 10px;
   }
 
@@ -828,12 +836,13 @@ transition-duration: .5s;
     grid-area: t1;
   }
 
-  #wli-t2 {
-    grid-area: t2
-  }
-
   #wli-genre {
     grid-area: genre
+  }
+
+  #wli-where-to-watch {
+    grid-area: watch;
+    height: 20px;
   }
 
   #watched-entry-title {
