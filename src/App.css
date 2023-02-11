@@ -825,7 +825,7 @@ transition-duration: .5s;
   }
 
   #wli-t1 {
-    grid-area: t1
+    grid-area: t1;
   }
 
   #wli-t2 {
