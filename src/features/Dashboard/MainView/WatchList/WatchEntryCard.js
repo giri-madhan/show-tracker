@@ -145,7 +145,7 @@ const WatchEntryCard = ({wli, mpData}) => {
                                         >
                                             Stream:
                                         </span>
-                                        {whereToWatch?.flatrate?.map((a,i) => {
+                                        {whereToWatch?.flatrate?.slice(0, 5).map((a,i) => {
                                             return (
                                                 <img 
                                                     key={i} 
@@ -156,7 +156,7 @@ const WatchEntryCard = ({wli, mpData}) => {
                                             )
                                         })}
                                     </div>
-                                    ) : whereToWatch?.flatrate?.length > 0 ? (
+                                    ) : whereToWatch?.rent?.length > 0 ? (
                                         <div id='wli-where-to-watch'>
                                             <span 
                                                 className='center'
@@ -169,7 +169,7 @@ const WatchEntryCard = ({wli, mpData}) => {
                                             >
                                                 Rent:
                                             </span>
-                                            {whereToWatch?.rent?.map((a,i) => {
+                                            {whereToWatch?.rent?.slice(0, 5).map((a,i) => {
                                                 return (
                                                     <img 
                                                         key={i} 
