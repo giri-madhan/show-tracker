@@ -3,7 +3,6 @@ import GenreFilterBtns from '../MainView/WatchList/GenreFilterButtons'
 
 const DashFilterModal = (props) => {
     const {isOpen, toggle, watchListItems, setFilterList} = props
-    console.log(isOpen)
 
     return (
         <Modal 
