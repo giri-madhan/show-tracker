@@ -350,6 +350,31 @@ body,html {
   cursor: url('/public/icons8-view-50.png'), auto;	
 }
 
+#create-card-container {
+  gap: 5px;
+  width: 100%;
+  padding: 20px
+}
+
+#create-card-top-row {
+  display: flex; 
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+  height: 100%
+}
+
+#create-card-bottom-row {
+  flex: 2;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+#create-card-bottom-row textarea {
+  resize: none;
+  width: 100%;
+}
+
 #action-btn-container {
   width: 10%;
   display: flex;
@@ -529,7 +554,7 @@ transition-duration: .5s;
   cursor: pointer;
   transition-duration: .5s;
 }
-/*Media Queries*/
+/*----------------------------------------------Media Queries------------------------------------------------*/
 
 @media only screen and (max-width: 800px) {
 
