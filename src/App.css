@@ -859,12 +859,16 @@ transition-duration: .5s;
 
   #wli-where-to-watch {
     grid-area: watch;
-    height: 20px;
+    height: 30px;
     padding: 2px;
   }
 
   #wli-where-to-watch img {
-    height: 20px
+    height: 30px
+  }
+
+  #wli-where-to-watch span {
+    height: 25px !important
   }
 
   #watched-entry-title {
