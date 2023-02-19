@@ -37,7 +37,7 @@ const SearchCard = ({result, addToWatchList}) => {
                                 {result?.original_language?.toUpperCase()}
                             </span>
                             <span>
-                                {'IMDB: ' + result?.vote_average?.toFixed(2)}
+                                {'IMDB: ' + result?.vote_average?.toFixed(1)}
                             </span>
                         </div>
                     </div>
