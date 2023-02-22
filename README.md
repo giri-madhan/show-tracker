@@ -10,3 +10,5 @@ To run locally:
 1. Clone repo
 2. run npm i
 3. netlify dev to start app
+
+Movie data acquired from The Movie Database:
