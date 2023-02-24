@@ -152,6 +152,7 @@ const WatchEntryCard = ({wli, mpData}) => {
                                                     src={posterPath + a.logo_path} 
                                                     height={50}
                                                     style={{borderRadius: 5}}
+                                                    alt=''
                                                 />
                                             )
                                         })}
