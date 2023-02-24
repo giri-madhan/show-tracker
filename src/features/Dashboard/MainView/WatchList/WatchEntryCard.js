@@ -121,7 +121,7 @@ const WatchEntryCard = ({wli, mpData}) => {
                                 ({wli.releaseDate ? wli.releaseDate.substring(0, 4) : null})
                             </span>
                         </div>
-                        <div id='wli-info-container' style={{marginTop: 12, fontSize: 24, color: '#bbb'}}>
+                        <div id='wli-info-container'>
                             {!overview ? (
                                 <div id='wli-info'>
                                     <div id='wli-t1'>
@@ -152,6 +152,7 @@ const WatchEntryCard = ({wli, mpData}) => {
                                                     src={posterPath + a.logo_path} 
                                                     height={50}
                                                     style={{borderRadius: 5}}
+                                                    alt=''
                                                 />
                                             )
                                         })}
