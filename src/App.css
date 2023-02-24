@@ -372,12 +372,21 @@ body,html {
   gap: 5px;
   background: #222;
   box-shadow: 0 0 0 2px #9FE2BF55;
-  margin-top: 5px;
+  margin-top: 10px;
   padding: 6px;
   border-radius: 5px;
   width: fit-content;
   justify-content: center;
   align-items: center;
+  height: 40px;
+}
+
+#wli-where-to-watch img {
+  height: 40px
+}
+
+#wli-where-to-watch span {
+  height: 40px !important
 }
 
 #create-card-container {
