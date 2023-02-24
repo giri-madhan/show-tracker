@@ -336,6 +336,12 @@ body,html {
   right: 0;
 }
 
+#wli-info-container {
+  margin-top: 12px;
+  font-size: 16px; 
+  color: #bbb
+}
+
 .wli-card {
   background: #15151e;
   border: 1px solid #666;
