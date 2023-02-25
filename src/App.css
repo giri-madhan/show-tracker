@@ -138,6 +138,35 @@ body,html {
   color: #fff;
 }
 
+.stats-info-container {
+  display: flex;
+  flex-direction: column;
+  margin: 100px 0 0 40px;
+  gap: 10px;
+}
+
+.stat {
+  display: grid;
+  width: fit-content
+}
+
+.stat-title {
+  font-size: 30px;
+  font-weight: 600;
+  color:#F47174
+}
+
+.stat-info {
+  font-size: 24px;
+  background: #212121;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+
 #chart-container {
   display: flex;
   justify-content: center;

@@ -31,9 +31,9 @@ const StatsContainer = (props) => {
         
         return (
             <div>
-                {sortedGenres.splice(0,5).map(entry => {
+                {sortedGenres.splice(0,5).map((entry, i) => {
                     return (
-                        <div style={{marginLeft: 20}}>
+                        <div key={i}>
                             {entry[0] + ': ' + entry[1] + ' watched'}
                         </div>
                     )
@@ -48,20 +48,38 @@ const StatsContainer = (props) => {
                 viewDisplay={viewDisplay} 
                 setViewDisplay={setViewDisplay} 
             />
-            <div style={{ display: 'flex', flexDirection: 'column', marginTop: 100}}>
-                <span>
-                    Movies in Watch List: {wlData.length}
-                </span>
-                <span>
-                    Movies Watched: {mpData.length}
-                </span>
-                <span>
-                    Hours Spent: {calculateWatchTime()}
-                </span>
-                <div>
-                    <span>Favorite Genres:</span>
-                    <div>{calculateFavoriteGenres()}</div>
-                    
+            <div className='stats-info-container'>
+                <div className='stat'>
+                    <span className='stat-title'>
+                        Movies in Watch List:
+                    </span>
+                    <span className='stat-info'>
+                        {wlData.length}
+                    </span>
+                </div>
+                <div className='stat'>
+                    <span className='stat-title'>
+                        Movies Watched:    
+                    </span>
+                    <span className='stat-info'>
+                        {mpData.length}
+                    </span>
+                </div>
+                <div className='stat'>
+                    <span className='stat-title'>
+                        Hours Spent:
+                    </span>
+                    <span className='stat-info'>
+                        {calculateWatchTime()}
+                    </span>
+                </div>
+                <div className='stat'>
+                    <span className='stat-title'>
+                        Favorite Genres:
+                    </span>
+                    <span className='stat-info'>
+                        {calculateFavoriteGenres()}
+                    </span>
                 </div>
                 {/* <div style={{display: 'flex', justifyContent: 'center', marginTop: 5}}>
                     <div id='chart-container'>
