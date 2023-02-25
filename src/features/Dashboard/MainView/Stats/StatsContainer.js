@@ -20,16 +20,27 @@ const StatsContainer = (props) => {
                 allMovieGenres.push(genre.trim())
             })
         })
-        return allMovieGenres.reduce((allGenres, genre) => {
+        const genres =  allMovieGenres.reduce((allGenres, genre) => {
             const currCount = allGenres[genre] ?? 0
             return {
               ...allGenres,
               [genre]: currCount + 1,
             }
           }, {})
+        const sortedGenres = Object.entries(genres).sort((a,b) => b[1] - a[1])
+        
+        return (
+            <div>
+                {sortedGenres.splice(0,5).map(entry => {
+                    return (
+                        <div style={{marginLeft: 20}}>
+                            {entry[0] + ': ' + entry[1] + ' watched'}
+                        </div>
+                    )
+                })}
+            </div>
+        )
     }
-    
-    calculateFavoriteGenres()
 
     return(
         <div className='stats-container'>
@@ -47,6 +58,11 @@ const StatsContainer = (props) => {
                 <span>
                     Hours Spent: {calculateWatchTime()}
                 </span>
+                <div>
+                    <span>Favorite Genres:</span>
+                    <div>{calculateFavoriteGenres()}</div>
+                    
+                </div>
                 {/* <div style={{display: 'flex', justifyContent: 'center', marginTop: 5}}>
                     <div id='chart-container'>
                         <GenrePieChart mpData={mpData} />
