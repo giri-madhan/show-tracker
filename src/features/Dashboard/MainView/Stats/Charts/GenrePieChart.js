@@ -15,11 +15,11 @@ const GenrePieChart = (props) => {
             }
         })
         const genreCount = genreData.reduce((allGenres, genre) => {
-            const currCount = allGenres[genre] ?? 0;
+            const currCount = allGenres[genre] ?? 0
             return {
               ...allGenres,
               [genre]: currCount + 1,
-            };
+            }
           }, {})
           
           let genreChartData = []

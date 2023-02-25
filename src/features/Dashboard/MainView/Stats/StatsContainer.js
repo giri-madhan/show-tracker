@@ -12,6 +12,25 @@ const StatsContainer = (props) => {
         return hoursSpent.toFixed(2)
     }
 
+    const calculateFavoriteGenres = () => {
+        let allMovieGenres = []
+        mpData.forEach(movie => {
+            const movieGenreArr = movie.genre.split(',')
+            movieGenreArr.forEach(genre => {
+                allMovieGenres.push(genre.trim())
+            })
+        })
+        return allMovieGenres.reduce((allGenres, genre) => {
+            const currCount = allGenres[genre] ?? 0
+            return {
+              ...allGenres,
+              [genre]: currCount + 1,
+            }
+          }, {})
+    }
+    
+    calculateFavoriteGenres()
+
     return(
         <div className='stats-container'>
             <DashHeader 
