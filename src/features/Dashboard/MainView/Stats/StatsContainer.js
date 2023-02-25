@@ -28,14 +28,11 @@ const StatsContainer = (props) => {
                 <span>
                     Hours Spent: {calculateWatchTime()}
                 </span>
-                <div style={{display: 'flex', justifyContent: 'center', marginTop: 5}}>
+                {/* <div style={{display: 'flex', justifyContent: 'center', marginTop: 5}}>
                     <div id='chart-container'>
                         <GenrePieChart mpData={mpData} />
-                    
                     </div>
-                </div>
-                
-                
+                </div> */}
             </div>
         </div>
     )
