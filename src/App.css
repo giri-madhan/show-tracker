@@ -640,7 +640,7 @@ transition-duration: .5s;
 @media only screen and (max-width: 600px) {
   
   .dash-container-inner{
-    flex-direction: column
+    flex-direction: column;
   }
 
   .change-view-btn {
@@ -697,11 +697,7 @@ transition-duration: .5s;
       height: 60px;
       width: 60px;
   }
-
-  #display-container {
-    height: 40% !important;
-  }
-
+  
   #header-title {
     display: none;
   }
