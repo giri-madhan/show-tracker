@@ -989,6 +989,14 @@ transition-duration: .5s;
     font-size: clamp(10px, 2rem, 15px)
   }
 
+  .stats-container {
+    height: 100vh
+  }
+
+  .stats-info-container {
+    margin: 80px 20px 150px 20px
+  }
+
   .stats-card {
     
   }
