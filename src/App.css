@@ -91,10 +91,6 @@ body,html {
   background: #0D1117;
 }
 
-#display-container {
-
-}
-
 .display-entry-container {
   display: flex;
   flex-direction: column;
@@ -147,6 +143,10 @@ body,html {
   flex-direction: column;
   margin: 100px 0 0 40px;
   gap: 10px;
+}
+
+.stats-card {
+
 }
 
 .stat {
@@ -962,6 +962,10 @@ transition-duration: .5s;
 
   #watched-entry-duration {
     font-size: clamp(10px, 2rem, 15px)
+  }
+
+  .stats-card {
+  
   }
 
   /* .user-menu-icon {
