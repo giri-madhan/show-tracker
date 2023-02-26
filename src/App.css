@@ -91,6 +91,10 @@ body,html {
   background: #0D1117;
 }
 
+#display-container {
+
+}
+
 .display-entry-container {
   display: flex;
   flex-direction: column;
@@ -643,13 +647,17 @@ transition-duration: .5s;
     flex-direction: column;
   }
 
+  #display-container {
+    height: 50%;
+  }
+
   .change-view-btn {
     font-size: 14px;
     width: 90px;
   }
   
   .search-container {
-    height: 300px;
+    height: 50%;
     width: 100%;
     overflow: hidden auto;
     transition-duration: 1s;
