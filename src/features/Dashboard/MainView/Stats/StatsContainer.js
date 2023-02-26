@@ -1,6 +1,7 @@
 import React from 'react'
 import DashHeader from '../../DashHeader/DashHeader'
 import GenrePieChart from './Charts/GenrePieChart'
+import StatsCard from './StatsCard'
 
 const StatsContainer = (props) => {
     const {viewDisplay, setViewDisplay, mpData, wlData} = props
@@ -9,7 +10,7 @@ const StatsContainer = (props) => {
         let timeInMinutes = 0
         mpData.forEach(item => timeInMinutes += item.duration)
         let hoursSpent = timeInMinutes / 60
-        return hoursSpent.toFixed(2)
+        return hoursSpent.toFixed(0)
     }
 
     const calculateFavoriteGenres = () => {
@@ -49,38 +50,10 @@ const StatsContainer = (props) => {
                 setViewDisplay={setViewDisplay} 
             />
             <div className='stats-info-container'>
-                <div className='stat'>
-                    <span className='stat-title'>
-                        Movies in Watch List:
-                    </span>
-                    <span className='stat-info'>
-                        {wlData.length}
-                    </span>
-                </div>
-                <div className='stat'>
-                    <span className='stat-title'>
-                        Movies Watched:    
-                    </span>
-                    <span className='stat-info'>
-                        {mpData.length}
-                    </span>
-                </div>
-                <div className='stat'>
-                    <span className='stat-title'>
-                        Hours Spent:
-                    </span>
-                    <span className='stat-info'>
-                        {calculateWatchTime()}
-                    </span>
-                </div>
-                <div className='stat'>
-                    <span className='stat-title'>
-                        Favorite Genres:
-                    </span>
-                    <span className='stat-info'>
-                        {calculateFavoriteGenres()}
-                    </span>
-                </div>
+                <StatsCard title='Movies in Watch List' data={wlData.length} />
+                <StatsCard title='Movies Watched' data={mpData.length} />
+                <StatsCard title='Hours Watched' data={calculateWatchTime()} />
+                <StatsCard title='Favorite Genres' data={calculateFavoriteGenres()} />
                 {/* <div style={{display: 'flex', justifyContent: 'center', marginTop: 5}}>
                     <div id='chart-container'>
                         <GenrePieChart mpData={mpData} />
