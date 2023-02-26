@@ -15,7 +15,9 @@ const StatsCard = (props) => {
                     {props.title}
                 </span>
                 <span className='stat-info'>
-                    {generateData()}
+                    <span className='stat-info-text'>
+                        {generateData()}
+                    </span>
                 </span>
             </div>
         </div>
