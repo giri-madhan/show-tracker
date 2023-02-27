@@ -789,6 +789,10 @@ transition-duration: .5s;
     position: absolute;
   }
 
+  .watch-list-container {
+   height: 60vh;
+  }
+
   @keyframes slideUp {
     from {
       bottom: -1000px;
