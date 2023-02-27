@@ -789,7 +789,7 @@ transition-duration: .5s;
     position: absolute;
   }
 
-  .watch-list-container {
+  .watch-list-container, .watched-entry-container {
    height: 60vh;
   }
 
