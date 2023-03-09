@@ -8,8 +8,8 @@ Sort watch list by genre to find something you are in the mood to watch!
 
 To run locally:
 1. Clone repo
-2. run npm i
-3. netlify dev to start app
+2. Run 'npm i' to install packages
+3. Run 'netlify dev' to start app
 
 Movie data acquired from The Movie Database:
 
