@@ -10,6 +10,7 @@ To run locally:
 1. Clone repo
 2. Run 'npm i' to install packages
 3. Run 'netlify dev' to start app
+4. Use auth0 to login
 
 Movie data acquired from The Movie Database:
 
