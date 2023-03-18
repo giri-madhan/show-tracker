@@ -17,12 +17,35 @@ return(
         style={{
             width: '100vw', 
             height: '100%', 
-            flexDirection: 'column',
-            backgroundImage: `url(${backgroundImg})`
+            flexDirection: 'column'
         }}
     >
-        <div style={{fontSize: 40, color: '#fff', marginBottom: 20}}>MW Movie Tracker</div>
-        <button className='auth-btn' onClick={authenticate}>Authenticate</button>
+        <div 
+            style={{
+            width: '100vw', 
+            height: '100%', 
+            position: 'absolute', 
+            filter: 'brightness(0.2)', 
+            backgroundImage: `url(${backgroundImg})`}}
+        />
+        <div 
+            className='center' 
+            style={{
+                fontSize: 40, 
+                color: '#fff', 
+                marginBottom: 20, 
+                zIndex: 1,
+                display: 'flex', 
+                background: '#111',
+                padding: 40,
+                borderRadius: 5,
+                flexDirection: 'column',
+                gap: 10
+            }}
+        >
+            <span>MW Movie Tracker</span>
+            <button className='auth-btn' onClick={authenticate}>Authenticate</button>
+        </div>
     </div>
 )
 }
