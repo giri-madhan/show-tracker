@@ -28,23 +28,26 @@ return(
             filter: 'brightness(0.2)', 
             backgroundImage: `url(${backgroundImg})`}}
         />
-        <div 
-            className='center' 
+        <div
             style={{
                 fontSize: 40, 
-                color: '#fff', 
+                color: '#ccc', 
                 marginBottom: 20, 
                 zIndex: 1,
                 display: 'flex', 
-                background: '#111',
-                padding: 40,
-                borderRadius: 5,
+                background: '#000',
+                borderRadius: 15,
                 flexDirection: 'column',
-                gap: 10
+                height: 250
             }}
         >
-            <span>MW Movie Tracker</span>
-            <button className='auth-btn' onClick={authenticate}>Authenticate</button>
+            <div style={{background: '#6d1e20', padding: 10, borderRadius: '15px 15px 0 0'}}>
+                MW Movie Tracker
+            </div>
+            <div className='center' style={{height: '100%', gap: 10, flexDirection: 'column'}}>
+                <button className='auth-btn' onClick={authenticate}>Login</button>
+                <button className='auth-btn' onClick={authenticate}>Sign Up</button>
+            </div>
         </div>
     </div>
 )
