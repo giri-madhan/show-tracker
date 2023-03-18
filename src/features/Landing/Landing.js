@@ -28,19 +28,7 @@ return(
             filter: 'brightness(0.2)', 
             backgroundImage: `url(${backgroundImg})`}}
         />
-        <div
-            style={{
-                fontSize: 40, 
-                color: '#ccc', 
-                marginBottom: 20, 
-                zIndex: 1,
-                display: 'flex', 
-                background: '#000',
-                borderRadius: 15,
-                flexDirection: 'column',
-                height: 250
-            }}
-        >
+        <div className='auth-container'>
             <div style={{background: '#6d1e20', padding: 10, borderRadius: '15px 15px 0 0'}}>
                 MW Movie Tracker
             </div>
