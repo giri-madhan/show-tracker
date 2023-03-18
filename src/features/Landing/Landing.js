@@ -46,7 +46,11 @@ return(
             </div>
             <div className='center' style={{height: '100%', gap: 10, flexDirection: 'column'}}>
                 <button className='auth-btn' onClick={authenticate}>Login</button>
-                <button className='auth-btn' onClick={authenticate}>Sign Up</button>
+                <button 
+                    className='create-acct-btn'
+                    onClick={authenticate}>
+                    Create Account
+                </button>
             </div>
         </div>
     </div>

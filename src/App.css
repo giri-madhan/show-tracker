@@ -18,18 +18,35 @@ body,html {
   height: 50px;
   width: 140px;
   border-radius: 12px;
-  background: #313131;
+  background: #3f5cff;
   border: 2px solid #9FE2BF;
-  color: #9FE2BF;
+  color: #fff;
   font-size: 20px;
   font-weight: 700;
 }
 
 .auth-btn:hover {
-  background: #9FE2BF;
-  border: #313131;
-  color: #313131;
+  background: #3f5cff77;
+  color: #fff;
   cursor: pointer;
+  transition-duration: .5s;
+}
+
+.create-acct-btn {
+  height: 50px;
+  width: 180px;
+  border-radius: 12px;
+  background: #2c9b62;
+  border: 2px solid #9FE2BF;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.create-acct-btn:hover {
+  cursor: pointer;
+  color: #fff;
+  background: #2c9b6288;
   transition-duration: .5s;
 }
 
