@@ -15,6 +15,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 //TODO lazy loading
 //TODO Add a different way to visualize watched entries...chart with genre / ratings / duration etc? chartjs or my own + animation
 //TODO (Optional) Watched List Filters / Reverse Order
+//TODO (Optional) Use gpt to suggest movies
 
 function App() {
   const {loginWithRedirect, user, isAuthenticated} = useAuth0()
