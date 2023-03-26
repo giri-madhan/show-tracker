@@ -47,11 +47,9 @@ const StatsContainer = (props) => {
 
         return mpData.filter( m => {
             const watchedDate = new Date(m.watchDate)
-            const thirtyDaysAgo =  new Date(new Date() - frequency)
-            if (watchedDate > thirtyDaysAgo) {
-                return m
-            }  
-        }).length
+            const pastDate =  new Date(new Date() - frequency)
+            return watchedDate > pastDate
+        }).length + ' watched'
     }
     
 
@@ -67,6 +65,7 @@ const StatsContainer = (props) => {
                 <StatsCard title='Hours Watched' data={calculateWatchTime()} />
                 <StatsCard title='Favorite Genres' data={calculateFavoriteGenres()} />
                 <StatsCard title='Last 30 Days' data={calculateNumOfMovies(2592000000)} />
+                <StatsCard title='Last 7 Days' data={calculateNumOfMovies(604800000)} />
                 {/* <div style={{display: 'flex', justifyContent: 'center', marginTop: 5}}>
                     <div id='chart-container'>
                         <GenrePieChart mpData={mpData} />
