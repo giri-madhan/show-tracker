@@ -2,6 +2,7 @@ import React from 'react'
 import DashHeader from '../../DashHeader/DashHeader'
 import GenrePieChart from './Charts/GenrePieChart'
 import StatsCard from './StatsCard'
+import formatRatingStyle from '../../../../utils/formatRatingStyle'
 
 const StatsContainer = (props) => {
     const {viewDisplay, setViewDisplay, mpData, wlData} = props
@@ -58,7 +59,7 @@ const StatsContainer = (props) => {
             return (
              <div style={{display: 'flex', justifyContent: 'center', width: '100%', gap: 5}}>
                 <span>{m.name}</span>
-                <span style={{marginLeft: 'auto'}} >{m.rating + '/10'}</span>
+                <span style={{marginLeft: 'auto', color: formatRatingStyle(m.rating)}} >{m.rating + '/10'}</span>
             </div>
             )
         })
