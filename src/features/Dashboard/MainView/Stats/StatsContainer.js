@@ -51,8 +51,26 @@ const StatsContainer = (props) => {
             return watchedDate > pastDate
         }).length + ' watched'
     }
-    
 
+    const calculateLastThreeWatched = () => {
+        const lastThreeMovieObjects = mpData.slice(mpData.length - 3)
+        return lastThreeMovieObjects.map( m => {
+            return (
+             <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
+                <span>{m.name}</span>
+                <span style={{marginLeft: 'auto'}} >{m.rating + '/10'}</span>
+            </div>
+            )
+        })
+    }
+
+    const last3style = {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start'
+    }
+
+    
     return(
         <div className='stats-container'>
             <DashHeader 
@@ -66,6 +84,8 @@ const StatsContainer = (props) => {
                 <StatsCard title='Favorite Genres' data={calculateFavoriteGenres()} />
                 <StatsCard title='Last 30 Days' data={calculateNumOfMovies(2592000000)} />
                 <StatsCard title='Last 7 Days' data={calculateNumOfMovies(604800000)} />
+                <StatsCard title='Last 3 Watched' data={calculateLastThreeWatched()} formatStyle={last3style} />
+                
                 {/* <div style={{display: 'flex', justifyContent: 'center', marginTop: 5}}>
                     <div id='chart-container'>
                         <GenrePieChart mpData={mpData} />
