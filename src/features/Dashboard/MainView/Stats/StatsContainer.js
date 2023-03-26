@@ -56,7 +56,7 @@ const StatsContainer = (props) => {
         const lastThreeMovieObjects = mpData.slice(mpData.length - 3)
         return lastThreeMovieObjects.map( m => {
             return (
-             <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
+             <div style={{display: 'flex', justifyContent: 'center', width: '100%', gap: 5}}>
                 <span>{m.name}</span>
                 <span style={{marginLeft: 'auto'}} >{m.rating + '/10'}</span>
             </div>
