@@ -51,7 +51,7 @@ const StatsContainer = (props) => {
             if (watchedDate > thirtyDaysAgo) {
                 return m
             }  
-        }).length
+        }).length + ' watched'
     }
     
 
