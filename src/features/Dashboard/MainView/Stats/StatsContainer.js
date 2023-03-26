@@ -44,7 +44,6 @@ const StatsContainer = (props) => {
     }
 
     const calculateNumOfMovies =  (frequency) => {
-        console.log(frequency)
 
         return mpData.filter( m => {
             const watchedDate = new Date(m.watchDate)
