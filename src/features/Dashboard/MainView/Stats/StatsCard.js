@@ -15,7 +15,7 @@ const StatsCard = (props) => {
                     {props.title}
                 </span>
                 <span className='stat-info'>
-                    <span className='stat-info-text'>
+                    <span className='stat-info-text' style={{...props.formatStyle}}>
                         {generateData()}
                     </span>
                 </span>
