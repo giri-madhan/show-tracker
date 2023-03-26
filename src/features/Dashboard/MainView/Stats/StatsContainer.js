@@ -47,10 +47,8 @@ const StatsContainer = (props) => {
 
         return mpData.filter( m => {
             const watchedDate = new Date(m.watchDate)
-            const thirtyDaysAgo =  new Date(new Date() - frequency)
-            if (watchedDate > thirtyDaysAgo) {
-                return m
-            }  
+            const pastDate =  new Date(new Date() - frequency)
+            return watchedDate > pastDate
         }).length + ' watched'
     }
     
