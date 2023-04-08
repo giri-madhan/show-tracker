@@ -203,7 +203,6 @@ body,html {
 }
 
 .stat-info {
-  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;

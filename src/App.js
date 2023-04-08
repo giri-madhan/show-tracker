@@ -19,6 +19,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 function App() {
   const {loginWithRedirect, user, isAuthenticated} = useAuth0()
+  //console.log('user', user)
 
   return (
     <div className="App">
