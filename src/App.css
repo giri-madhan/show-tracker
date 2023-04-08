@@ -914,6 +914,8 @@ transition-duration: .5s;
     width: 5%;
     right: 20px;
     gap: 20px;
+    justify-content: initial;
+    top: 2px;
   }
 
   .complete-btn, .delete-btn {
