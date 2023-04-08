@@ -510,6 +510,7 @@ body,html {
   width: 10%;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   position: relative;
   right: 30px;
   gap: 40px
@@ -911,14 +912,16 @@ transition-duration: .5s;
 
   #action-btn-container {
     width: 5%;
-    right: 20px;
+    right: 15px;
     gap: 20px;
+    justify-content: initial;
   }
 
   .complete-btn, .delete-btn {
     width: 40px;
     height: 40px !important;
     border: none !important;
+    background: none;
   }
   
   .complete-btn img, .delete-btn img {
