@@ -21,12 +21,10 @@ return(
         }}
     >
         <div 
+            id='splashBackground'
             style={{
-            width: '100vw', 
-            height: '100%', 
-            position: 'absolute', 
-            filter: 'brightness(0.2)', 
-            backgroundImage: `url(${backgroundImg})`}}
+                backgroundImage: `url(${backgroundImg})`
+            }}
         />
         <div className='auth-container'>
             <div style={{background: '#6d1e20', padding: 10, borderRadius: '15px 15px 0 0'}}>

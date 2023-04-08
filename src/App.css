@@ -61,6 +61,13 @@ body,html {
   transition-duration: .5s;
 }
 
+#splashBackground {
+    width: 150vw;
+    height: 110%;
+    position: absolute;
+    filter: brightness(0.2);
+}
+
 .search-container {
   width: 30%;
   height: 100%;
