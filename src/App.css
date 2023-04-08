@@ -203,7 +203,6 @@ body,html {
 }
 
 .stat-info {
-  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -217,6 +216,7 @@ body,html {
   width: fit-content;
   height: fit-content;
   padding: 10px;
+  margin: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
