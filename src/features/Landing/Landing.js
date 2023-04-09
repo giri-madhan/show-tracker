@@ -30,13 +30,21 @@ return(
             <div style={{background: '#6d1e20', padding: 10, borderRadius: '15px 15px 0 0'}}>
                 MW Movie Tracker
             </div>
-            <div className='center' style={{height: '100%', gap: 10, flexDirection: 'column'}}>
+            <div style={{ gap: 10, flexDirection: 'column', display: 'flex', marginTop: 10, alignItems: 'center'}}>
                 <button className='auth-btn' onClick={authenticate}>Login</button>
-                <button 
+                <div style={{fontSize: 14}}>
+                    <span>
+                        Don't have an account?
+                    </span>
+                    <a style={{marginLeft: 5}}>
+                        Create one here
+                    </a>
+                </div>
+                {/* <button 
                     className='create-acct-btn'
                     onClick={authenticate}>
                     Create Account
-                </button>
+                </button> */}
             </div>
         </div>
     </div>
