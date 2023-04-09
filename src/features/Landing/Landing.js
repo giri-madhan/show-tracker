@@ -43,7 +43,9 @@ return(
                                 color: '#AAA6E3',
                                 border: 'none',
                                 cursor: 'pointer'
-                            }}>
+                            }}
+                            onClick={authenticate}
+                        >
                             Create one here!
                         </button>
                     </div>
