@@ -50,11 +50,6 @@ return(
                         </button>
                     </div>
                 </div>
-                {/* <button 
-                    className='create-acct-btn'
-                    onClick={authenticate}>
-                    Create Account
-                </button> */}
             </div>
         </div>
     </div>
