@@ -27,16 +27,29 @@ return(
             }}
         />
         <div className='auth-container'>
-            <div style={{background: '#6d1e20', padding: 10, borderRadius: '15px 15px 0 0'}}>
+            <div className='center' style={{background: 'rgba(255, 0, 0, 0.4)', padding: 10, borderRadius: '15px 15px 0 0'}}>
                 MW Movie Tracker
             </div>
-            <div className='center' style={{height: '100%', gap: 10, flexDirection: 'column'}}>
+            <div style={{ gap: 10, flexDirection: 'column', display: 'flex', marginTop: 10, alignItems: 'center'}}>
                 <button className='auth-btn' onClick={authenticate}>Login</button>
-                <button 
-                    className='create-acct-btn'
-                    onClick={authenticate}>
-                    Create Account
-                </button>
+                <div style={{fontSize: 14}}>
+                    <span>
+                        Don't have an account?
+                    </span>
+                    <div style={{marginLeft: 5}}>
+                        <button 
+                            style={{
+                                background: 'none', 
+                                color: '#AAA6E3',
+                                border: 'none',
+                                cursor: 'pointer'
+                            }}
+                            onClick={authenticate}
+                        >
+                            Create one here!
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
