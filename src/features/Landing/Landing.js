@@ -27,7 +27,7 @@ return(
             }}
         />
         <div className='auth-container'>
-            <div style={{background: '#6d1e20', padding: 10, borderRadius: '15px 15px 0 0'}}>
+            <div style={{background: 'rgba(255, 0, 0, 0.4)', padding: 10, borderRadius: '15px 15px 0 0'}}>
                 MW Movie Tracker
             </div>
             <div style={{ gap: 10, flexDirection: 'column', display: 'flex', marginTop: 10, alignItems: 'center'}}>
