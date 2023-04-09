@@ -36,9 +36,17 @@ return(
                     <span>
                         Don't have an account?
                     </span>
-                    <a style={{marginLeft: 5}}>
-                        Create one here
-                    </a>
+                    <div style={{marginLeft: 5}}>
+                        <button 
+                            style={{
+                                background: 'none', 
+                                color: '#AAA6E3',
+                                border: 'none',
+                                cursor: 'pointer'
+                            }}>
+                            Create one here!
+                        </button>
+                    </div>
                 </div>
                 {/* <button 
                     className='create-acct-btn'
