@@ -19,7 +19,7 @@ body,html {
   color: #ccc;
   z-index: 1;
   display: flex;
-  background: #000;
+  background: #0009;
   border-radius: 15px;
   flex-direction: column;
   height: 200px
