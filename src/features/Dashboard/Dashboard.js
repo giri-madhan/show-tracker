@@ -13,6 +13,7 @@ const Dashboard = () => {
     const [viewDisplay, setViewDisplay] = useState('watchList')
     const watchedList = useSelector(state => state.mps)
     const {list, isLoading} = useSelector(state => state.wlis)
+    console.log(list)
 
     const dispatch = useDispatch()
 
@@ -29,7 +30,7 @@ const Dashboard = () => {
         <div className='dash-container'>
           <div className='dash-container-inner' style={{display: 'flex', height: '100%', width: '100%'}}>
             <SearchContainer 
-              wlData={list} 
+              wlData={list[0]?.watchList?.data} 
               addToRedux={addToRedux} 
               getWLIs={() => dispatch(getWLIs())} 
               viewDisplay={viewDisplay}
@@ -37,7 +38,7 @@ const Dashboard = () => {
             />
             <View 
               mpData={watchedList.list} 
-              wlData={list || data} 
+              wlData={list[0]?.watchList?.data || data} 
               isLoading={isLoading} 
               viewDisplay={viewDisplay} 
               setViewDisplay={setViewDisplay} 

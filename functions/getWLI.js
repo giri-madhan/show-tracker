@@ -8,7 +8,8 @@ exports.handler = async(event) => {
 
   try {
     const res = await sendQuery(GET_WLIs)
-    const data = res.allWLI.data
+    console.log('res',res)
+    const data = res.watchItemsByUserID.data
     return formattedResponse(200, data)
   } catch(err){
     console.log(err)

@@ -1,22 +1,46 @@
+// const GET_WLIs = `
+//     query FindAllWLIs{
+//         allWLI(_size: 500){
+//           data {
+//             _id
+//             name
+//             genre
+//             movieID
+//             releaseDate
+//             duration
+//             prodCompany
+//             photo
+//             overview
+//             tagline
+//             voteAverage
+//           }
+//         }
+//       }
+//     `
 const GET_WLIs = `
-    query FindAllWLIs{
-        allWLI(_size: 500){
-          data {
-            _id
-            name
-            genre
-            movieID
-            releaseDate
-            duration
-            prodCompany
-            photo
-            overview
-            tagline
-            voteAverage
-          }
+query {
+    watchItemsByUserID (user_id: "google-oauth2|105398615782290113358") {
+        data {
+        user_id
+        watchList {
+            data {
+                _id
+                name
+                genre
+                movieID
+                releaseDate
+                duration
+                prodCompany
+                photo
+                overview
+                tagline
+                voteAverage
+            }
         }
-      }
-    `
+        }
+    }
+}
+`
 
     const CREATE_WLI = `
     mutation($name: String!, $genre: String, $releaseDate: String, $duration: Int, $movieID: Int, $prodCompany: String, $photo: String, $overview: String, $tagline: String, $voteAverage: Int) {

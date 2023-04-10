@@ -1,32 +1,49 @@
-type MotionPicture {
-    name: String!
-    rating: Int,
-    movieID: Int,
-    genre: String
-    releaseDate: String
-    watchDate: String
-    duration: Int
-    watchCount: Int
-    prodCompany: String
-    photo: String
-    notes: String
+type User {
+  user_id: String
+  watchList: [WatchItem!] @relation
+  watchedList: [WatchedItem!] @relation
+  email: String
+  emailVerified: Boolean
+  name: String
 }
 
-type WatchListItem {
-    name: String!
-    genre: String,
-    movieID: Int,
-    priority: Int
-    releaseDate: String
-    duration: Int
-    prodCompany: String
-    photo: String,
-    overview: String,
-    tagline: String,
-    voteAverage: Int
+type WatchItem {
+  name: String
+  genre: String
+  movieID: Int
+  priority: Int
+  releaseDate: String
+  duration: Int
+  prodCompany: String
+  photo: String
+  overview: String
+  tagline: String
+  voteAverage: Int
+  language: String
+  owner: User! @relation
+}
+
+
+type WatchedItem {
+  name: String
+  rating: Int
+  movieID: Int
+  genre: String
+  releaseDate: String
+  watchDate: String
+  duration: Int
+  watchCount: Int
+  prodCompany: String
+  photo: String
+  notes: String
+  language: String
+  owner: User! @relation
 }
 
 type Query {
-    allMPs: [MotionPicture!]!
-    allWLI: [WatchListItem!]!
+  allWatchItems: [WatchItem]
+  allWatchedItems: [WatchedItem]
+  watchItemsByUserID(user_id: String): [User]
+  watchedItemsByUserID(user_id: String): [User]
 }
+

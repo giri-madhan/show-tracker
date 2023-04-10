@@ -14,6 +14,7 @@ module.exports = async (query, variables) => {
             variables
         }
     })
+    
     if (errors) {
         console.log(errors)
         throw new Error('Something went wrong', errors)
