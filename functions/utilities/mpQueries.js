@@ -1,23 +1,52 @@
+// const GET_MPs = `
+//     query FindAllMPs{
+//         allMPs(_size: 500){
+//           data {
+//             _id
+//             name
+//             rating
+//             genre
+//             movieID
+//             releaseDate
+//             watchDate
+//             duration
+//             watchCount
+//             prodCompany
+//             photo
+//             notes
+//           }
+//         }
+//       }
+//     `
 const GET_MPs = `
-    query FindAllMPs{
-        allMPs(_size: 500){
+    query {
+      watchedItemsByUserID (user_id: "google-oauth2|105398615782290113358") {
           data {
-            _id
-            name
-            rating
-            genre
-            movieID
-            releaseDate
-            watchDate
-            duration
-            watchCount
-            prodCompany
-            photo
-            notes
+          user_id
+          watchedList {
+            data {
+              duration
+              releaseDate
+              name
+              genre
+              photo
+              prodCompany
+              _id
+              language
+              rating
+              watchDate
+              notes
+              owner {
+                name
+                user_id
+              }
+              movieID
+              watchCount
+            }
           }
-        }
+          }
       }
-    `
+  }`
 
     const CREATE_MP = `
     mutation($name: String!, $rating: Int, $movieID: Int, $genre: String, $releaseDate: String, $watchDate: String, $duration: Int, $watchCount: Int, $prodCompany: String, $photo: String, $notes: String) {

@@ -8,7 +8,7 @@ exports.handler = async(event) => {
 
   try {
     const res = await sendQuery(GET_MPs)
-    const data = res.allMPs.data
+    const data = res.watchedItemsByUserID.data
     return formattedResponse(200, data)
   } catch(err){
     console.log(err)

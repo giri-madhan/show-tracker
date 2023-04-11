@@ -7,7 +7,7 @@ import {getMPs} from '../../../../redux/shows'
 const EntryContainer = (props) => {
     const {setViewDisplay, viewDisplay} = props
     const dispatch = useDispatch()
-    const watchedItems = useSelector(state => state.mps.list)
+    const watchedItems = useSelector(state => state.mps.list[0].watchedList.data)
 
     useEffect(() => {
         dispatch(getMPs()) // rehydrates stale redux data after adding something to watched list

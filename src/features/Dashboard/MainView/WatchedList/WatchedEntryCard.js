@@ -28,11 +28,11 @@ const WatchedEntryCard = ({mp}) => {
                             {mp.name}
                         </span>
                         <span style={{color: '#aaa', marginLeft: 20}}>
-                            {`(${mp.releaseDate.substring(0,4)})`}
+                            {`(${mp.releaseDate?.substring(0,4)})`}
                         </span>
                     </div>
                     <div style={{marginTop: 15}} id='watched-entry-genres'>
-                        {mp.genre.split(',').slice(0,3).join(',')}
+                        {mp.genre?.split(',')?.slice(0,3)?.join(',')}
                     </div>
                     <div id='watched-entry-duration'>
                         {mp.duration} mins

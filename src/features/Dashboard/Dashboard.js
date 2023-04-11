@@ -13,7 +13,6 @@ const Dashboard = () => {
     const [viewDisplay, setViewDisplay] = useState('watchList')
     const watchedList = useSelector(state => state.mps)
     const {list, isLoading} = useSelector(state => state.wlis)
-    console.log(list)
 
     const dispatch = useDispatch()
 
@@ -37,8 +36,8 @@ const Dashboard = () => {
               setViewDisplay={setViewDisplay}  
             />
             <View 
-              mpData={watchedList.list} 
-              wlData={list[0]?.watchList?.data || data} 
+              mpData={watchedList.list[0]?.watchedList?.data} 
+              wlData={list[0]?.watchList?.data} 
               isLoading={isLoading} 
               viewDisplay={viewDisplay} 
               setViewDisplay={setViewDisplay} 
