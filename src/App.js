@@ -2,8 +2,8 @@ import './App.css'
 import React from 'react'
 import Dashboard from './features/Dashboard/Dashboard'
 import {ToastContainer} from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
-import LandingPage from './features/Landing/Landing';
+import 'react-toastify/dist/ReactToastify.css'
+import LandingPage from './features/Landing/Landing'
 import { useAuth0 } from '@auth0/auth0-react'
 import {useEffect} from 'react'
 
