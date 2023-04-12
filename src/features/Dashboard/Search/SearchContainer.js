@@ -31,6 +31,7 @@ export default class SearchContainer extends React.Component {
             })
             const finalGenreString = genreString.toString().replace(/,/g, ', ')
             const finalVoteAverage = +res.data.vote_average.toFixed(0)
+            const userID = JSON.parse(localStorage?.getItem('userID')) ?? ''  //TESTING 4/11
             const data = {
                 name: res.data.title,
                 genre: finalGenreString,
@@ -40,7 +41,11 @@ export default class SearchContainer extends React.Component {
                 photo: res.data.poster_path,
                 overview: res.data.overview,
                 tagline: res.data.tagline,
-                voteAverage: finalVoteAverage
+                voteAverage: finalVoteAverage,
+                owner: {
+                    connect: userID
+                }
+            
             }
 
             const arrCheck = []
@@ -67,6 +72,7 @@ export default class SearchContainer extends React.Component {
 
     render(){
         const {searchQuery, searchResults} = this.state
+        console.log('LS', localStorage.getItem('userID'))
 
         return(
             <div className={`search-container ${searchResults === null ? 'empty' : ''}`}> 

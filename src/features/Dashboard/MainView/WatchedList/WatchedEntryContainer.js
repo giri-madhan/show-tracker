@@ -7,7 +7,7 @@ import {getMPs} from '../../../../redux/shows'
 const EntryContainer = (props) => {
     const {setViewDisplay, viewDisplay} = props
     const dispatch = useDispatch()
-    const watchedItems = useSelector(state => state.mps.list[0].watchedList.data)
+    const watchedItems = useSelector(state => state.mps.list[0]?.watchedList?.data)
 
     useEffect(() => {
         dispatch(getMPs()) // rehydrates stale redux data after adding something to watched list
@@ -21,7 +21,7 @@ const EntryContainer = (props) => {
                     setViewDisplay={setViewDisplay} 
                 />
             <div className='watched-entry-container'>
-                {watchedItems.slice(0).reverse().map((mp, i) => (
+                {watchedItems?.slice(0)?.reverse()?.map((mp, i) => (
                     <WatchedEntryCard mp={mp} key={mp.movieID || mp._id || i}  />
                 ))}
             </div>

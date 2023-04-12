@@ -5,8 +5,10 @@ import {ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import LandingPage from './features/Landing/Landing';
 import { useAuth0 } from '@auth0/auth0-react'
+import {useEffect} from 'react'
 
 //TODO Accounts or public/private at least -> guest data or separate accounts
+//TODO Remove api key and get new ones before launch
 //TODO Add profile page, nest buttons inside dropdown w/ email/name/img as icon
 //TODO add to top button on wl, watched
 //TODO if movie exists in watched, let user choose to add again; watchCount + 1 instead of new watched instance?
@@ -19,7 +21,14 @@ import { useAuth0 } from '@auth0/auth0-react'
 
 function App() {
   const {loginWithRedirect, user, isAuthenticated} = useAuth0()
-  //console.log('user', user)
+  console.log('user', user)
+  
+  useEffect(() => {
+    if (user?.sub) {
+      localStorage.setItem('userID', JSON.stringify(user.sub))
+    }
+    
+  }, [user])
 
   return (
     <div className="App">

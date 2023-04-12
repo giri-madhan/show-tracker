@@ -42,9 +42,36 @@ query {
 }
 `
 
-    const CREATE_WLI = `
-    mutation($name: String!, $genre: String, $releaseDate: String, $duration: Int, $movieID: Int, $prodCompany: String, $photo: String, $overview: String, $tagline: String, $voteAverage: Int) {
-        createWatchListItem(data: {
+    // const CREATE_WLI = `
+    // mutation($name: String!, $genre: String, $releaseDate: String, $duration: Int, $movieID: Int, $prodCompany: String, $photo: String, $overview: String, $tagline: String, $voteAverage: Int) {
+    //     createWatchListItem(data: {
+    //         name: $name
+    //         genre: $genre
+    //         releaseDate: $releaseDate
+    //         duration: $duration
+    //         movieID: $movieID
+    //         prodCompany: $prodCompany
+    //         photo: $photo,
+    //         overview: $overview,
+    //         tagline: $tagline,
+    //         voteAverage: $voteAverage
+    //     }){
+    //       name
+    //       genre
+    //       releaseDate
+    //       duration
+    //       movieID
+    //       prodCompany
+    //       photo
+    //       overview
+    //       tagline
+    //       voteAverage
+    //     }
+    //   }
+    // `
+
+    const CREATE_WLI = `mutation ($name: String!, $genre: String, $releaseDate: String, $duration: Int, $movieID: Int, $prodCompany: String, $photo: String, $overview: String, $tagline: String, $voteAverage: Int) {
+        createWatchItem(data: {
             name: $name
             genre: $genre
             releaseDate: $releaseDate
@@ -55,20 +82,26 @@ query {
             overview: $overview,
             tagline: $tagline,
             voteAverage: $voteAverage
-        }){
-          name
-          genre
-          releaseDate
-          duration
-          movieID
-          prodCompany
-          photo
-          overview
-          tagline
-          voteAverage
+            owner: {
+                connect: ''
+            }
+        }) {
+        name
+        genre
+        movieID
+        priority
+        releaseDate
+        duration
+        prodCompany
+        photo
+        overview
+        tagline
+        voteAverage
+        owner {
+        user_id
         }
-      }
-    `
+        }
+        }`
 
     const UPDATE_WLI = `
     mutation($id: ID!, $name: String!, $genre: String, $releaseDate: String, $movieID: Int, $duration: Int, $prodCompany: String, $photo: String, $overview: String, $tagline: String, $voteAverage: Int) {
