@@ -36,13 +36,22 @@ function App() {
           userId: user.sub
         }
       }).then(res => {
-        if (res.data) {
+        if (Object.keys(res.data).length) {
+          // if a user exists with that id
           dispatch(addUser(res.data))
         } else {
-          //create user in db
-
+          //create user in db and dispatch data for res.data
+          console.log(3)
+          axios({
+            method: 'POST',
+            url: '/api/createUser',
+            data: {
+              user
+            }
+          }).then(res => {
+            dispatch(addUser(res.data))
+          })
         }
-        
       })
     }
   }, [user])
