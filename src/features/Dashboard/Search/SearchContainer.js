@@ -24,7 +24,7 @@ export default class SearchContainer extends React.Component {
     addToWatchList = (item) => {
         const {wlData, addToRedux, getWLIs, viewDisplay, setViewDisplay} = this.props
 
-        axios.get(`https://api.themoviedb.org/3/movie/${item.id}?api_key=4524058d1b58bdbc0fa9f7631e0d6e02`)
+        axios.get(`https://api.themoviedb.org/3/movie/${item.id}?api_key=4524058d1b58bdbc0fa9f7631e0d6e02`) // remove this key + get a new one
         .then(res =>{ 
             const genreString = res.data.genres.map( g => {
                 return g.name
@@ -43,7 +43,7 @@ export default class SearchContainer extends React.Component {
                 tagline: res.data.tagline,
                 voteAverage: finalVoteAverage,
                 owner: {
-                    connect: userID
+                    connect: userID // get this from redux
                 }
             
             }
