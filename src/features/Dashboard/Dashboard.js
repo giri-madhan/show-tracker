@@ -30,7 +30,7 @@ const Dashboard = () => {
             <SearchContainer 
               wlData={list[0]?.watchList?.data || []} 
               addToRedux={addToRedux} 
-              getWLIs={() => dispatch(getWLIs())} 
+              getWLIs={() => dispatch(getWLIs(user?.user_id))} 
               viewDisplay={viewDisplay}
               setViewDisplay={setViewDisplay}  
             />

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import SearchCard from './SearchCard'
 import axios from 'axios'
 import { failToast, successToast } from '../../Toasts/toasts'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 const SearchContainer = (props) => {
     const [state, setState] = useState({
@@ -10,7 +10,8 @@ const SearchContainer = (props) => {
         searchResults: null
     })
     const userInformation = useSelector(state => state.user.user)
-    
+    console.log('UI',userInformation)
+    const dispatch = useDispatch()
 
     const getMovies = (e) => {
         e.preventDefault()
@@ -59,9 +60,11 @@ const SearchContainer = (props) => {
                 failToast('Already in your Watch List')
             } else {
                 axios.post('/api/createWLI', data).then(res => {
+                    console.log('res',res)
                     addToRedux(data)
                     successToast('Watch List Item Added')
                     if (viewDisplay !== 'watchList') setViewDisplay('watchList')
+                    console.log('ressss', res)
                     getWLIs() //gets updated list of backend items. Needed this to assign fauna id to wli to delete.
                 }).catch(err => {
                     failToast('Failed to Add Watch List Item')

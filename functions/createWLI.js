@@ -37,6 +37,7 @@ exports.handler = async (event) => {
         overview
         tagline
         voteAverage
+        _id
         owner {
         user_id
         }

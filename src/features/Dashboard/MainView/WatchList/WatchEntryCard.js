@@ -65,6 +65,7 @@ const WatchEntryCard = ({wli, mpData}) => {
             if (data.rating !== undefined && data.watchDate) {
                 axios.post(`/api/createMP`, JSON.stringify(data))
                     .then(res => {
+                        console.log('ITEM', item)
                         deleteWLI(item._id)
                         successToast('Successfully Added to Watched List')
                         //do a redux dispatch here to keep things updated?
@@ -229,6 +230,7 @@ const WatchEntryCard = ({wli, mpData}) => {
                 >
                     <img src={checkIcon} width={45} alt='add to watched list'/>
                 </button>
+                {console.log(wli)}
                 <button className='delete-btn' onClick={!watched ? () => deleteWLI(wli._id): () => closeWatchedForm()} style={{height: 60, borderRadius: 150}}>
                     <img src={!watched ? deleteIcon : backIcon} width={45} alt='remove from watch list'/>
                 </button>

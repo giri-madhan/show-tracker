@@ -1,7 +1,8 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, current } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 export const getWLIs = createAsyncThunk('wlis/getWLIs', async (userID) => {
+  console.log("USERID", userID)
 
   return axios({
     method: 'POST',
@@ -17,7 +18,11 @@ export const getWLIs = createAsyncThunk('wlis/getWLIs', async (userID) => {
 })
 
 const initialState = {
-  list: [],
+  list: [
+    {watchedList: {
+      data: []
+    }}
+  ],
   isLoading: true,
   status: null
 }
@@ -28,10 +33,11 @@ export const wliSlice = createSlice({
   initialState,
   reducers: {
     deleteItem: (state, action) => {
-      state.list = state.list.filter( item => item._id !== action.payload)
+      state.list[0].watchList.data = state.list[0].watchList.data.filter( item => item._id !== action.payload)
     },
     addItem: (state, action) => {
-        state.list = [...state.list, action.payload]
+      console.log('state',action)
+      state.list[0].watchList.data = [...state.list[0].watchList.data, action.payload]
     }
   },
   extraReducers: {
@@ -39,8 +45,8 @@ export const wliSlice = createSlice({
       state.status = 'loading'
       state.isLoading = true
     },
-    [getWLIs.fulfilled]: (state, {payload}) => {
-      state.list = payload
+    [getWLIs.fulfilled]: (state, action) => {
+      if (action.payload.length) state.list = action.payload
       state.status = 'success'
       state.isLoading = false
     },
