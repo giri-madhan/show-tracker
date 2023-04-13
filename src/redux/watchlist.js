@@ -9,7 +9,11 @@ export const getWLIs = createAsyncThunk('wlis/getWLIs', async (userID) => {
     data: {
       userID
     }
-  }).then( res => res.data)
+  })
+  .then( res => res.data)
+  .catch(err => {
+    throw new Error(err)
+  })
 })
 
 const initialState = {

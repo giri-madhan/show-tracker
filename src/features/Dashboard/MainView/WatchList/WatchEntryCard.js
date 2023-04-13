@@ -63,6 +63,7 @@ const WatchEntryCard = ({wli, mpData}) => {
                     .then(res => {
                         deleteWLI(item._id)
                         successToast('Successfully Added to Watched List')
+                        //do a redux dispatch here to keep things updated?
                     })
                     .catch(err => {
                         failToast('Item not added.')

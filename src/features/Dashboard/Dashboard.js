@@ -17,7 +17,7 @@ const Dashboard = () => {
     const dispatch = useDispatch()
     useEffect(() => {
       dispatch(getWLIs(user?.user_id))
-      dispatch(getMPs())
+      dispatch(getMPs(user?.user_id))
     }, [user])
 
     const addToRedux = (r) => {
