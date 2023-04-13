@@ -9,8 +9,8 @@ const SearchContainer = (props) => {
         searchQuery: '',
         searchResults: null
     })
-
-    useSelector(state => console.log(state))
+    const userInformation = useSelector(state => state.user.user)
+    console.log(userInformation._id)
     
 
     const getMovies = (e) => {
@@ -35,7 +35,6 @@ const SearchContainer = (props) => {
             })
             const finalGenreString = genreString.toString().replace(/,/g, ', ')
             const finalVoteAverage = +res.data.vote_average.toFixed(0)
-            const userID = JSON.parse(localStorage?.getItem('userID')) ?? ''  //TESTING 4/11
             const data = {
                 name: res.data.title,
                 genre: finalGenreString,
@@ -47,7 +46,7 @@ const SearchContainer = (props) => {
                 tagline: res.data.tagline,
                 voteAverage: finalVoteAverage,
                 owner: {
-                    connect: userID // get this from redux
+                    connect: userInformation._id
                 }
             
             }
@@ -91,7 +90,7 @@ const SearchContainer = (props) => {
                     </form>
                 </div>
                 <div className='search-container-items'>
-                    {searchResults !== null ? searchResults.map( (result) => (
+                    {searchResults !== null ? searchResults?.map( (result) => (
                             <SearchCard result={result} addToWatchList={addToWatchList} key={result.id}/>
                         )
                     ) : <div style={{color: '#fff', fontSize: 20}}>No search results.</div>}

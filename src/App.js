@@ -8,7 +8,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import {useEffect} from 'react'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { getUserInfo } from './redux/user'
+import { addUser } from './redux/user'
 
 //TODO Accounts or public/private at least -> guest data or separate accounts
 //TODO Remove api key and get new ones before launch
@@ -24,9 +24,8 @@ import { getUserInfo } from './redux/user'
 
 function App() {
   const {loginWithRedirect, user, isAuthenticated} = useAuth0()
-  console.log('user', user)
-
   const dispatch = useDispatch()
+
   
   useEffect(() => {
     if (user?.sub) {
@@ -37,12 +36,9 @@ function App() {
           userId: user.sub
         }
       }).then(res => {
-        console.log('PES', res)
-        dispatch(getUserInfo(res.getUserById.data))
-        // add user object to redux
+        dispatch(addUser(res.data))
       })
     }
-    
   }, [user])
 
   return (
