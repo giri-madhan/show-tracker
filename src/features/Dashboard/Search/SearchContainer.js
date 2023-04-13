@@ -1,28 +1,32 @@
-import React from 'react'
+import React, {useState} from 'react'
 import SearchCard from './SearchCard'
 import axios from 'axios'
 import { failToast, successToast } from '../../Toasts/toasts'
+import { useSelector } from 'react-redux'
 
-export default class SearchContainer extends React.Component {
-    state={
+const SearchContainer = (props) => {
+    const [state, setState] = useState({
         searchQuery: '',
         searchResults: null
-    }
+    })
 
-    getMovies = (e) => {
+    useSelector(state => console.log(state))
+    
+
+    const getMovies = (e) => {
         e.preventDefault()
-        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=4524058d1b58bdbc0fa9f7631e0d6e02&language=en-US&query=${this.state.searchQuery}`)
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=4524058d1b58bdbc0fa9f7631e0d6e02&language=en-US&query=${state.searchQuery}`)
         .then(res => {
-          this.setState({searchResults: res.data.results})
+          setState({searchResults: res.data.results})
         })
     }
 
-    clearSearch = () => {
-        this.setState(s => ({searchQuery: '', searchResults: null}))
+    const clearSearch = () => {
+        setState(s => ({searchQuery: '', searchResults: null}))
     }
 
-    addToWatchList = (item) => {
-        const {wlData, addToRedux, getWLIs, viewDisplay, setViewDisplay} = this.props
+   const addToWatchList = (item) => {
+        const {wlData, addToRedux, getWLIs, viewDisplay, setViewDisplay} = props
 
         axios.get(`https://api.themoviedb.org/3/movie/${item.id}?api_key=4524058d1b58bdbc0fa9f7631e0d6e02`) // remove this key + get a new one
         .then(res =>{ 
@@ -65,36 +69,35 @@ export default class SearchContainer extends React.Component {
                     failToast('Failed to Add Watch List Item')
                     console.log('Error creating WLI', err)
                 })
-                this.setState(s => ({searchQuery: '', searchResults: null}))
+                setState(s => ({searchQuery: '', searchResults: null}))
             } 
         })
     }
 
-    render(){
-        const {searchQuery, searchResults} = this.state
-
+    const {searchQuery, searchResults} = state
         return(
             <div className={`search-container ${searchResults === null ? 'empty' : ''}`}> 
                 <div className='sticky' style={{width: '100%', display: 'flex', height: 70, padding: 20}}>
-                    <form style={{display: 'flex', width: '100%'}} onSubmit={(e) => this.getMovies(e)}>
+                    <form style={{display: 'flex', width: '100%'}} onSubmit={(e) => getMovies(e)}>
                         <input type='submit' style={{display: 'none'}} />
                         <input 
                             type='text' 
                             value={searchQuery} 
                             style={{width: '80%', minWidth: 150, fontSize: 20, borderRadius: 7}}
-                            onChange={(e) => this.setState({searchQuery: e.target.value})} placeholder='Search Movies' 
+                            onChange={(e) => setState({searchQuery: e.target.value})} placeholder='Search Movies' 
                         />
-                        {searchQuery !== '' ? <button tabIndex={-1} className='clear-search-btn' onClick={this.clearSearch}>X</button>: null}
+                        {searchQuery !== '' ? <button tabIndex={-1} className='clear-search-btn' onClick={clearSearch}>X</button>: null}
                         <input type='submit' className='get-movies-btn' style={{width: '20%', marginLeft: 15}} value='Search' />
                     </form>
                 </div>
                 <div className='search-container-items'>
                     {searchResults !== null ? searchResults.map( (result) => (
-                            <SearchCard result={result} addToWatchList={this.addToWatchList} key={result.id}/>
+                            <SearchCard result={result} addToWatchList={addToWatchList} key={result.id}/>
                         )
                     ) : <div style={{color: '#fff', fontSize: 20}}>No search results.</div>}
                 </div>
             </div>
         )
     }
-}
+
+    export default SearchContainer
