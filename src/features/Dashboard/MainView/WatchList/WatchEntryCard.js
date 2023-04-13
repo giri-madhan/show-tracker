@@ -5,7 +5,7 @@ import deleteIcon from '../../../../icons/delete.png'
 import backIcon from '../../../../icons/back.png'
 import CreateCard from '../../Create/CreateCard'
 import defaultPoster from '../../../../icons/default_poster.jpg'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { deleteItem } from '../../../../redux/watchlist'
 import { failToast, successToast } from '../../../Toasts/toasts'
 import { useEffect } from 'react'
@@ -23,6 +23,7 @@ const WatchEntryCard = ({wli, mpData}) => {
     const [whereToWatch, setWhereToWatch] = useState([])
     const posterPath = 'https://image.tmdb.org/t/p/original'
     const dispatch = useDispatch()
+    const userInfo = useSelector(state => state.user.user)
 
     const deleteWLI = (id) => {
         axios.delete(`/api/deleteWLI`, {data: {id}}).then(res => {
@@ -50,7 +51,10 @@ const WatchEntryCard = ({wli, mpData}) => {
             watchCount: item.watchCount || 1,
             prodCompany: item.prodCompany,
             photo: item.photo,
-            notes
+            notes,
+            owner: {
+                connect: userInfo._id
+            }
         }
         const inList = mpData.filter( mp => mp.movieID === item.movieID).length > 0
         
