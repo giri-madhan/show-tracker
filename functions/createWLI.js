@@ -9,8 +9,8 @@ exports.handler = async (event) => {
     if (event.httpMethod !== 'POST') return formattedResponse(405, {err: `${event.httpMethod} not supported`})
 
     const {name, genre, movieID, releaseDate, duration, prodCompany, photo, overview, tagline, voteAverage} = JSON.parse(event.body)
-    //console.log("PARSED",JSON.parse(event.body))
     let userID
+    console.log('UUUUU', userID)
     const variables = {name, genre, movieID, releaseDate, duration, prodCompany, photo, overview, tagline, voteAverage, owner: {connect: userID}}
     console.log("vars", variables)
     try {

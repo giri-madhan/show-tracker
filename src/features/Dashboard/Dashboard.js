@@ -3,7 +3,6 @@ import View from './MainView/View'
 import {useSelector, useDispatch} from 'react-redux'
 import {addItem, getWLIs} from '../../redux/watchlist'
 import { getMPs } from '../../redux/shows'
-import data from '../../database/fakeData'
 
 
 import SearchContainer from './Search/SearchContainer'

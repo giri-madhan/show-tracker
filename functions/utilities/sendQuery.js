@@ -1,9 +1,7 @@
 const axios = require('axios')
 require('dotenv').config()
-const {window} = require("./utilities/window")
 
 module.exports = async (query, variables) => {
-console.log("VARIABLES", variables)
     const {data: {data, errors}} = await axios({
         url: 'https://graphql.us.fauna.com/graphql',
         method: 'POST',

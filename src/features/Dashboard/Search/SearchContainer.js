@@ -72,7 +72,6 @@ export default class SearchContainer extends React.Component {
 
     render(){
         const {searchQuery, searchResults} = this.state
-        console.log('LS', localStorage.getItem('userID'))
 
         return(
             <div className={`search-container ${searchResults === null ? 'empty' : ''}`}> 

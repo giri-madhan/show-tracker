@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import LandingPage from './features/Landing/Landing'
 import { useAuth0 } from '@auth0/auth0-react'
 import {useEffect} from 'react'
+import axios from 'axios'
 
 //TODO Accounts or public/private at least -> guest data or separate accounts
 //TODO Remove api key and get new ones before launch
@@ -25,7 +26,16 @@ function App() {
   
   useEffect(() => {
     if (user?.sub) {
-      localStorage.setItem('userID', JSON.stringify(user.sub))
+      axios({
+        method: 'POST',
+        url: '/api/getUser',
+        data: {
+          userId: user.sub
+        }
+      }).then(res => {
+        console.log('PES', res)
+        // add user object to redux
+      })
     }
     
   }, [user])
