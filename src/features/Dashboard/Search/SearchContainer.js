@@ -10,7 +10,6 @@ const SearchContainer = (props) => {
         searchResults: null
     })
     const userInformation = useSelector(state => state.user.user)
-    console.log(userInformation._id)
     
 
     const getMovies = (e) => {
@@ -46,7 +45,7 @@ const SearchContainer = (props) => {
                 tagline: res.data.tagline,
                 voteAverage: finalVoteAverage,
                 owner: {
-                    connect: userInformation._id
+                    connect: userInformation?._id 
                 }
             
             }

@@ -17,9 +17,11 @@
 //         }
 //       }
 //     `
+
+//google-oauth2|105398615782290113358
 const GET_WLIs = `
 query {
-    watchItemsByUserID (user_id: "google-oauth2|105398615782290113358") {
+    watchItemsByUserID (user_id: "") {
         data {
         user_id
         watchList {
@@ -98,7 +100,6 @@ query {
 
     module.exports = {
         GET_WLIs,
-        CREATE_WLI,
         UPDATE_WLI,
         DELETE_WLI
     }

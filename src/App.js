@@ -36,7 +36,13 @@ function App() {
           userId: user.sub
         }
       }).then(res => {
-        dispatch(addUser(res.data))
+        if (res.data) {
+          dispatch(addUser(res.data))
+        } else {
+          //create user in db
+
+        }
+        
       })
     }
   }, [user])

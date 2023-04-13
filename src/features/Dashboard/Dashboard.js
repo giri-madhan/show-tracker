@@ -28,15 +28,15 @@ const Dashboard = () => {
         <div className='dash-container'>
           <div className='dash-container-inner' style={{display: 'flex', height: '100%', width: '100%'}}>
             <SearchContainer 
-              wlData={list[0]?.watchList?.data} 
+              wlData={list[0]?.watchList?.data || []} 
               addToRedux={addToRedux} 
               getWLIs={() => dispatch(getWLIs())} 
               viewDisplay={viewDisplay}
               setViewDisplay={setViewDisplay}  
             />
             <View 
-              mpData={watchedList.list[0]?.watchedList?.data} 
-              wlData={list[0]?.watchList?.data} 
+              mpData={watchedList.list[0]?.watchedList?.data || []} 
+              wlData={list[0]?.watchList?.data || []} 
               isLoading={isLoading} 
               viewDisplay={viewDisplay} 
               setViewDisplay={setViewDisplay} 
