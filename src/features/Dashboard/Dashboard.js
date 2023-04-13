@@ -12,13 +12,13 @@ const Dashboard = () => {
     const [viewDisplay, setViewDisplay] = useState('watchList')
     const watchedList = useSelector(state => state.mps)
     const {list, isLoading} = useSelector(state => state.wlis)
+    const user = useSelector(state => state.user.user)
 
     const dispatch = useDispatch()
-
     useEffect(() => {
-      dispatch(getWLIs())
+      dispatch(getWLIs(user?.user_id))
       dispatch(getMPs())
-    }, [])
+    }, [user])
 
     const addToRedux = (r) => {
       dispatch(addItem(r))
