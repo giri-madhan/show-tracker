@@ -19,8 +19,8 @@ exports.handler = async (event) => {
             movieID:${movieID}
             prodCompany:"${prodCompany || ''}"
             photo:"${photo}"
-            overview:"${overview}"
-            tagline:"${tagline}"
+            overview:"${overview.replaceAll('"', '')}"
+            tagline:"${tagline.replaceAll('"', '')}"
             voteAverage:${voteAverage}
             owner: {
                 connect: ${owner.connect}
