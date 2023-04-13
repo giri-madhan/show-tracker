@@ -91,11 +91,11 @@ query {
     `
 
     const DELETE_WLI = `
-    mutation($id: ID!){
-        deleteWatchListItem(id: $id){
-            _id
+        mutation($id: ID!){
+            deleteWatchItem(id: $id){
+                _id
+            }
         }
-    }
     `
 
     module.exports = {
