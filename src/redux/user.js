@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   user: {},
@@ -11,7 +11,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     addUser: (state, action) => {
-        state.user = action.payload[0]
+        state.user = action.payload
     }
   }
 })

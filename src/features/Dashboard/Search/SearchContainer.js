@@ -60,15 +60,12 @@ const SearchContainer = (props) => {
                 failToast('Already in your Watch List')
             } else {
                 axios.post('/api/createWLI', data).then(res => {
-                    console.log('res',res)
                     addToRedux(data)
                     successToast('Watch List Item Added')
                     if (viewDisplay !== 'watchList') setViewDisplay('watchList')
-                    console.log('ressss', res)
                     getWLIs() //gets updated list of backend items. Needed this to assign fauna id to wli to delete.
                 }).catch(err => {
                     failToast('Failed to Add Watch List Item')
-                    console.log('Error creating WLI', err)
                 })
                 setState(s => ({searchQuery: '', searchResults: null}))
             } 

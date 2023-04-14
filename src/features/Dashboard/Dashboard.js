@@ -12,7 +12,9 @@ const Dashboard = () => {
     const [viewDisplay, setViewDisplay] = useState('watchList')
     const watchedList = useSelector(state => state.mps)
     const {list, isLoading} = useSelector(state => state.wlis)
-    const user = useSelector(state => state.user.user)
+    const user = useSelector(state => {
+      return state.user.user
+    })
 
     const dispatch = useDispatch()
     useEffect(() => {

@@ -7,7 +7,7 @@ import LandingPage from './features/Landing/Landing'
 import { useAuth0 } from '@auth0/auth0-react'
 import {useEffect} from 'react'
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addUser } from './redux/user'
 
 //TODO Accounts or public/private at least -> guest data or separate accounts
@@ -25,7 +25,7 @@ import { addUser } from './redux/user'
 function App() {
   const {loginWithRedirect, user, isAuthenticated} = useAuth0()
   const dispatch = useDispatch()
-
+  const state = useSelector(state => state)
   
   useEffect(() => {
     if (user?.sub) {
@@ -41,7 +41,6 @@ function App() {
           dispatch(addUser(res.data))
         } else {
           //create user in db and dispatch data for res.data
-          console.log(3)
           axios({
             method: 'POST',
             url: '/api/createUser',
