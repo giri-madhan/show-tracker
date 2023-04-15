@@ -11,7 +11,7 @@ export default class SearchContainer extends React.Component {
 
     getMovies = (e) => {
         e.preventDefault()
-        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=4524058d1b58bdbc0fa9f7631e0d6e02&language=en-US&query=${this.state.searchQuery}`)
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMBD_SECRET_KEY}&language=en-US&query=${this.state.searchQuery}`)
         .then(res => {
           this.setState({searchResults: res.data.results})
         })
@@ -24,7 +24,7 @@ export default class SearchContainer extends React.Component {
     addToWatchList = (item) => {
         const {wlData, addToRedux, getWLIs, viewDisplay, setViewDisplay} = this.props
 
-        axios.get(`https://api.themoviedb.org/3/movie/${item.id}?api_key=4524058d1b58bdbc0fa9f7631e0d6e02`)
+        axios.get(`https://api.themoviedb.org/3/movie/${item.id}?api_key=${process.env.REACT_APP_TMBD_SECRET_KEY}`)
         .then(res =>{ 
             const genreString = res.data.genres.map( g => {
                 return g.name
@@ -66,6 +66,7 @@ export default class SearchContainer extends React.Component {
     }
 
     render(){
+        console.log(process.env)
         const {searchQuery, searchResults} = this.state
 
         return(
