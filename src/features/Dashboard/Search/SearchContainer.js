@@ -13,7 +13,7 @@ const SearchContainer = (props) => {
 
     const getMovies = (e) => {
         e.preventDefault()
-        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMBD_SECRET_KEY}&language=en-US&query=${state.searchQuery}`)
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMDB_SECRET_KEY}&language=en-US&query=${state.searchQuery}`)
         .then(res => {
           setState({searchResults: res.data.results})
         })
@@ -26,7 +26,7 @@ const SearchContainer = (props) => {
    const addToWatchList = (item) => {
         const {wlData, addToRedux, getWLIs, viewDisplay, setViewDisplay} = props
 
-        axios.get(`https://api.themoviedb.org/3/movie/${item.id}?api_key=${process.env.REACT_APP_TMBD_SECRET_KEY}`)
+        axios.get(`https://api.themoviedb.org/3/movie/${item.id}?api_key=${process.env.REACT_APP_TMDB_SECRET_KEY}`)
 
         .then(res =>{ 
             const genreString = res.data.genres.map( g => {
