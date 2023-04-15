@@ -54,7 +54,7 @@ const WatchEntryCard = ({wli, mpData}) => {
             photo: item.photo,
             notes,
             owner: {
-                connect: userInfo._id
+                connect: userInfo[0]._id
             }
         }
         const inList = mpData.filter( mp => mp.movieID === item.movieID).length > 0
@@ -68,11 +68,10 @@ const WatchEntryCard = ({wli, mpData}) => {
                     .then(res => {
                         deleteWLI(item._id)
                         successToast('Successfully Added to Watched List')
-                        dispatch(getMPs(userInfo.user_id))
+                        dispatch(getMPs(userInfo[0].user_id))
                     })
                     .catch(err => {
                         failToast('Item not added.')
-                        console.log(err)
                     })
                 resetForm()
             } else {

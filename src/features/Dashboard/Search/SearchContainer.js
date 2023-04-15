@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import SearchCard from './SearchCard'
 import axios from 'axios'
 import { failToast, successToast } from '../../Toasts/toasts'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 const SearchContainer = (props) => {
     const [state, setState] = useState({
@@ -10,12 +10,10 @@ const SearchContainer = (props) => {
         searchResults: null
     })
     const userInformation = useSelector(state => state.user.user)
-    console.log('UI',userInformation)
-    const dispatch = useDispatch()
 
     const getMovies = (e) => {
         e.preventDefault()
-        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMBD_SECRET_KEY}&language=en-US&query=${this.state.searchQuery}`)
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_TMBD_SECRET_KEY}&language=en-US&query=${state.searchQuery}`)
         .then(res => {
           setState({searchResults: res.data.results})
         })
@@ -47,7 +45,7 @@ const SearchContainer = (props) => {
                 tagline: res.data.tagline,
                 voteAverage: finalVoteAverage,
                 owner: {
-                    connect: userInformation?._id 
+                    connect: userInformation?.[0]?._id 
                 }
             
             }

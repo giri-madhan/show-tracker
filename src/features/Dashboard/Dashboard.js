@@ -18,8 +18,8 @@ const Dashboard = () => {
 
     const dispatch = useDispatch()
     useEffect(() => {
-      dispatch(getWLIs(user?.user_id))
-      dispatch(getMPs(user?.user_id))
+      dispatch(getWLIs(user?.[0]?.user_id))
+      dispatch(getMPs(user?.[0]?.user_id))
     }, [user])
 
     const addToRedux = (r) => {
@@ -32,7 +32,7 @@ const Dashboard = () => {
             <SearchContainer 
               wlData={list[0]?.watchList?.data || []} 
               addToRedux={addToRedux} 
-              getWLIs={() => dispatch(getWLIs(user?.user_id))} 
+              getWLIs={() => dispatch(getWLIs(user?.[0]?.user_id))} 
               viewDisplay={viewDisplay}
               setViewDisplay={setViewDisplay}  
             />

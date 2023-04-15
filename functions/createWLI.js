@@ -23,7 +23,7 @@ exports.handler = async (event) => {
             tagline:"${tagline.replaceAll('"', '')}"
             voteAverage:${voteAverage}
             owner: {
-                connect: ${owner.connect}
+                connect: "${owner.connect}"
             }
         }) {
         name
