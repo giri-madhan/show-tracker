@@ -3,7 +3,6 @@ import { useAuth0 } from '@auth0/auth0-react'
 import backgroundImg from '../../icons/pxfuel.jpg'
 
 const LandingPage = () => {
-    //TODO Add background
     const {loginWithRedirect} = useAuth0()
 
     const authenticate = (e) => {

@@ -2,11 +2,12 @@ import { configureStore } from "@reduxjs/toolkit"
 
 import mpReducer from './shows'
 import wliReducer from './watchlist'
-//new reducer goes here
+import userReducer from './user'
 
 export default configureStore({
     reducer: {
         mps: mpReducer,
-        wlis: wliReducer
+        wlis: wliReducer,
+        user: userReducer
     }
 })

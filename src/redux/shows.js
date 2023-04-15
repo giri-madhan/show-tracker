@@ -10,12 +10,21 @@ import axios from 'axios'
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
 
-export const getMPs = createAsyncThunk('mps/getMPs', async () => {
-  return axios.get('/api/getMP').then(res => {
-    return res.data
-  }).catch(err => {
+export const getMPs = createAsyncThunk('mps/getMPs', async (userID) => {
+
+  return axios({
+    method: 'POST',
+    url: '/api/getMP',
+    data: {
+      userID
+    }
+  })
+  .then( res => res.data)
+  .catch(err => {
     throw new Error(err)
   })
+
+
 })
 
 //toolkit slice, state, reducers, actions in one place; normal redux has these separate
