@@ -9,11 +9,19 @@ Built with React and Netlify.
 1. Go to https://mwmovies.netlify.app/ for demo. 
 2. Authenticate with Auth0 to log in. 
 
+Development Prerequisites:
+1. Node 6.0 or higher
+2. Netlify cli
+3. npm 8.18 or higher
+4. Git Bash
+
 To run locally:
 1. Clone repo
-2. Run 'npm i' to install packages
-3. Run 'netlify dev' to start app
-4. Use auth0 to login
+2. Currently this project runs on node 6.0 or higher
+3. Run 'npm i' to install packages
+4. Download the netlify-cli package (npm install netlify-cli -g). This allows for continuous deployment, a local dev server, and actual site deployment.
+5. Run 'netlify dev' to start app- it runs on localhost:8888
+6. Use auth0 to login, preferably with Google. 
 
 Movie data acquired from The Movie Database:
 
