@@ -47,7 +47,6 @@ exports.handler = async (event) => {
         const {createWLI} = await sendQuery(CREATE_WLI)
         return formattedResponse(200, createWLI)
     } catch (err){
-        console.log(err)
         return formattedResponse (500,{err: "Something went wrong with createWLI"})
     }
 }

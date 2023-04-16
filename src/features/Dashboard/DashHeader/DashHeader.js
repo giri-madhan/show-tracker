@@ -16,7 +16,6 @@ const DashHeader = (props) => {
     const [filterModalOpen, setFilterModalOpen] = useState(false)
 
     const handleToggleFilterModal = (event) => {
-        console.log(event)
         event.preventDefault()
         setFilterModalOpen(!filterModalOpen)
     }

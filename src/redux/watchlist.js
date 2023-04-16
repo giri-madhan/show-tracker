@@ -2,7 +2,6 @@ import { createSlice, createAsyncThunk, current } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 export const getWLIs = createAsyncThunk('wlis/getWLIs', async (userID) => {
-  console.log("USERID", userID)
 
   return axios({
     method: 'POST',
@@ -36,7 +35,6 @@ export const wliSlice = createSlice({
       state.list[0].watchList.data = state.list[0].watchList.data.filter( item => item._id !== action.payload)
     },
     addItem: (state, action) => {
-      console.log('state',action)
       state.list[0].watchList.data = [...state.list[0].watchList.data, action.payload]
     }
   },

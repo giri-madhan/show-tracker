@@ -13,7 +13,6 @@ exports.handler = async (event) => {
         const {deleteMP} = await sendQuery(DELETE_MP, variables)
         return formattedResponse(200, {id: deleteMP})
     } catch (err){
-        console.log(err)
         return formattedResponse (500,{err: "Something went wrong with deleteMP"})
     }
 }

@@ -32,7 +32,6 @@ const WatchEntryCard = ({wli, mpData}) => {
             successToast(`${wli?.name || 'Item'} Removed From Watch List`)
         }).catch(err => {
             failToast('Failed to Delete Item')
-            console.log(err)
         })
     }
 

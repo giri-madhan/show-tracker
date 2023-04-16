@@ -35,7 +35,6 @@ exports.handler = async(event) => {
     const data = res.watchItemsByUserID.data
     return formattedResponse(200, data)
   } catch(err){
-    console.log(err)
     return formattedResponse(500, {err: 'Something Went Wrong Getting Watch List'})
   }
 }

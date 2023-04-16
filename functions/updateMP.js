@@ -12,7 +12,6 @@ exports.handler = async (event) => {
         const {updateMP} = await sendQuery(UPDATE_MP, variables)
         return formattedResponse(200, updateMP)
     } catch (err){
-        console.log(err)
         return formattedResponse (500,{err: "Something went wrong with updateMP"})
     }
 }

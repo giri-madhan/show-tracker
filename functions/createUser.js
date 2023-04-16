@@ -27,7 +27,6 @@ exports.handler = async (event) => {
         const {createUser} = await sendQuery(USER_QUERY)
         return formattedResponse(200, createUser)
     } catch (err){
-        console.log(err)
         return formattedResponse (500,{err: "Something went wrong with createMP"})
     }
 }

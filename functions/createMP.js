@@ -48,7 +48,6 @@ exports.handler = async (event) => {
         const {createMP} = await sendQuery(CREATE_MP)
         return formattedResponse(200, createMP)
     } catch (err){
-        console.log(err)
         return formattedResponse (500,{err: "Something went wrong with createMP"})
     }
 }

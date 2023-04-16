@@ -41,7 +41,6 @@ exports.handler = async(event) => {
     const data = res.watchedItemsByUserID.data
     return formattedResponse(200, data)
   } catch(err){
-    console.log(err)
     return formattedResponse(500, {err: 'Something Went Wrong'})
   }
 }
